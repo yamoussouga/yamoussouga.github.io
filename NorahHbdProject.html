@@ -3,109 +3,104 @@
 <html lang=en>
 <body>
 <head>
-	<title id="id_title">Let us game!</title>
-    <style>
-    	.cls_div{
+<title id="id_title">Let us game!</title>
+<style>
+	.cls_div{
             border: 5px outset red;
             background-color: lightpink;
             text-align: center;
         }
-    </style>
-    <script>
-    	var myGlobalNameSpace = {};
-        myGlobalNameSpace.v_global = 0;
+</style>
+<script>
+ var myGlobalNameSpace = {};
+ myGlobalNameSpace.v_global = 0;
 	
-	function play_bd_audio(){
-    		document.getElementById("id_bd_song").play();
-    	}
+ function play_bd_audio(){
+    document.getElementById("id_bd_song").play();
+}
 
- 
-	function CheckValue() {
-		const v_input = document.getElementById('id_answer');
-		const v_input_value = v_input.value;
+function CheckValue() {
+	const v_input = document.getElementById('id_answer');
+	const v_input_value = v_input.value;
         
-		if (v_input_value === ''){
-			alert('DANG IT! We need a value, Norah!');
+	if (v_input_value === ''){
+		alert('DANG IT! We need a value, Norah!');
 			
-		} else if ((v_input_value.toLowerCase() === 'dad') || (v_input_value.toLowerCase() === 'daddy')){
-            		myGlobalNameSpace.v_global = 1;
-			alert('HOORA!!! You go girl!');
-		} else { 
-			alert('NOT quite! Try again! CHOOPIE!');
-		}
-    	} 
+	} else if ((v_input_value.toLowerCase() === 'dad') || (v_input_value.toLowerCase() === 'daddy')){
+            	myGlobalNameSpace.v_global = 1;
+		alert('HOORA!!! You go girl!');
+	} else { 
+		alert('NOT quite! Try again! CHOOPIE!');
+	}
+} 
 
-	function showAngry(){
-  		document.getElementById("id_angry_msg").innerHTML = "What! Nothing happened!!! Grrrrr! Try :) instead!";
-    	}
+function showAngry(){
+	document.getElementById("id_angry_msg").innerHTML = "What! Nothing happened!!! Grrrrr! Try :) instead!";
+}
    	
-	function ShowSurprise() {
-  		if (myGlobalNameSpace.v_global === 1){
-  			document.getElementById('myImage').src="BulbOn.gif";
-  			document.getElementById("id_img_1").src="NorahHbd_2025.jpg";
-  			document.getElementById("id_img_1").style.display = "inline";
-			document.getElementById("id_img_1").style.width = "1000px";
-			document.getElementById("id_img_1").style.height = "700px";
-    		}
-	}
+function ShowSurprise() {
+	if (myGlobalNameSpace.v_global === 1){
+  		document.getElementById('myImage').src="BulbOn.gif";
+  		document.getElementById("id_img_1").src="NorahHbd_2025.jpg";
+  		document.getElementById("id_img_1").style.display = "inline";
+		document.getElementById("id_img_1").style.width = "1000px";
+		document.getElementById("id_img_1").style.height = "700px";
+    	}
+}
 
-	function HideSurprise() {
-  		document.getElementById('myImage').src="BulbOff.gif";
-  		document.getElementById("id_img_1").src="";
-  		document.getElementById("id_img_1").style.display = "none";
-  		//document.getElementById("id_img_1").style.hide();
-	}
+function HideSurprise() {
+  	document.getElementById('myImage').src="BulbOff.gif";
+  	document.getElementById("id_img_1").src="";
+  	document.getElementById("id_img_1").style.display = "none";
+  	//document.getElementById("id_img_1").style.hide();
+}
 
-	function ResetPage(){
-		window.scrollTo(0, 0);
-		window.location.reload();
-	}
-
-    </script>  
-  
+function ResetPage(){
+	window.scrollTo(0, 0);
+	window.location.reload();
+}
+</script>  
 </head>
-	<div class="cls_div">
-	<h2> :) What day is June 18th ?</h2>
-	<p id="id_norah" >:) Here is a hint for you. June 18th is my princess&#39;s Birthday (: </p>
-	<button type="button" onclick='document.getElementById("id_norah").innerHTML = "June 18th is Norah&#39;s Birthday!"'>:) Click me please!</button>
+<div class="cls_div">
+<h2> :) What day is June 18th ?</h2>
+<p id="id_norah" >:) Here is a hint for you. June 18th is my princess&#39;s Birthday (: </p>
+<button type="button" onclick='document.getElementById("id_norah").innerHTML = "June 18th is Norah&#39;s Birthday!"'>:) Click me please!</button>
 
-	<h2>:) Can you gess who sent you this message?</h2>
-	<p>Hummmm! I wonder who it is!!! Here is a clue for you...<br>Click on Make me sing Norah! (:"</p>
+<h2>:) Can you gess who sent you this message?</h2>
+<p>Hummmm! I wonder who it is!!! Here is a clue for you...<br>Click on Make me sing Norah! (:"</p>
 
-	<audio id="id_bd_song" src="hbdNorah.m4a"></audio>
-	<button type="button" onclick="play_bd_audio()" >Make me sing! Norah (:</button>
+<audio id="id_bd_song" src="hbdNorah.m4a"></audio>
+<button type="button" onclick="play_bd_audio()" >Make me sing! Norah (:</button>
+<h2>Any idea?</h2>
 
-	<h2>Any idea?</h2>
+<label for="id_answer">Guess who!</label>
+<input id="id_answer" type="text" name="id_answer" placeholder="answer here!">
+<input type="button" value="Check" onclick="CheckValue()">
 
-	<label for="id_answer">Guess who!</label>
-	<input id="id_answer" type="text" name="id_answer" placeholder="answer here!">
-	<input type="button" value="Check" onclick="CheckValue()">
+<h2>Did you get it?? <br> if Yes! Here is a surprise for you my daughter! <br> Please click the ): </h2>
 
-	<h2>Did you get it?? <br> if Yes! Here is a surprise for you my daughter! <br> Please click the ): </h2>
+<button type="button" style="display: inline" onclick="showAngry()">:(</button>
+<p id="id_angry_msg"></p>
 
-	<button type="button" style="display: inline" onclick="showAngry()">:(</button>
-	<p id="id_angry_msg"></p>
-
-	<br><br><br>
+<br><br><br>
 															
-	<button type="button" style="display: inline" onclick="ShowSurprise()"> :) </button>
+<button type="button" style="display: inline" onclick="ShowSurprise()"> :) </button>
 
-	<img id="myImage" src="BulbOff.gif" style="width:100px">
+<img id="myImage" src="BulbOff.gif" style="width:100px">
 
-	<button type="button" style="display: inline" onclick="HideSurprise()"> Hide Surprise!!</button>
-	<br><br><br>
+<button type="button" style="display: inline" onclick="HideSurprise()"> Hide Surprise!!</button>
+<br><br><br>
         
-        <img id="id_img_1" src="" style="display: none;"/>
+<img id="id_img_1" src="" style="display: none;"/>
 
-	<br><br><br>
+<br><br><br>
 
-	<!--RESET PROCESS-->
-	<br><br>
+<!--RESET PROCESS-->
+<br><br>
 
-	<button type="button" style="display: inline" onclick="ResetPage()">;) Play again? </button>
-    </div>
+<button type="button" style="display: inline" onclick="ResetPage()">;) Play again? </button>
+</div>
 </body>
 </html>
-
 
 <!---->
