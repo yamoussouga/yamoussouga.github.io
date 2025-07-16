@@ -1,240 +1,229 @@
 <!DOCTYPE html>
 <html lang=en>
-	<head>
-		<meta charset="utf-8">
-		<title>HTML5_Curve</title>
-		<style></style>
-	</head>
-	<body>
-		<header id="id_header">This document describe the learning curve of HTML5/CSS/Javascript</header>
-		<h1>HTML5 CURVE</h1>
-		<section id="id_page_links">
-			<a href="#id_html5_elements">Some semantic 
-				and structural Elements in HTML5</a>
-			<br>
-			<a href="#id_html5_attributes">Some standard attributes in HTML5</a>
-			<br>
-			<a href="#id_html_entities">Some Html entities</a>
-			<br>
-			<a href="#id_html5_feature">Some HTML5 Features</a>
-			<br>
-			<a href="#id_html5_bestpractice">Some HTML5 best practice</a>
-			<br>
-			<a href="#id_notes">Some Notes</a>
-			<a href="#id_css">CSS</a>
-			<a href="#id_js">JavaScript</a>	
-		</section>
+	
+<head>
+	<meta charset="utf-8">
+	<title>HTML5_Curve</title>
+	<style></style>
+</head>
+	
+<body>
+<header id="id_header">This document describe the learning curve of HTML5/CSS/Javascript</header>
+<h1>HTML5 CURVE</h1>
+
+<section id="id_page_links">
+	<a href="#id_html5_elements">Some semantic and structural Elements in HTML5</a>
+	<br>
+	<a href="#id_html5_attributes">Some standard attributes in HTML5</a>
+	<br>
+	<a href="#id_html_entities">Some Html entities</a>
+	<br>
+	<a href="#id_html5_feature">Some HTML5 Features</a>
+	<br>
+	<a href="#id_html5_bestpractice">Some HTML5 best practice</a>
+	<br>
+	<a href="#id_notes">Some Notes</a>
+	<a href="#id_css">CSS</a>
+	<a href="#id_js">JavaScript</a>	
+</section>
 		
+<section id="id_html5_elements">
+	<h2>Some Elements in HTML5</h2>
+	<h3><ul>
+	<li>&lt;article&gt;&lt;/article&gt;</li>
+	<li>&lt;xmp&gt;&lt;/xmp&gt; (used to translate code definition. A lagacy element. 
+			   	     The recommended elements now are &lt;pre&gt;&lt;/pre&gt; and &lt;code&gt;&lt;/code&gt;)</li>
+	<li>&lt;aside&gt;&lt;/aside&gt;</li>
+	<li>&lt;details&gt;&lt;/details&gt; (gives additional details that the user may use or hide)</li>
+	<li>&lt;dialog&gt;&lt;/dialog&gt;</li>
+	<li>&lt;figcaption&gt;&lt;/figcaption&gt;</li>
+	<li>&lt;figure&gt;&lt;/figure&gt;(defines content like illustrations, photos, diagrams, code listing etc)</li> 
+	<li>&lt;footer&gt;&lt;/footer&gt; (defines a footer for a section or the document)</li> 
+	<li>&lt;header&gt;&lt;/header&gt; (describes the header for the document)</li>	
+	<li>&lt;main&gt;&lt;/main&gt; (main content of the document is defined)</li> 
+	<li>&lt;mark&gt;&lt;/mark&gt; (shows highlighted or marked text)</li> 
+	<li>&lt;menuitem&gt;&lt;/menuitem&gt; (an item from the menu which user can use from the popup menu bar)</li>
+	<li>&lt;meter&gt;&lt;/meter&gt; (measurement within a known range)</li>
+	<li>&lt;nav&gt;&lt;/nav&gt; (shows navigation links in the document)</li>
+	<li>&lt;progress&gt;&lt;/progress&gt (shows the progress of a task)</li>			
+	<li>&lt;rp&gt;&lt;/rp&gt; (describes what to show in the browser if the browser do not support "Ruby annotation". 
+				   It is used together with &lt;rubi&gt;&lt;/rubi&gt; and &lt;rt&gt;&lt;/rt&gt; elements)</li> 
+	<li>&lt;section&gt;&lt;/section&gt;</li> 
+	<li>&lt;summary&gt;&lt;/summary&gt; (visible heading for a "detail" element)</li> 
+	<li>&lt;time&gt;&lt;/time&gt; (give date and time)</li> 
+	<li>&lt;wbr&gt; (word break opportunity)</li>
+	<li>&lt;br&gt; (line break)</li>
+	<li>&lt;bdi&gt;&lt;/bdi&gt; (isolates a span of text from its surrounding text for bidirectional formatting.
+			             The browser's bidirectional algorithm determines the text direction
+			             It's particularly useful when embedding text with an unknown directionality, 
+		  	             like when incorporating Arabic or Hebrew text into a predominantly left-to-right context.)
+        </ul></h3>
+        <a href="#id_header">Back to top!</a>
+</section>
+	
+<section id="id_html5_attributes">
+	<h2>Attributes in HTML5</h2>
+	<h3><ul>
+	<li>align <br>
+	options (left, right, center) <br> 
+	function (aligns the tag horizontally) </li>
+	<li>bgcolor <br> 
+	options (hexadecimals, numeric, RGB values) <br> 
+	function (a background color is placed behind an element) </li>
+	<li>accesskey <br>
+	options (user defined) <br> 
+	function(defines a keyboard shortcut to access an element)</li>
+	<li>class</li>
+	<li>height <br> 
+	options (numeric value) <br> 
+	functions (defines the height of images, tables por table cells)</li>
+	<li>item<br>
+	options(list of elements) <br> 
+	function (is used to group elements)</li>
+	<li>spellcheck<br>
+	option ( true or false )<br>
+	function (specifies if element requires spelling for grammar check)</li>
+	<li>width <br>
+	option (numeric value) <br> 
+	function (defines the width of images, tables por table cells)</li>	
+	<li>title <br>
+	option (user defined) <br> 
+	function (pop-up title for elements)</li>	
+	</ul></h3>	
+	<a href="#id_header">Back to top!</a>			
+</section>
+			
+<section id="id_html_entities">
+	<h2>HTML Entities</h2>
+	<h3><ul>	
+	<li>&amp; (for '&')</li>
+	<li>&lt; (for '<')</li>
+	<li>&gt; (for '>')</li>
+	<li>&nbsp; (for Non breaking space.)</li>
+	<li>&lt;!--This is comment--&gt;</li>
+	</ul></h3>
+	<a href="#id_header">Back to top!</a>
+</section>		
 		
-		<section id="id_html5_elements">
-			<h2>Some Elements in HTML5</h2>
-			<h3><ul>
-				<li>&lt;article&gt;&lt;/article&gt;</li>
-				<li>&lt;xmp&gt;&lt;/xmp&gt; (used to translate code definition. A lagacy element. 
-					The recommended elements now are &lt;pre&gt;&lt;/pre&gt; and &lt;code&gt;&lt;/code&gt;)</li>
-				<li>&lt;aside&gt;&lt;/aside&gt;</li>
-				<li>&lt;details&gt;&lt;/details&gt; (gives additional details that the user may use or hide)</li>
-				<li>&lt;dialog&gt;&lt;/dialog&gt;</li>
-				<li>&lt;figcaption&gt;&lt;/figcaption&gt;</li>
-				<li>&lt;figure&gt;&lt;/figure&gt;(defines content like illustrations, photos, diagrams, code listing etc)</li> 
-				<li>&lt;footer&gt;&lt;/footer&gt; (defines a footer for a section or the document)</li> 
-				<li>&lt;header&gt;&lt;/header&gt; (describes the header for the document)</li>	
-				<li>&lt;main&gt;&lt;/main&gt; (main content of the document is defined)</li> 
-				<li>&lt;mark&gt;&lt;/mark&gt; (shows highlighted or marked text)</li> 
-				<li>&lt;menuitem&gt;&lt;/menuitem&gt; (an item from the menu which user can use from the popup menu bar)</li>
-				<li>&lt;meter&gt;&lt;/meter&gt; (measurement within a known range)</li>
-				<li>&lt;nav&gt;&lt;/nav&gt; (shows navigation links in the document)</li>
-				<li>&lt;progress&gt;&lt;/progress&gt (shows the progress of a task)</li>			
-				<li>&lt;rp&gt;&lt;/rp&gt; (describes what to show in the browser if the browser do not support "Ruby annotation". 
-									   It is used together with &lt;rubi&gt;&lt;/rubi&gt; and &lt;rt&gt;&lt;/rt&gt; elements)</li> 
-				<li>&lt;section&gt;&lt;/section&gt;</li> 
-				<li>&lt;summary&gt;&lt;/summary&gt; (visible heading for a "detail" element)</li> 
-				<li>&lt;time&gt;&lt;/time&gt; (give date and time)</li> 
-				<li>&lt;wbr&gt; (word break opportunity)</li>
-				<li>&lt;br&gt; (line break)</li>
-				<li>&lt;bdi&gt;&lt;/bdi&gt; (isolates a span of text from its surrounding text for bidirectional formatting.
-										 The browser's bidirectional algorithm determines the text direction
-										 It's particularly useful when embedding text with an unknown directionality, 
-										 like when incorporating Arabic or Hebrew text into a predominantly left-to-right context.)
-			</ul></h3>
-			<a href="#id_header">Back to top!</a>
-		</section>
-		
-		
-		<section id="id_html5_attributes">
-			<h2>Attributes in HTML5</h2>
-			<h3><ul>
-				<li>align <br> 
-					options (left, right, center) <br> 
-					function (aligns the tag horizontally) </li>
-				<li>bgcolor <br> 
-					options (hexadecimals, numeric, RGB values) <br> 
-					function (a background color is placed behind an element) </li>
-				<li>accesskey <br>
-					options (user defined) <br> 
-					function(defines a keyboard shortcut to access an element)</li>
-				<li>class</li>
-				<li>height <br> 
-					options (numeric value) <br> 
-					functions (defines the height of images, tables por table cells)</li>
-				<li>item<br>
-					options(list of elements) <br> 
-					function (is used to group elements)</li>
-				<li>spellcheck<br>
-					option ( true or false )<br>
-					function (specifies if element requires spelling for grammar check)</li>
-				<li>width <br>
-					option (numeric value) <br> 
-					function (defines the width of images, tables por table cells)</li>	
-				<li>title <br>
-					option (user defined) <br> 
-					function (pop-up title for elements)</li>	
-			</ul></h3>	
-			<a href="#id_header">Back to top!</a>			
-		</section>
-		
-		
-		<section id="id_html_entities">
-			<h2>HTML Entities</h2>
-			<h3><ul>	
-				<li>&amp; (for '&')</li>
-				<li>&lt; (for '<')</li>
-				<li>&gt; (for '>')</li>
-				<li>&nbsp; (for Non breaking space.)</li>
-				<li>&lt;!--This is comment--&gt;</li>
-			</ul></h3>
-			<a href="#id_header">Back to top!</a>
-		</section>	
-		
-		
-		<section id="id_html5_feature">
-			<h2>Some Interesting features of HTML5</h2>
-			<h3><ul>
-				<li>Multimedia Support in HTML5
-<xmp><pre><code>
+<section id="id_html5_feature">
+	<h2>Some Interesting features of HTML5</h2>
+	<h3><ul>
+	<li>Multimedia Support in HTML5
+	<xmp><pre><code>
 	<figure>Syntax to play video:
 		<body><video src="video path" controls></video></body>
 	</figure>
 	<figure>Syntax to play audio:
 		<body> <audio src="audio location" controls></audio></body>
 	</figure>
-</code></pre></xmp></li>
-				<li>New Input Element Types
-<xmp><pre><code>
+	</code></pre></xmp></li>
+	<li>New Input Element Types
+	<xmp><pre><code>
 	Example of existing "input" are "file", "password"
 	Example of new "input" element is "email"
 	<figure><input id="EmailIdInput" type="email"/></figure>
-</code></pre></xmp></li>
-				<li>Canvas: <br> It is a rectangular area that allows pixel level 
-					operations such as drawing a box, line, circle, performing graphics etc,
-					Sample syntax:
-<xmp><pre><code>
+	</code></pre></xmp></li>
+	<li>Canvas: <br> It is a rectangular area that allows pixel level 
+			 operations such as drawing a box, line, circle, performing graphics etc,
+			 Sample syntax:
+	<xmp><pre><code>
 	<canvas id="mybox" width="50" height="50">	
-</code></pre></xmp></li>
-				<li>Custom Data Attributes:
-					they can be added in a hidden manner from the user and can be used later by js 
-					functions. These attributes need to start with "data-"
-<xmp><pre><code>						
+	</code></pre></xmp></li>
+	<li>Custom Data Attributes:
+	    they can be added in a hidden manner from the user and can be used later by js 
+	    functions. These attributes need to start with "data-"
+	<xmp><pre><code>						
 	Example: <br> <div class="example" data-subject="maths" data-level="complex"></div>
-</code></pre></xmp></li>
-				<li>Editable Contents:
-					The end users can edit HTML control's content under this feature.
-					It also allows developers to create web pages with sections like 
-					HTML editor, notes etc. <br>In order to use this feature add following
-					to the control panel of HTML:
-					contentEditable="true"
-				</li>
-				<li>Range Validators and Required
-					"Required" syntax
-<xmp><pre><code>
+	</code></pre></xmp></li>
+	<li>Editable Contents:
+	    The end users can edit HTML control's content under this feature.
+	    It also allows developers to create web pages with sections like 
+	    HTML editor, notes etc. <br>In order to use this feature add following
+	    to the control panel of HTML:
+	    contentEditable="true"
+	</li>
+	<li>Range Validators and Required
+        "Required" syntax
+ 	<xmp><pre><code>
 	<input type="text" name="TextBox" required/>
-</code></pre></xmp></li>
-				<li>"Range validator" syntax
-<xmp><pre><code>					
+	</code></pre></xmp></li>
+	<li>"Range validator" syntax
+	<xmp><pre><code>					
 	<input type="number" name="Number of Items" min="5" max="10" required/>
-</code></pre></xmp></li>
-				<li>Placeholder and Autofocus Attributes
-					syntax: 
-<xmp><pre><code>
+	</code></pre></xmp></li>
+	<li>Placeholder and Autofocus Attributes
+	syntax: 
+	<xmp><pre><code>
 	<button id="submitbutton" autofocus></button>
 	<input type="text" name="text box" placeholder="Please enter text..."/>
-</code></pre></xmp></li>
-				<li>Preload Videos:
-					This attribute enables the browser to preload the video.
-				</li>
-				<li>Geo-Location:
-					This feature of html5 let you share your location with websites of 
-					your choice. It works well on smart phones..
-				</li>
-				<li>Figure Element
-					By using this feature one can semantically associate image with their captions.
-					We simply need to add &ltfigcaption&gt element. Below is a sample of this element:
-<xmp><pre><code>						
+	</code></pre></xmp></li>
+	<li>Preload Videos:
+	    This attribute enables the browser to preload the video.
+	</li>
+	<li>Geo-Location:
+	    This feature of html5 let you share your location with websites of 
+	    your choice. It works well on smart phones..
+	</li>
+	<li>Figure Element
+	    By using this feature one can semantically associate image with their captions.
+	    We simply need to add &ltfigcaption&gt element. Below is a sample of this element:
+	<xmp><pre><code>						
 	<figure> <img src="path/to/image" alt="About Image"/>
 	<figcaption><p>This is a beautiful scenery.</p></figcaption></figure>
-</code></pre></xmp></li>
-			</ul></h3>
-			<a href="#id_header">Back to top!</a>
-		</section>
-		
-		
-		<section id="id_html5_bestpractice">
-			<h2>Best HTML5 practices</h2>
-			<h3><ul>
-			<li>
-			   Use online HTML5 generators for base template.
-			</li>
-			<li>Header is used to contain navigational and introductory information about a 
-				section of a given page. This information can be either on author's name, date, 
-				time, section heading, table of contens or any other navigational information.
-			</li>
-			</ul></h3>
-			<a href="#id_header">Back to top!</a>
-		</section>
-		
-		
-		<section id="id_notes">
-			<h2>Some Notes</h2>
-			<h3><ul>
-				<li>The document gets processed in two stages:<br>
-					<ol><li>Browser converts CSS and markup language into the Document Object Model (DOM), 
-					which represents the document in computer's memory</li>
-					<li>Content of the browser is displayed by the browser.</li></ol></li>
-				<li>In a document, the 'P' tag and its end tag for example, create a container.
-<xmp><pre>
-	<code>
-		<p> 
-			Example using the "pre" element 
-			<strong> C </strong> ascading 
-			<strong> S </strong> tyle
-			<strong> S </strong> heets 
-		</p>						
-	</code>
-</pre></xmp>	
-				</li>
-					In DOM, "P" node is parent and its children are text nodes and strong nodes,
-					where Strong nodes are also parents of text nodes.	
-			</ul></h3>
-			<a href="#id_header">Back to top!</a>
-		</section>
-		
-		
-		<section id="id_css">
-			<h2>CSS</h2>
-			<h3><ul>
-					<li></li>
-				</ul></h3>
-			<a href="#id_header">Back to top!</a>
-		</section>	
-
-
-		<section id="id_js">
-			<h2>JavaScript</h2>
-			<h3><ul>
-					<li></li>
-				</ul></h3>
-			<a href="#id_header">Back to top!</a>
-		</section>
+	</code></pre></xmp></li>
+	</ul></h3>
+	<a href="#id_header">Back to top!</a>
+</section>
 			
-	</body>
+<section id="id_html5_bestpractice">
+	<h2>Best HTML5 practices</h2>
+	<h3><ul>
+	<li>Use online HTML5 generators for base template.</li>
+	<li>Header is used to contain navigational and introductory information about a 
+	    section of a given page. This information can be either on author's name, date, 
+	    time, section heading, table of contens or any other navigational information.
+	</li>
+	</ul></h3>
+	<a href="#id_header">Back to top!</a>
+</section>	
+		
+<section id="id_notes">
+	<h2>Some Notes</h2>
+	<h3><ul>
+	<li>The document gets processed in two stages:<br>
+	<ol><li>Browser converts CSS and markup language into the Document Object Model (DOM), 
+		which represents the document in computer's memory</li>
+	<li>Content of the browser is displayed by the browser.</li></ol></li>
+	<li>In a document, the 'P' tag and its end tag for example, create a container.
+        <xmp><pre>
+	<code>
+	<p>Example using the "pre" element 
+	<strong> C </strong> ascading 
+	<strong> S </strong> tyle
+	<strong> S </strong> heets 
+	</p>						
+	</code>
+	</pre></xmp>	
+	</li>In DOM, "P" node is parent and its children are text nodes and strong nodes,
+	     where Strong nodes are also parents of text nodes.	
+	</ul></h3>
+	<a href="#id_header">Back to top!</a>
+</section>
+		
+<section id="id_css">
+	<h2>CSS</h2>
+	<h3><ul>
+	<li></li>
+	</ul></h3>
+	<a href="#id_header">Back to top!</a>
+</section>	
+
+<section id="id_js">
+	<h2>JavaScript</h2>
+	<h3><ul>
+	<li></li>
+	</ul></h3>
+	<a href="#id_header">Back to top!</a>
+</section>
+</body>
 </html>
