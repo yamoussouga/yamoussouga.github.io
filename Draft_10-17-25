@@ -284,4 +284,1033 @@ Report to the facility Management Office each day.
 
 :)kwd[freshandPristine.com]
 (:
+
+:)kwd[Courses' plattforms]
+-on udemy
+-on coursera
+-on CodeWithMosh
+(:
+
+:)kwd[Places to visit in US]
+#alaska dalton high
+#nevada
+#million dollar hgh colorado
+#Hgh 2 in montana
+#The I-45 in houston
+#I-10 in arizona
+#I-4 in florida
+#Hgh 1 in florida
+#Hgh 17 in south carolina
+#Rock city
+#Rings
+#Virginia Beaches
+Outlook beach (Fort Monroe)
+Yorktown beach
+Grand view beach
+VA beach
+Sandbridge beach
+Lookout beach
+buckroe beach
+Huntington 
+Lookout beach
+
+#Los Paisas Locos
+-Balliada Suprema
+
+#Washington
+-National mall and memorial parks
+-Capitol Hill parks
+-President's park
+-Great falls park
+-Theodore Roosvelt island
+
+#Las Islas Marias (restauranr)
+#Mariscos Lindo Nayatit
+
+#niagara fall
+best place to stay : holtel sheraton at the falls
+eat : skylon tower restaurant
+things to do :
+journey behind falls
+maid of mist boat ride
+imax niagara film
+casinos
+goat island
+state parc
+(:
+
+
+:)kwd[togo trip]
+**top priority
+#sim card + data = 35000
+#electricity = 30000
+#mop(serpiere)
+#Have my attire material with Etonam and kuessan.		
+#travel visa (fill online)
+#togo id card () --------------->canceled
+#Open a Bank Account (Eco Bank)
+#vaccination
+
+**hygiene
+#tooth paste
+#tooth brush
+#soap
+#parfum
+
+
+**list of items
+#paper toilet
+#nap kins
+#water
+#salt
+#speaker
+#power cord
+#transfo
+#power adapter
+#iron = checked
+#olive oil
+#avocado oil
+	
+**places to visit Togo
+#Marcelo beach (somehow the food is not good)
+#Hotel Ramatou Rivera at the Beach
+#Boba club
+#Poterie attelier in kpalime (centre artisanal de kpalime) (91559261)
+#Boutique ceramic et peinture
+#Blue turtle
+#Zanzibar
+#Sunset lounge beach
+#Patio
+#Zanzibar
+#Chex Fatou restaurant(fufu a la banane)
+#China Mall		
+#Beluga
+#La Villa
+#Le Rooftop
+#Eldoria Hotel
+    
+#Eden Beach
+#Blue turtle
+#Marcelo beach
+#2Fevrier
+#Saraccawa
+#Harmonie Signature
+
+#Lac Togo
+#Baguida (Gbodjome & pheonix)
+#Kaplime
+#Agbedrafo
+
+#Gokart
+			
+**Items send via Dosseh(1round)
+#
+
+**top priority
+#sim card + data = 35000
+#electricity = 30000
+
+**hygiene
+#tooth paste
+#tooth brush
+#soap
+#parfum
+#mop(serpiere)
+
+**list of utility
+#paper toilet
+#nap kins
+#water
+#salt
+#speaker --done
+#power cord
+#transfo
+#power adapter
+#iron 
+#olive oil
+#avocado oil
+(:	
+
+:)kwd[note Recipes]
+-romanoff (sour cream, brown sugar, vanilla, brandit liquor)
+-smoothie with kale + ginger + root beet
+(:
+
+:)kwd[relation tables for logger]
+#Table relationships for the lo
+#logger_db
+tbl_accounts / cls_account 
+	int_account_id
+	str_account_name
+	str_login
+	str_pw
+	str_related_info (with #s)
+	str_account_status
+		
+tbl_categories / cls_category ( Banque, Payment, Non Payment )
+	int_category_id
+	str_category_name
+	str_category_desc
+	
+tbl_labels / cls_label
+	int_label_id
+	str_label_name ( #keeping_finance_book = 1, #no_book_keeping = 0)
+	
+tbl_users / cls_user
+	int_user_id
+	str_password	
+	
+#Account priority
+	P3 (AF)	
+	P2 (Bank account, Financial tool)
+	P1 (Store account)
+	P0 (Share account)
+(:
+
+
+:)kwd[Essential items in tech school]
+- Soccer cleat (Nike)
+- soccer shin guards with their sleeves
+- Adidas mini bag (sport)	 
+- Jean (Boss-navy blue)
+- 1 sweat pant (navy blue)
+- 2 dress shorts
+- 4 shirts
+- adidas 3/4 black with color stripes
+- soccer socks (x2)
+- Sweatpant (with green lining at the bottom)
+- Sweatshirt of your choice
+- Rain coat (Under Armor blue)
+- Handkerchief (x2)
+- Ralth Lauren bucket hat
+- 1 winter bianie 
+- dress sandals (brown)
+- 1comb
+- Parfum
+- reading glasses
+(:
+
+
+:)kwd[General Note]
+#Google code for stenography
+#VirusTotal app
+#USU / Champ 
+	operation supplement Safety
+#MonkeyType.com
+#CyberSecurity
+	#View email in plain text and NOT in the preview pane
+	#Look for digital signatures if your organization uses them.
+	#Scan all attachments
+	
+#Build a process initiator(tasks need to 
+	implement a goal from start to finish)
+#Find a niche to make money
+	.Product base
+	.Service base
+	.Knowledge base	
+	
+(:
+
+:)kwd[PoweShell, Scripting]
+#Excel(powershell)
+#git(powershell)
+#bandit_ssh_game (Block3)(powershell)
+#Powershell(ps)
+	Permanent Invite link:
+		#https://discord.gg/E2YFPRgzzU
+		#SSgt Byrd, phone 240-856-1798
+	#Python Loging Project(powershell)
+	#CS50(powershell)
+(:	
+
+:)kwd[powershell script environment dev]
+::default pages always needed
+start C:\Users\yelof\WORK#\sanflet.cmd
+start https://www.google.com
+start https://www.drive.google.come/drive/home
+(:	
+
+:)kwd[web development environment powershell scripting]
+::Web development environment
+start https://codewithmosh.com		
+(:
+
+:)kwd[git environment powershell scripting]
+::Git/GitHub dev environment
+start https://www.github.com
+start https://codewithmosh.com
+start https://www.youtube.com/watch?v=8JJ101D3knE
+start "c:\program files\git\git-bash.exe"0. 
+start code
+(:	
+
+:)kwd[GIT/GIT HUB]
+#https://res.cloudinary.com/codewithmosh/image/upload/v1702943977/cheat-sheets/git.pdf
+#git/github environment
+    #git/github 
+		log/pass gmail
+		https://github.com/dashboard
+	#cmdline >git --version< to check if we have git installed
+	#download and install git
+	#download git bash to emulate linux environment on windows
+	#download vscode (script editor)
+	#customize git environment(config)
+		#system level(all users on the same computer)
+		#global level(all repositories of current user)
+		    git config --global user.name "Yelofon Amoussouga"
+			git config --global user.email "herold.amoussouga@gmail.com"
+			git config --global core.editor "code --wait"
+			git config --global core.autocrlf [true for windows and input for mac]
+			git config --global -e  -->to open git default editor settings
+		#local level(the current repository )
+	#git documentation
+		#git-scm.com/docs/git-config -->to see git documentation online. 
+		#[cmd prompt =]"git config --help" or "git config -h"
+		#https://drive.google.com/drive/folders/1dDoQz2K73b_cPEWwgIWpzId276BcSQr3?direction=a
+			is the link to the git pdf cheat sheet
+	#git commands
+		#press "space barre" to go to the next page
+		#type "Q" char to exit page
+	    #first create a directory for your project (eg: mkdir moon)
+		#then "git init" (to initialize an empty git repository. this is like a memory 
+		     card on witch you want to save a progress)
+		#git add param_filename (to save a specific file) --> this is a staging process
+			#git add . (to save everything since the last save) --> this is a staging process
+		#git commit -m 'param_message'
+		#git ls-files --> for the list of files in git staging area.
+		#git commit -a -m"<message>" 
+		or 
+		#git commit -am"<message>" --> to combine -a and -m 
+		#git log
+		#git checkout param_key (to checkout a commit and by doing so we are creating
+     		 a different branch because we went back in changes)
+		#git branch
+	#for git hub	
+(:	
+
+:)kwd[CS50_Havard]
+(:
+
+:)kwd[ActiveDirectory]
+(:
+
+:)kwd[IT_Networking]
+#OSI model	
+	-Physical layer 
+		--Protocol = 10 Base T, (IEEE 802.11 -> wifi)
+		--Data = Bits
+		--Delivery truck and the road  
+	-Data link layer (accross a single link)
+		--Protocol = Ethernet
+		-Domain of MAC address		
+		--Data = Frames
+		--How the delivery truck get 
+			from one intersection to 
+			the next over and over 
+	-Network layer (accross multiple links)
+		--Protocol = IP 
+		--Data = Datagram
+		--Allows different networks to communicate with 
+			other through devices known as routers
+		--Identifies which road nee to be take 
+			to get to the next address
+	-Transport layer 
+		--Protocol TCP, UDP
+		--data = Segment
+		--Sorts out which client or server programs are 
+			supposed to get that data.
+		--Ensure that the delivery driver knows how to knock on 
+			your door to tell you that your package has arrived
+	-Session layer --Protocol
+	-Presentation layer --Protocol
+	-Application layer 
+		--Protocol = many protocols
+		--All 3 above are the content of the package itself.
+
+#Binary conversion
+	-Decimal --> Hexadecimal (division)
+	-Hexadecimal --> Decimal (multiplication)
+	-Decimal --> Binary (substraction)
+	-Binary --> Decimal (addition)
+
+#Ports classification
+	-Well-known(0-1023)
+	-Registerd(1024-49151)
+	-Private/Ephemoral/Dynamic(49152-65535)
+
+#IpV4 classification	
+	-Private
+		10.0.0.0-10.255.255.255 CIDR 10/8
+	    172.16.0.0-172.16.255.255 CIDR 172.16/12
+		198.168.0.0-192.168.255.255 CIDR 198.168/16
+	-Special(0., 127., 169.)
+	
+#IP address classification
+	CLASS-A
+		First Octets 0-127
+		Excluding 0. and 127. which are special.
+	CLASS-B
+		First Octets 128-191
+	CLASS-C
+		First Octets 192-223
+	CLASS-D
+		First Octets 224-239
+		For multicasting
+	CLASS-E
+		First Octets 240-255
+		For experimentation
+		
+#NAT and PAT work in conjunction to translate 
+	private address into public address.
+(:	
+
+:)kwd[Note VB.NET]
+<alpha id = 1>
+    To format a list box in VB.NET, you can use the FormattingEnabled property and the Format event.
+    To enable formatting for the list box, set the FormattingEnabled property to True. This allows you to specify a custom format for the items in the list box using the Format event.
+    Here is an example of how to use the Format event to format the items in a list box:
+
+    Private Sub ListBox1_Format(sender As Object, e As ListControlConvertEventArgs) Handles ListBox1.Format
+        e.Value = String.Format("{0:C}", e.Value)
+    End Sub
+
+    In this example, the Format event is handled by a function that formats the value of each item in the list box as a currency. The e.Value property represents the value of the current item,     and the String.Format function is used to specify the format of the value.
+    You can use the String.Format function to specify any custom format you want for the items in the list box. For example, you could use it to format dates, numbers, or strings in a specific     way.
+    Note that the Format event is only called for list box items that are added to the list box using the Add method. If you are binding the list box to a data source using the DataSource          property, the Format event will not be called. Instead, you can use the DataFormatString property of the list box to specify a custom format for the items.
+<omega id = 1>
+(:
+
+
+:)kwd[Note JAVA]
+import java.math.BigDecimal;
+import java.util.Scanner;
+
+public class home {
+
+public static void main(String[] args) {
+  Scanner scan = new Scanner(System.in); 
+  BigDecimal bg1 = scan.nextBigDecimal();
+  BigDecimal bg2 = scan.nextBigDecimal();
+  System.out.println("Result is " + bg1.add(bg2));
+ } 
+}
+(:
+
+
+:)kwd[Web programming]
+There are two main color models: the additive RGB (red, green, blue) model used in electronic devices, 
+and the subtractive CMYK (cyan, magenta, yellow, black) model used in print.
+(:
+
+
+:)kwd[linux Linux]
+#a_dive_into_linux
+Apt is the command we use in Ubuntu's package manager and the install option will let us install something.
+dpkg -s firefox-esr   [ to check if a software (here firefox) is install on linux system ]
+sudo apt-get install -f [ to update a software ]
+sudo apt-get update [ This will start the repository update process and makes sure all the default repositories are up to date ]
+sudo apt-get install firefox-esr [ install firefox ]
+dpkg -s firefox-esr [ check if firefox-esr is installed ]
+sudo apt-get remove gimp [ uninstall gimp ]
+{linux} cat > [filename].txt {to create a file}
+{linux} cat [filename].txt {to display the content of a file}
+{linux} cat < -.txt {to display the content of a file named '-'}	
+(:	
+
+
+:)kwd[cmd script]
+# echo [entire text]>[filename].txt {& press enter}
+# notepad [filename].txt {& press enter}
+# copy con [filename].txt {edit mode for text content 
+	  & press 'ctrl' + 'Z' to close edit mode} 
+	  
+# to append a file} echo [text content] >> [existing filename].txt 	  
+	  
+# rem {for comment in cli}
+
+# echo [entire text]>[filename].txt {& press enter}
+# notepad [filename].txt {& press enter}
+# copy con [filename].txt {edit mode for text content 
+	  & press 'ctrl' + 'Z' to close edit mode} 
+	  
+# to append a file} echo [text content] >> [existing filename].txt 	  
+	  
+# rem {for comment in cli}
+ :: {for comment in batch file}
+ rem > [filename].txt {to create a zero-byte size file}      
+
+ cls :: {for comment in batch file}
+ rem > [filename].txt {to create a zero-byte size file}      
+
+ cls
+(:
+
+
+:)kwd[cmd script]
+@echo off
+setlocal
+set VSCODE_DEV=
+set ELECTRON_RUN_AS_NODE=1
+"%~dp0..\Code.exe" "%~dp0..\resources\app\out\cli.js" %*
+IF %ERRORLEVEL% NEQ 0 EXIT /b %ERRORLEVEL%
+endlocal
+(:
+
+:)kwd[vscode]
+#Default Path:
+	C:\Users\yelof\AppData\Local\Programs\Microsoft VS Code
+(:
+	
+:)kwd[C programming - ASCII values]
+	e.g. 'A' (0100 0001)0b (41)0X 
+		 'B' (0100 0010)0b (42)0X
+	Capital case letters begin with '010' in ASCII
+	Lower case letters begin with '011' in ASCII
+	Number characters which are not actually 
+		Numbers but characters begin with '001'
+		e.g 0011 0011 = '3' character 3 and not number 3
+		but if you want to convert a "character number" into 
+		an actual number, you need to convert the first 4bits
+		into '0000' e.g. 0011 0011 = '3' give 0000 0011 = 3
+	ASCII values are exactly 8bits 	
+(:
+
+
+:)kwd[C programming - function that Clears screen]
+Write a function that will programmatically clear the screen
+The following function clears the screen:
+
+/* Standard error macro for reporting API errors */ 
+#define PERR(bSuccess, api){if(!(bSuccess)) printf("%s:Error %d from %s \ 
+    on line %d\n", __FILE__, GetLastError(), api, __LINE__);}
+
+void cls( HANDLE hConsole )
+ {
+    COORD coordScreen = { 0, 0 };    /* here's where we'll home the
+                                        cursor */ 
+    BOOL bSuccess;
+    DWORD cCharsWritten;
+    CONSOLE_SCREEN_BUFFER_INFO csbi; /* to get buffer info */ 
+    DWORD dwConSize;                 /* number of character cells in
+                                        the current buffer */ 
+
+    /* get the number of character cells in the current buffer */ 
+
+    bSuccess = GetConsoleScreenBufferInfo( hConsole, &csbi );
+    PERR( bSuccess, "GetConsoleScreenBufferInfo" );
+    dwConSize = csbi.dwSize.X * csbi.dwSize.Y;
+
+    /* fill the entire screen with blanks */ 
+
+    bSuccess = FillConsoleOutputCharacter( hConsole, (TCHAR) ' ',
+       dwConSize, coordScreen, &cCharsWritten );
+    PERR( bSuccess, "FillConsoleOutputCharacter" );
+
+    /* get the current text attribute */ 
+
+    bSuccess = GetConsoleScreenBufferInfo( hConsole, &csbi );
+    PERR( bSuccess, "ConsoleScreenBufferInfo" );
+
+    /* now set the buffer's attributes accordingly */ 
+
+    bSuccess = FillConsoleOutputAttribute( hConsole, csbi.wAttributes,
+       dwConSize, coordScreen, &cCharsWritten );
+    PERR( bSuccess, "FillConsoleOutputAttribute" );
+
+    /* put the cursor at (0, 0) */ 
+
+    bSuccess = SetConsoleCursorPosition( hConsole, coordScreen );
+    PERR( bSuccess, "SetConsoleCursorPosition" );
+    return;
+ }
+(: 
+ 
+:)kwd[C programming - template] 
+echo (1)To make Scanf work on VS put this before any includes
+     #define _CRT_SECURE_NO_WARNINGS
+echo Notes C in Visual Studio
+     #pragma region (...) #pragma endregion
+	 
+echo (1)To make Scanf work on VS put this before any includes
+echo ^  #define _CRT_SECURE_NO_WARNINGS
+
+echo (2)C programming Template
+echo// ------------------------------------------------------------------------------------------
+echo// Name: Your name here
+echo// Class: C Programming
+echo// Abstract: Homework 1.
+echo// ------------------------------------------------------------------------------------------
+
+echo// ------------------------------------------------------------------------------------------
+echo// Includes
+echo// ------------------------------------------------------------------------------------------
+echo #include<stdio.h>
+echo #include<stdlib.h>
+
+echo// ------------------------------------------------------------------------------------------
+echo// Constants
+echo// ------------------------------------------------------------------------------------------
+
+echo// ------------------------------------------------------------------------------------------
+echo// Prototypes
+echo// ------------------------------------------------------------------------------------------
+
+echo// ------------------------------------------------------------------------------------------
+echo// Name: main
+echo// Abstract: This is where the program starts
+echo// ------------------------------------------------------------------------------------------
+echo void main( )
+echo {
+echo }
+(:
+
+:)kwd[VB Notes]
+#trimstart/trimend
+strconv(Tstring, vbstrconv.propercase)
+#timer.enable=true/timer.start()
+#vbpropercase
+#string.empty
+#controlchars.crlf for carriage return and line feed
+#label.resettext() to clear 
+#textbox.focus
+#ctrl +shift+R to fix intellicense
+#vbnewline or &_
+#formatcurrency()
+#string.format("{0:n2}", variable)
+(:
+
+:)kwd[Canon80D Camera settings]
+#Frame 
+	#normal rate 24fps
+	#slow motion 60 to 120fps
+#ISO (or fake light)
+	#Keep it below 1000 ISO
+#Apperture (or FStop)(in the lens )
+	#Affects the depth of field (background blurring)
+	#Small aperture give you a clear back ground
+#Shutter speed (on the camera)
+	#Slower shutter speed for a brighter image
+	#Shutter speed also affect the the motion blur
+		#faster shutter speed for less motion blur; good for motions
+		#The lower the aperture the more expensive the lens
+		#Shutter speed = 2 X fps
+			#e.g. 24fps = 1/50 shutter speed
+#White balance
+	#WB tell the camera what is pure white.
+	#use a gray card to adjust white balance
+#ND filter for lens like sun glasses
+#Exposure meter bar (showing the combined setting)
+#ISO should be the last thing you set and shutter speed before the apperture.
+(:
+
+:)kwd[Adobe Illustrator]
+(:
+
+
+:Links
+--04/23/2025
+https://www.youtube.com/watch?v=0OztKsGTqos
+https://www.youtube.com/watch?v=T677kQzRLrQ&list=PL76809ED684A081F3&index=26
+https://www.youtube.com/watch?v=2JYT5f2isg4
+https://www.youtube.com/watch?v=Rk-JGsriJ4o
+https://www.youtube.com/watch?v=r9gaPGQ1EG0
+https://www.youtube.com/watch?v=psZJOAvEuys
+https://www.youtube.com/watch?v=8R6e7S7WtbQ
+https://www.youtube.com/watch?v=JflN5H8aeiY
+https://www.youtube.com/watch?v=86fL-c1iYh0
+https://www.youtube.com/watch?v=yqlbRibSn7M
+https://www.youtube.com/watch?v=ULJcA5SSF6Q&t=32s
+https://www.youtube.com/watch?v=K_V6o7jHtkM&t=327s
+
+--Before 2025
+https://www.lynda.com/Web-Development-training-tutorials/1471-0.html?previousCategory=88
+https://bigmachine.io/products/the-imposters-handbook-season-2/
+https://www.freecodecamp.org/news/how-to-install-wsl2-windows-subsystem-for-linux-2-on-windows-10/ linux installation on windows10
+ahrefs.com ranking_website
+https://www.youtube.com/watch?v=Bv_5Zv5c-Ts js
+https://data-flair.training/blogs/create-notepad-text-editor-python/
+http://steve-jansen.github.io/guides/windows-batch-scripting/
+https://blog.templatetoaster.com/tag/webdesign/
+https://blog.templatetoaster.com/choose-best-option-build-website/
+https://www.linkedin.com/pulse/20141114182637-12880086-php-vs-asp-net-what-you-should-really-be-comparing-instead
+https://www.tutorialspoint.com/batch_script/batch_script_overview.htm
+https://www.geeksforgeeks.org/hill-cipher/
+https://practice.geeksforgeeks.org/courses/geeks-classes-live-weekdays?utm_source=geeksforgeeks&utm_medium=referral&utm_campaign=GfG_Right_Bottom_GC_Live_Weekday_Oct4
+https://devgym.oracle.com/devgym/database-for-developers.html 
+https://en.wikibooks.org/wiki/C_Programming/Arrays_and_strings
+https://study.com/academy/lesson/validating-input-data-in-c-programming.html
+https://www.youtube.com/watch?v=1RtYZUuvGzY
+https://www.includehelp.com/c-programs/validate-date.aspx
+https://www.tutorialspoint.com/cprogramming/c_strings.htm
+https://www.bing.com/videos/search?q=how+to+start+visual+studio+from+batch+file+cmd&&view=detail&mid=AC5E86EB853B6B06CBEBAC5E86EB853B6B06CBEB&&FORM=VDRVRV
+https://www.bing.com/videos/search?q=how+to+autofill+web+form+login+and+password+&docid=608043277425378266&mid=0ECDA43581CBBF75E1200ECDA43581CBBF75E120&view=detail&FORM=VIREHT
+https://www.bing.com/videos/search?q=how+to+start+visual+studio+from+batch+file+cmd&&view=detail&mid=AC5E86EB853B6B06CBEBAC5E86EB853B6B06CBEB&&FORM=VDRVRV
+https://stackoverflow.com/questions/11972249/cls-clear-a-single-line
+https://stackoverflow.com/questions/418916/delete-certain-lines-in-a-txt-file-via-a-batch-file
+https://rob.conery.io/2018/08/21/mod-and-remainder-are-not-the-same/
+link milanote.com brain_strorming
+https://www.collegeconsensus.com/features/best-mental-health-apps/ health
+https://www.etsy.com/listing/798194420/graffiti-wall-art-african-wall-decor?gpla=1&gao=1&   ===>10/18/20
+https://www.etsy.com/listing/719741968/extra-large-wall-art-pop-art-style?gpla=1&gao=1&     ===>10/18/20
+https://ikonick.com/products/rubberband-racks?variant=12135991115889                        ===>10/18/20
+https://legendarywallart.net/collections/landscape                                          ===>10/18/20
+https://www.creativebloq.com/web-design/steps-perfect-website-layout-812625
+https://www.optimus01.co.za/basic-website-requirements/
+https://www.webalive.com.au/nonprofit-websites/
+https://www.causevox.com/blog/great-nonprofit-website-examples/
+https://www.pagecloud.com/blog/best-nonprofit-websites
+https://doublethedonation.com/tips/top-nonprofit-websites/
+https://designshack.net/articles/layouts/10-rock-solid-website-layout-examples/
+https://www.wikihow.com/Cite-Sources English
+https://owl.purdue.edu/owl/research_and_citation/mla_style/mla_formatting_and_style_guide/mla_formatting_and_style_guide.html
+https://www.wikihow.com/Change-Directories-in-Command-Prompt
+https://www.awwwards.com/sites/brdr-kruger
+https://digitalsynopsis.com/design/website-color-schemes-palettes-combinations/
+https://piktochart.com/blog/website-color-schemes/
+https://colorhunt.co/
+https://medium.com/envato/49-color-schemes-for-2017-bd9660e4f39d
+https://visme.co/blog/blog-subscriber/
+https://99designs.com/blog/tips/website-color-schemes/
+https://creativemarket.com/blog/website-color-palettes
+https://hookagency.com/website-color-schemes/
+https://www.awwwards.com/sites/brdr-kruger
+https://skillcrush.com/2014/05/06/essentials-great-web-portfolio/
+https://www.xml-sitemaps.com/
+https://firstsiteguide.com/what-is-blog/
+https://www.google.com/search?q=how+to+build+a+site+map&tbm=isch&tbs=rimg:CdLMwGZ7vPooIjiyFUsSDdu82XyGHDOPoJ21BhxMUXgbfadliYFD6KTyvoGIP415djHOk2POv7JohMLSDu0hzgIqsSoSCbIVSxIN27zZEbSWkG6ozNt7KhIJfIYcM4-gnbURctQDDBQqIgMqEgkGHExReBt9pxHSi3lA10y6cioSCWWJgUPopPK-EZ5pLQ7UFwraKhIJgYg_1jXl2Mc4RTSC27X0yu-wqEgmTY86_1smiEwhFjztC9ZVD_1lyoSCdIO7SHOAiqxEWTQ4Iad5lxJ&tbo=u&sa=X&ved=2ahUKEwjZ9ZW0pqvgAhUjhuAKHZelBiQQ9C96BAgBEBg&biw=1097&bih=554&dpr=1.75#imgrc=zteGyGHXCUshgM:
+https://www.geeksforgeeks.org/find-day-of-the-week-for-a-given-date/
+https://support.logitech.com/en_us/article/13778
+https://www.wpbeginner.com/showcase/best-wordpress-themes-for-nonprofits/
+https://www.youtube.com/watch?v=yRUUMTPhLH0
+https://www.wpbeginner.com/beginners-guide/self-hosted-wordpress-org-vs-free-wordpress-com-infograph/?display=wide
+https://www.youtube.com/watch?v=PkZNo7MFNFg
+https://www.vertabelo.com/blog/technical-articles/a-database-model-to-manage-appointments-and-organize-schedules
+http://www.catb.org/esr/time-programming/
+http://www.catb.org/esr/time-programming/
+https://www.codeproject.com/Articles/4722/How-to-check-if-a-datetime-exists
+https://stackoverflow.com/questions/26270712/how-to-check-if-a-date-exists-c
+https://overiq.com/c-examples/c-program-to-check-whether-a-date-is-valid-or-not/
+https://www.includehelp.com/c-programs/validate-date.aspx
+https://www.quora.com/What-is-the-ASCII-code-for-an-enter-key-in-the-C-C++-language
+https://wiredimpact.com/blog/3-things-build-a-sitemap/
+https://wiredimpact.com/guide/common-website-structures-nonprofits/
+https://cboard.cprogramming.com/c-programming/101095-press-any-key-continue-without-enter-key.html
+https://www.includehelp.com/code-snippets/how-to-identify-enter-key-is-pressed-in-c-programming-language.aspx
+https://stackoverflow.com/questions/7144977/reading-enter-key-in-a-loop-in-c
+https://stackoverflow.com/questions/42537038/simple-ways-to-compare-two-strings-without-strcmp-in-c
+http://www.codequiz.in/comparing-two-strings-without-using-string-manipulation-functions/
+https://www.selftaughtjs.com/algorithm-sundays-converting-roman-numerals/
+https://www.geeksforgeeks.org/converting-decimal-number-lying-between-1-to-3999-to-roman-numerals/
+https://www.thecrazyprogrammer.com/2017/09/convert-decimal-number-roman-numeral-c-c.html
+https://shop.nordstrom.com/s/prada-plain-toe-derby-men/3764228?origin=category-personalizedsort&breadcrumb=Home%2FMen%2FShoes%2FDress%20Shoes&color=black
+https://www.airgas.com/product/Safety-Products/Head,-Eye-&-Face-Protection/Safety-Goggles/p/K4520525?fo_c=306&fo_k=26029ebd958fc4b5de622960cf2fcfdd&fo_s=cstmc&utm_arg=SEM:Google:GSN_-_Items_-_Safety_Products-Safety_Goggles::pla:pla:Airgas:safety_products::K4520525::PLA&gclid=EAIaIQobChMIucb5uKOD4QIVbx6tBh0BNAfmEAQYCCABEgLMCPD_BwE
+https://getbootstrap.com/
+https://websitesetup.org/
+https://www.websitebuilderexpert.com/building-websites/what-you-need-to-build-a-website-checklist/
+http://en.cppreference.com/w/c/header
+https://en.wikipedia.org/wiki/C_standard_library
+https://blogs.msdn.microsoft.com/vcblog/2017/08/15/changes-to-project-templates-and-code-wizards-in-15-3/
+https://mycstate.cincinnatistate.edu/bbcswebdav/pid-6961291-dt-content-rid-35733494_1/courses/19_SP_SET-151-001/C%20Programming%20template.txt
+https://en.wikipedia.org/wiki/C_standard_library
+http://en.cppreference.com/w/c/header
+https://en.wikipedia.org/wiki/C_standard_library
+https://blogs.msdn.microsoft.com/vcblog/2017/08/15/changes-to-project-templates-and-code-wizards-in-15-3/
+https://mycstate.cincinnatistate.edu/bbcswebdav/pid-6961291-dt-content-rid-35733494_1/courses/19_SP_SET-151-001/C%20Programming%20template.txt
+https://en.wikipedia.org/wiki/C_standard_library
+https://www.tutorialspoint.com/cprogramming/
+http://www.amazon.com/gp/offer-listing/0672322226/
+http://ezproxy1.cincinnatistate.edu:2160/book/programming/c/0672326965
+http://www.tutorialspoint.com/cprogramming/c_scope_rules.htm
+http://www.cs.sfu.ca/CourseCentral/130/johnwill/printf.html
+https://www.tutorialspoint.com/cprogramming/index.htm
+http://en.cppreference.com/w/c/header
+https://blogs.msdn.microsoft.com/vcblog/2017/08/15/changes-to-project-templates-and-code-wizards-in-15-3/
+http://www.cs.sfu.ca/CourseCentral/130/johnwill/printf.html
+https://www.codingunit.com/printf-format-specifiers-format-conversions-and-formatted-output
+http://www.asciitable.com/
+
+
+
+:)kwd[Happy Birthday play list]
+https://www.youtube.com/watch?v=-9DoqAGtPc8&list=RDQMLj7cUwNshpk&index=27
+https://www.youtube.com/watch?v=LlIwrHL06e0&list=RDQMLj7cUwNshpk&index=27
+https://www.youtube.com/watch?v=2r04peZi1IU&list=RDQMLj7cUwNshpk&index=27
+https://www.theafricareport.com/329117/african-music-soars-in-this-top-compilation-of-2023/
+    
+***happy birthday songs
+#for 4min a song in average, we can play 75 songs in 5 hours
+    
+*blessing and prayer
+-kafu Mawugan - 
+-happy birthday - naza
+-happy birthday - bb philip
+        
+**Priority List
+*Congo
+-MH (Faly Ipupa) (rumba)
+-Garde du cœur (Faly Ipupa) (Rumba)
+-Motel 6 (Inos B) 
+-Séré (Inos B) 
+-Leva conduite à tenir (extra musica NH)
+-Iboka (extra musica)
+-Papa bonheur (koffi olomide)
+-Patience (extra musica Roga roga)
+-AMBASSADEUR (DADJU)
+-Parking (Werasson) 
+-Bokoko (Roga roga)
+-M'bokalisation (Afara Tsena)
+-Mon general (extra musica nouvel horizon)
+-Zebuka (Jb m'piano)
+
+*Ivoir
+-Bobaraba (dj mix & baby Philip)  
+-Lifuendede (Serge Beneau)
+
+*Zook
+-fallait pas (Jacky rapon)
+-Double effet (Jacky rapon) 
+-Pleurer (Jacky rapon) 
+-T'envas pas - Jacky rapon
+
+*Agbadja
+-Agbadza Mix (FOPAW 3): ENYE YEN by Asare Bediako and SE MEBϽ JESUS NE DZIN by JE Nelson
+
+*Kamou
+-Tchiando (Nimono)
+-Griot-Maléki (LIDAOU)
+-KING MAZ - RÈDÈ [chez nous]
+-Dandilewe - king bala
+-finiki - Ewolowaa
+-finiki - Eyami
+
+*Akpesse
+-MIX BOBOBO DOSE VS AKPESSE BY DJ HOOLAU (+228 90790673 / 98180414) 
+ 
+*Togo Afro vibes
+-Abidjan est doux (Sentrinos & Debordo)
+-Maladie d'amour (Sentrinos)
+-On ne va pas divorcer (Santrinos) ==============
+-Tone - Toofan
+-J'ai peur - Toofan
+-C'est pas normal - Toofan
+-My girl - Toofan
+-Gbokrigbo - Toofan
+-Tere tere - Toofan
+-Ziguidi - Toofan
+
+*Afro vibe
+-legende - (Koffi olomide & davido)
+-chef (Koffi olomide & Tiwa)
+-Sielumuka (Ziako)
+                
+*Gospel bit
+-Favor - Mike Kalambay
+-Posa ya yesu - Mike Kalambay
+-Hollow - Mercy Chinwo
+
+*Afro bit
+-reason - Omah Lay.
+-Godly - Omah Lay.
+-Olivetheboy, 'GoodSin' (Ghana)
+-TitoM & Yuppe - Tshwala Bam
+-JZyNO featuring Lasmid, ‘Butta My Bread’ (Liberia)
+-Spyro featuring Tiwa Savage, ‘Who is Your Guy? (Remix)’ (Nigeria)
+-Victony - Soweto 
+-Victor Thompson featuring Ehis ‘D’ Greatest, ‘This Year (Blessings)’ (Nigeria) *****
+-King Promise, ‘Terminator’
+-Libianca, ‘People’ 
+-KCee, ‘Ojapiano’ 
+-Mohbad - komadjesun
+-Mohbad ft Chike - imolozation
+-Mohbad - Peace
+-Mohbad - Adura
+-Mohbad - Egwu
+-Burna boy - breakfast
+-Burna boy - city boy
+-Burna boy - ye
+-finesse - Pheelz
+-no sleeping
+-kolokolo - potanrianke
+-Simi - Ayo (Official Video) Song
+-zazoo - 
+-soso - Omah Lay
+-Financial woman - Psquare
+-Lonely at the top - Asake
+-Kizz Daniel - Shu-Peru
+-Timaya - Balance (Official Video)
+-Johnny Drille - How Are You
+-Bella Shmurda & Simi - Loose it
+-Falz & Tekno - O Wa
+-Crayon - Ijo (Laba Laba)  audio
+-Libianca - People (Check On Me) [Official Music Veo]
+-yawa - tekno
+-suru - tekno
+-one dance - wizkid
+-essence - wizkid
+-skeletun - tekno
+-kata - tekno
+-enjoy - tekno
+-nobody - dj nepturn
+-joha - asake
+-Fave - Baby riddim
+-Sensima
+-Understand - Omah ley
+-Anybody - Burna
+-Gbona - Burna
+-Common Person - Burna
+-Barnabas - Kizz daniel
+-Girlfriend - Ruger
+-Cough - Kizz daniel
+-Harmonize - Single Again 
+-Harmonize - Amelowa
+-Davido - FEEL
+-Commas - Ayra star
+-Woman - Rude boy
+        
+*Afro vibes Ivoir
+-Krys M, ‘Qui Croira Verra’
+-Roseline Layo, ‘Môgô Fariman’
+-Roseline Layo - Donnez Nous Un peu
+-Il y a chewgum dans tes reins
+-Kerozene - Victoire
+        
+*Afro vibes Congo
+-Innoss. Zuchu, ‘Nani’
+-Mon bonheur - Koffi ft Cindy Le coeur (rumba)
+-Tia - RJ Kanierra
+-Alliance - Fally (rumba)
+-Sete - Innos B
+-Migrant des reves - Fally
+-Sin ti - Gims and Maria
+-Pas comme eux - Hiro
+-Effacer - Gaz Mavete
+-Ezongi Litchoutchou - Dj Rox
+-Opona Nga - Heritier wata
+-Mpiaka - Innos B
+-Derniere dance - Ferre gola
+-Maitresse - Gaz mawete
+-Molo molo - Magic system ft Fally  ************
+-Amore - Fally
+-Aye - Gaz Fabilous ft Koffi
+-C'est rate - Gaz Mawete ft Fally
+-Mon soleil - Dadju ft anita
+-YSL - Ya Levis
+-No no - Innos B
+-Salaire - Gaz Fabilous
+-Maboko - Innos B
+-Kokoloko - Mvinio
+-Afro romance - Hiro and Koffi
+-Tika - Gaz Mawete 
+-Nzoto - Fally
+-Tout seul - Gally
+-Mortel - Innos B
+-Acquitte - Koffi Olomide
+-Femme - Koffi Olomide
+-Tshiboless - Koffi Olomide
+-Mwinda - Koffi Olomide
+-Nzoungou - Roga roga
+-Afsana - Fally
+-Achu - Koffi Olomide ft Diamond
+-May day - Fally
+-Je te jure - Cindy le coeur
+-Kiss - Innos B ft Zuchu
+-SL - Fally
+-Pont rouge - Koffi olomide
+
+*Afro Zook
+-Gerilson Insrael, ‘Estou Paiado’
+-Love - Ya levis
+-Yibi ibi ibi - Ya levis
+-Falait pas - Jackie rapon
+
+*Afro vibe    
+-Mula - nivakine
+-Zuchu - Sukari
+-Tyler ICU & Tumelo.za featuring DJ Maphorisa, Nandipha808, Ceeka RSA & Tyron Dee, 'Mnike' (South Africa)
+-Tyla, 'Water' (South Africa) 
+-Flavour - Big Baller
+-Harmonize Ft Diamond Platnumz - Kwangwaru 
+-Berna reloaded - Flavour ft Fally
+-Kassav - medikaman nou ni 
+       
+*Afro Classic
+-mario
+-tres impoli
+-Mewei - Ma folie
+-Mewei - Miss lolo
+-Ashawo - Flavour   
+     
+*instrum
+-koroba
+-Ojuelegba
+-moslado
+-Dilemma
+-Ayo - Simi
+-Case - Teni
+-Dorime 3.22
+-Jerusalem
+        
+*Afro Togo
+-Julianno - Prayer
+        
+*pop
+-Celebration - Kool and the gang
+-Dj got us fallin in love - Usher
+-Party in the USA - Miley cirus
+-Down - Jay Sean
+-Girls just want to have fun - Cyndi Lauper
+-Hotel room service - PitBull
+-No diggity - Black street
+-All night long - Lionel Richie
+-All summer long - Kid rock
+-Ice ice baby - Vanilla ice
+-I got a feeling - Black eyed peace
+-Chacha slide - DJ Casper
+-Super freak - Rick james
+-Just dance - lady Gaga
+-Rompe HQ - Daddy
+-Tik tok - Kesha
+-YMCA - Village people
+-Red red wine - UB40
+-Le freak - Chic
+-1,2 step - Ciara
+-Low - from step up 2 the strees OSI
+-Gonna make you sweat
+-Staying alive - Bee gees
+-Jail house - Elvis presley
+-Happy - Pharel
+-Uptown funk - Bruno mars
+-beat it - MJ
+-What is love got to do  - Tina turna
+-I just call to say I love - Stevie wonder
+-Flowers - Myley Cirus
+-Dance monkey
+-Cupid
+-We don't talk anymore
+-Havana
+-Sweet but psycho
+-Unstoppable
+
+*Rap and R&B
+-Like that - Future
+-Carnival - Kanye
+-Snooze - SZA (smooth)
+-Redrum - 21 Savage
+-Yeah glo - Glorilla
+-Wanna Be - Glorilla
+-Skee yee - Sexyy red
+-Get it - Sexxyy red
+-Ride Wit Me - Nelly
+-What's Luv - Fat Joe
+-Move B***H - Ludacris
+-Hot In Herre - Nelly
+-Lean Back - Terror Squad
+-Thong song - Sisqo
+-Jumpin jumpin - destiny's child
+-Family affair - Mary j blige
+-Yeah - Usher
+-party like a rock star - Shop boyz
+-Rock it - Missy elliot
+(:
+
 </p>
