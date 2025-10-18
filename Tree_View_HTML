@@ -1,0 +1,86 @@
+<!DOCTYME HTML>
+<HTML>
+<HEAD>
+<style>
+	/*remove default bullet for <li>*/
+	ul #id_parent_ul {
+		list-style-type: none;
+	}
+
+	/* Remove margins and padding from the parent ul */
+	#id_parent_ul {
+		margin: 0;
+		padding: 0;
+	}
+
+	/* Style the caret/arrow */
+	.cls_caret {
+		cursor: pointer;
+		user-select: none; /*Prevent text selection*/
+	}
+
+	/* Create the caret/arrow with a unicode, and style it */
+	.cls_caret::before {
+		content: "\25B6";
+		color: black;
+		display: inline-block;
+		margin-right: 6px;
+	}
+
+	/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+	.cls_caret-down::before {
+		transform: rotate(90deg);
+	}
+		
+	/* Hide the nested list */
+	.cls_nested {
+		display: none;
+	}
+
+	/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+	.active {
+		display: block;
+	}
+
+	</style>
+</HEAD>
+<BODY>
+<ul id="id_parent_ul">
+	<li><span class="cls_caret">Beverages</span>
+
+	<ul class="cls_nested">
+		<li>Water</li>
+		<li>Coffee</li>
+		<li><span class="cls_caret">Tea</span>
+				
+	<ul class="cls_nested">
+		<li>Black Tea</li>
+		<li>White Tea</li>
+		<li><span class="caret">Green Tea</span></li>	
+						
+	<ul class="cls_nested">
+		<li>Sencha</li>
+		<li>Gyokuro</li>
+		<li>Matcha</li>
+		<li>Pi Lo Chun</li>
+	</ul>
+	</ul>
+	</li>
+	</ul>			
+	</li>
+</ul>
+<script>
+	var var_toggler = document.getElementsByClassName("cls_caret")
+	var index;
+
+	for (index = 0; index < var_toggler.length; index++) {
+		var_toggler[index].addEventListener("click", function() {
+	
+		this.parentElement.querySelector(".cls_nested").classList.toggle("active");
+		this.classList.toggle("cls_caret-down");
+		});
+	}
+</script>
+<!--You can use a "ballot box" Unicode: U+2610/U+2611 instead of a caret-->
+</BODY>
+</HTML>
