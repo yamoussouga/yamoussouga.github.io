@@ -1,0 +1,1033 @@
+:)kwd[javascript notes]
+ #Javascript uses both '' and "" for string
+(:
+
+:)kwd[javascript display]
+#JavaScript can "display" data in different ways:
+-HTML element, using innerHTML or innerText.
+-HTML output using document.write().
+-alert box, using window.alert().
+!Use innerHTML when you want to change an HTML element.
+!Use innerText when you only want to change the plain text.
+!Using document.write() after an HTML document is loaded, 
+will delete all existing HTML; The document.write() method 
+should only be used for testing.
+
+(:
+
+:)kwd[js debug console javascript]
+#browser console, using console.log().
+#F12 on your keyboard will activate debugging.
+Then select "Console" in the debugger menu.
+Then click Run again.
+(:
+
+:)kwd[js print javascript]
+#printing page, window.print().
+JavaScript Print
+JavaScript does not have any print object or print methods.
+You cannot access output devices from JavaScript.
+The only exception is that you can call the window.print() method 
+in the browser to print the content of the current window.
+(:
+
+:)kwd[statement instruction]
+#In HTML, JavaScript programs are executed by the web browser.
+let x,y,z
+x=0;
+y=1;
+z=x+y;
+(:
+
+:)kwd[js keywords]
+#Keyword & Description
+var	Declares a variable
+let	Declares a block variable
+const	Declares a block constant
+if	Marks a block of statements to be executed on a condition
+switch	Marks a block of statements to be executed in different cases
+for	Marks a block of statements to be executed in a loop
+function	Declares a function
+return	Exits a function
+try	Implements error handling to a block of statements
+(:
+
+:)kwd[js comment]
+/*this is a comment*/
+//this is a comment
+(:
+
+:)kwd[js variable let const var]
+#The var keyword should only be used in code written for older browsers.
+
+#When to Use var, let, or const?
+1. Always declare variables otherwise the variable is implicitly 
+declared in the global scope.
+2. Always use const if the value should not be changed
+3. Always use const if the type should not be changed (Arrays and Objects)
+4. Only use let if you can't use const
+5. Only use var if you MUST support old browsers.
+
+#Using the dollar sign is not very common in JavaScript, but professional 
+programmers often use it as an alias for the main function in a JavaScript library.
+
+#In the JavaScript library jQuery, for instance, the main function $ is used to select HTML elements. In jQuery $("p"); means "select all p elements".
+
+#Since JavaScript treats underscore as a letter, identifiers containing
+ `_` are valid variable names:
+
+#In programming, function scope limits variable visibility to within the function where they are declared, while block scope restricts variable visibility to within a specific block of code, typically defined by curly braces {}. Variables declared with var have function scope, while let and const declarations have block scope. 
+
+#The let keyword was introduced in ES6 (2015)
+Variables declared with let have Block Scope
+Variables declared with let must be Declared before use
+Variables declared with let cannot be Redeclared in the same scope
+
+#Before ES6 (2015), JavaScript did not have Block Scope.
+JavaScript had Global Scope and Function Scope.
+ES6 introduced the two new JavaScript keywords: let and const.
+
+#Variables defined with let can not be redeclared.
+You can not accidentally redeclare a variable declared with let.
+Variables defined with var can be redeclared.
+
+#Redeclaring a variable using the var keyword can impose problems.
+Redeclaring a variable inside a block will also redeclare the variable outside the block
+Redeclaring a variable using the let keyword can solve this problem.
+Redeclaring a variable inside a block will not redeclare the variable outside the block:
+
+#What is Good?
+let and const have block scope.
+let and const can not be redeclared.
+let and const must be declared before use.
+let and const does not bind to this.
+let and const are not hoisted.
+
+#What is Not Good?
+var does not have to be declared.
+var is hoisted.
+var binds to this.
+
+#Variables defined with var are hoisted to the top and can be initialized at any time.
+Meaning: You can use the variable before it is declared:
+Example
+carName = "Volvo";
+var carName;
+
+#If you want to learn more about hoisting, study the chapter JavaScript Hoisting.
+Variables defined with let are also hoisted to the top of the block, but not initialized.
+Meaning: Using a let variable before it is declared will result in a ReferenceError:
+Example
+carName = "Saab";
+let carName = "Volvo";
+
+#The const keyword was introduced in ES6 (2015)
+Variables defined with const cannot be Redeclared
+Variables defined with const cannot be Reassigned
+Variables defined with const have Block Scope
+
+#Use const when you declare:
+A new Array
+A new Object
+A new Function
+A new RegExp
+
+#Constant Objects and Arrays
+The keyword const is a little misleading.
+It does not define a constant value. It defines a constant reference to a value.
+Because of this you can NOT:
+Reassign a constant value
+Reassign a constant array
+Reassign a constant object
+But you CAN:
+Change the elements of constant array
+Change the properties of constant object
+
+#Constant Arrays
+You can change the elements of a constant array:
+Example
+// You can create a constant array:
+const cars = ["Saab", "Volvo", "BMW"];
+// You can change an element:
+cars[0] = "Toyota";
+// You can add an element:
+cars.push("Audi");
+
+#f you want to learn more about hoisting, study the chapter JavaScript Hoisting.
+Variables defined with const are also hoisted to the top, but not initialized.
+Meaning: Using a const variable before it is declared will result in a ReferenceError:
+
+(:
+
+:)kwd[js operators]
+#There are different types of JavaScript operators:
+.Arithmetic Operators
+.Assignment Operators
+.Comparison Operators
+.String Operators
+.Logical Operators
+.Bitwise Operators
+.Ternary Operators
+.Type Operators
+
+#JavaScript Comparison Operators
+Operator	Description
+==	equal to
+===	equal value and equal type
+!=	not equal
+!==	not equal value or not equal type
+>	greater than
+<	less than
+>=	greater than or equal to
+<=	less than or equal to
+?	ternary operator
+
+#Note that strings are compared alphabetically:
+Example
+let text1 = "20";
+let text2 = "5";
+let result = text1 < text2;
+
+#JavaScript Logical Operators
+Operator	Description
+&&	logical and
+||	logical or
+!	logical not
+
+#JavaScript Type Operators
+Operator	Description
+typeof	Returns the type of a variable
+instanceof Returns true if an object is an instance of an object type
+
+#JavaScript Bitwise Operators
+Bit operators work on 32 bits numbers.
+Any numeric operand in the operation is converted into a 32 bit number. 
+The result is converted back to a JavaScript number.
+Operator	Description		Example		Same as		Result	Decimal
+&		AND			5 & 1		0101 & 	0001	0001	 1
+|		OR			5 | 1		0101 | 0001	0101	 5
+~		NOT			~ 5		 ~0101		1010	 10
+^		XOR			5 ^ 1		0101 ^ 0001	0100	 4
+<<		left shift		5 << 1		0101 << 1	1010	 10
+>>		right shift		5 >> 1		0101 >> 1	0010	  2
+>>>		unsigned right shift	5 >>> 1		0101 >>> 1	0010	  2
+(:
+
+:)kwd[js assignement]
+#Shift Assignment Operators
+Operator Example 	Same As
+<<=	 x <<= y	x = x << y
+>>=	 x >>= y	x = x >> y
+>>>=	 x >>>= y	x = x >>> y
+
+#Bitwise Assignment Operators
+Operator	Example	Same As
+&=	x &= y	x = x & y
+^=	x ^= y	x = x ^ y
+|=	x |= y	x = x | y
+
+#Logical Assignment Operators
+Operator	Example	Same As
+&&=		x &&= y	x = x && (x = y)
+||=		x ||= y	x = x || (x = y)
+??=		x ??= y	x = x ?? (x = y)
+Note: The Logical assignment operators are ES2020.
+
+#The <<= Operator
+The Left Shift Assignment Operator left shifts a variable.
+Left Shift Assignment Example
+let x = -100;
+x <<= 5;
+
+#The >>= Operator
+The Right Shift Assignment Operator right shifts a variable (signed).
+Right Shift Assignment Example
+let x = -100;
+x >>= 5;
+
+#The >>>= Operator
+The Unsigned Right Shift Assignment Operator right shifts a variable (unsigned).
+Unsigned Right Shift Assignment Example
+let x = -100;
+x >>>= 5;
+
+#The &= Operator
+The Bitwise AND Assignment Operator does a bitwise AND operation on two operands and assigns the result to the the variable.
+Bitwise AND Assignment Example
+let x = 10;
+x &= 5;
+
+#The |= Operator
+The Bitwise OR Assignment Operator does a bitwise OR operation on two operands and assigns the result to the variable.
+Bitwise OR Assignment Example
+let x = 10;
+x |= 5;
+
+#The ^= Operator
+The Bitwise XOR Assignment Operator does a bitwise XOR operation on two operands and assigns the result to the variable.
+Bitwise XOR Assignment Example
+let x = 10;
+x ^= 5;
+
+#The &&= Operator
+The Logical AND assignment operator is used between two values.
+If the first value is true, the second value is assigned.
+Logical AND Assignment Example
+let x = 10;
+x &&= 5;
+The &&= operator is an ES2020 feature.
+
+#The ||= Operator
+The Logical OR assignment operator is used between two values.
+If the first value is false, the second value is assigned.
+Logical OR Assignment Example
+let x = 10;
+x ||= 5;
+The ||= operator is an ES2020 feature.
+
+#The ??= Operator
+The Nullish coalescing assignment operator is used between two values.
+If the first value is undefined or null, the second value is assigned.
+Nullish Coalescing Assignment Example
+let x;
+x ??= 5;
+The ??= operator is an ES2020 feature.
+(:
+
+:)kwd[js datatypes]
+#JavaScript has 8 Datatypes
+String
+Number
+Bigint
+Boolean
+Undefined
+Null
+Symbol
+Object
+
+#The Object Datatype
+The object data type can contain both built-in objects, and user defined objects:
+Built-in object types can be:
+objects, arrays, dates, maps, sets, intarrays, floatarrays, promises, and more.
+
+#Note
+Most programming languages have many number types:
+Whole numbers (integers):
+byte (8-bit), short (16-bit), int (32-bit), long (64-bit)
+Real numbers (floating-point):
+float (32-bit), double (64-bit).
+Javascript numbers are always one type:
+double (64-bit floating point).
+You will learn more about numbers later in this tutorial.
+
+#JavaScript BigInt
+All JavaScript numbers are stored in a 64-bit floating-point format.
+JavaScript BigInt is a new datatype (ES2020) that can be used to store integer values that are too big to be represented by a normal JavaScript Number.
+Example
+let x = BigInt("123456789012345678901234567890");
+
+#Empty Values
+An empty value has nothing to do with undefined.
+An empty string has both a legal value and a type.
+(:
+
+:)kwd[]
+The typeof Operator
+You can use the JavaScript typeof operator to find the type of a JavaScript variable.
+The typeof operator returns the type of a variable or an expression:
+(:
+
+
+:)kwd[js javascript objects]
+In JavaScript, Objects are King.
+If you Understand Objects, you Understand JavaScript.
+Objects are containers for Properties and Methods.
+Properties are named Values.
+Methods are Functions stored as Properties.
+Properties can be primitive values, functions, or even other objects.
+In JavaScript, almost "everything" is an object.
+Objects, Maths, Functions, Dates, Arrays, Maps, Sets are all objects
+All JavaScript values, except primitives, are objects.
+JavaScript Primitives
+A primitive value is a value that has no properties or methods.
+example: 3.14 is a primitive value
+A primitive data type is data that has a primitive value.
+JavaScript defines 7 types of primitive data types:
+string,number,boolean,null,undefined,symbol,bigint,Immutable
+Primitive values are immutable (they are hardcoded and cannot be changed).
+if x = 3.14, you can change the value of x, but you cannot change the value of 3.14.
+
+Value		Type		Comment
+"Hello"		string		"Hello" is always "Hello"
+3.14		number		3.14 is always 3.14
+true		boolean		true is always true
+false		boolean		false is always false
+null		null (object)	null is always null
+undefined	undefined	undefined is always undefined
+
+JavaScript 	Objects are Mutable
+Objects are mutable: They are addressed by reference, not by value.
+If person is an object, the following statement will not create a copy of person:
+const x = person;
+The object x is not a copy of person. The object x is person.
+The object x and the object person share the same memory address.
+Any changes to x will also change person:
+Example
+//Create an Object
+const person = {
+  firstName:"John",
+  lastName:"Doe",
+  age:50, eyeColor:"blue"
+}
+// Try to create a copy
+const x = person;
+// This will change age in person:
+x.age = 10;
+(:
+
+:)kwd[js objects properties]
+An Object is an Unordered Collection of Properties
+Properties can be changed, added, deleted, and some are read only.
+
+Accessing JavaScript Properties
+// objectName.property
+let age = person.age;
+or
+//objectName["property"]
+let age = person["age"];
+or
+//objectName[expression]
+let age = person[x];
+
+#Deleting Properties
+The delete keyword deletes a property from an object:
+The delete keyword deletes both the value of the property and the property itself.
+After deletion, the property cannot be used before it is added back again.
+
+Nested Objects
+Property values in an object can be other objects:
+Example
+myObj = {
+  name:"John",
+  age:30,
+  myCars: {
+    car1:"Ford",
+    car2:"BMW",
+    car3:"Fiat"
+  }
+}
+
+You can access nested objects using the dot notation or the bracket notation:
+Examples
+myObj.myCars.car2;
+myObj.myCars["car2"];
+myObj["myCars"]["car2"];
+let p1 = "myCars";
+let p2 = "car2";
+myObj[p1][p2];
+(:
+
+
+:)kwd[Display JavaScript Objects]
+How to Display JavaScript Objects?
+Displaying a JavaScript object will output [object Object].
+Example
+// Create an Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+document.getElementById("demo").innerHTML = person;
+Some solutions to display JavaScript objects are:
+Displaying the Object Properties by name
+Displaying the Object Properties in a Loop
+Displaying the Object using Object.values()
+Displaying the Object using JSON.stringify()
+Displaying Object Properties
+The properties of an object can be displayed as a string:
+
+Example
+// Create an Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+// Display Properties
+document.getElementById("demo").innerHTML =
+person.name + "," + person.age + "," + person.city;
+Displaying Properties in a Loop
+The properties of an object can be collected in a loop:
+
+Example
+// Create an Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+// Build a Text
+let text = "";
+for (let x in person) {
+  text += person[x] + " ";
+};
+
+// Display the Text
+document.getElementById("demo").innerHTML = text;
+Note:
+You must use person[x] in the loop.
+person.x will not work (Because x is the loop variable).
+
+Using Object.values()
+Object.values() creates an array from the property values:
+
+// Create an Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+// Create an Array
+const myArray = Object.values(person);
+
+// Display the Array
+document.getElementById("demo").innerHTML = myArray;
+Using Object.entries()
+Object.entries() makes it simple to use objects in loops:
+
+Example
+const fruits = {Bananas:300, Oranges:200, Apples:500};
+
+let text = "";
+for (let [fruit, value] of Object.entries(fruits)) {
+  text += fruit + ": " + value + "<br>";
+}
+Using JSON.stringify()
+JavaScript objects can be converted to a string with JSON method JSON.stringify().
+
+JSON.stringify() is included in JavaScript and supported in all major browsers.
+
+Note:
+The result will be a string written in JSON notation:
+
+{"name":"John","age":50,"city":"New York"}
+
+Example
+// Create an Object
+const person = {
+  name: "John",
+  age: 30,
+  city: "New York"
+};
+
+// Stringify Object
+let myString = JSON.stringify(person);
+
+// Display String
+document.getElementById("demo").innerHTML = myString;
+Complete Object Reference
+
+#`entries()` method is a built-in JavaScript Object method.
+(:
+
+
+:)kwd[Object Constructor Functions]
+Object Constructor Functions
+Sometimes we need to create many objects of the same type.
+To create an object type we use an object constructor function.
+It is considered good practice to name constructor functions with an upper-case first letter.
+
+Object Type Person
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+Note:
+In the constructor function, this has no value.
+The value of this will become the new object when a new object is created.
+
+Now we can use new Person() to create many new Person objects:
+
+Example
+const myFather = new Person("John", "Doe", 50, "blue");
+const myMother = new Person("Sally", "Rally", 48, "green");
+const mySister = new Person("Anna", "Rally", 18, "green");
+
+const mySelf = new Person("Johnny", "Rally", 22, "green");
+Property Default Values
+A value given to a property will be a default value for all objects created by the constructor:
+
+Example
+function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+  this.nationality = "English";
+}
+Adding a Property to an Object
+Adding a property to a created object is easy:
+
+Example
+myFather.nationality = "English";
+Note:
+The new property will be added to myFather. Not to any other Person Objects.
+
+Adding a Property to a Constructor
+You can NOT add a new property to an object constructor:
+
+Example
+Person.nationality = "English";
+To add a new property, you must add it to the constructor function prototype:
+
+Example
+Person.prototype.nationality = "English";
+
+Constructor Function Methods
+A constructor function can also have methods:
+
+Example
+function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+  this.fullName = function() {
+    return this.firstName + " " + this.lastName;
+  };
+}
+Adding a Method to an Object
+Adding a method to a created object is easy:
+
+Example
+myMother.changeName = function (name) {
+  this.lastName = name;
+}
+Note:
+The new method will be added to myMother. Not to any other Person Objects.
+
+Adding a Method to a Constructor
+You cannot add a new method to an object constructor function.
+
+This code will produce a TypeError:
+
+Example
+Person.changeName = function (name) {
+  this.lastName = name;
+}
+
+myMother.changeName("Doe");
+ TypeError: myMother.changeName is not a function
+
+Adding a new method must be done to the constructor function prototype:
+
+Example
+Person.prototype.changeName = function (name) {
+  this.lastName = name;
+}
+
+myMother.changeName("Doe");
+Note:
+The changeName() function assigns the value of name to the person's lastName property, substituting this with myMother.
+
+Built-in JavaScript Constructors
+JavaScript has built-in constructors for all native objects:
+
+new Object()   // A new Object object
+new Array()    // A new Array object
+new Map()      // A new Map object
+new Set()      // A new Set object
+new Date()     // A new Date object
+new RegExp()   // A new RegExp object
+new Function() // A new Function object
+Note:
+The Math() object is not in the list. Math is a global object. The new keyword cannot be used on Math.
+
+Did You Know?
+Use object literals {} instead of new Object().
+Use array literals [] instead of new Array().
+Use pattern literals /()/ instead of new RegExp().
+Use function expressions () {} instead of new Function().
+
+Example
+"";           // primitive string
+0;            // primitive number
+false;        // primitive boolean
+
+{};           // object object
+[];           // array object
+/()/          // regexp object
+function(){}; // function
+(:
+
+:)kwd[js events]
+HTML Events
+An HTML event can be something the browser does, or something a user does.
+HTML allows event handler attributes, with JavaScript code, to be added to HTML elements.
+
+With single/double quotes:
+<element event='some JavaScript'>
+<element event="some JavaScript">
+In the following example, an onclick attribute (with code), is added to a <button> element:
+Example
+<button onclick="document.getElementById('demo').innerHTML = Date()">The time is?</button>
+In the example above, the JavaScript code changes the content of the element with id="demo".
+
+In the next example, the code changes the content of its own element (using this.innerHTML):
+Example
+<button onclick="this.innerHTML = Date()">The time is?</button>
+JavaScript code is often several lines long. It is more common to see event attributes calling functions:
+Example
+<button onclick="displayDate()">The time is?</button>
+
+Common HTML Events
+Here is a list of some common HTML events:
+
+Event		Description
+onchange	An HTML element has been changed
+onclick		The user clicks an HTML element
+onmouseover	The user moves the mouse over an HTML element
+onmouseout	The user moves the mouse away from an HTML element
+onkeydown	The user pushes a keyboard key
+onload		The browser has finished loading the page
+The list is much longer: W3Schools JavaScript Reference HTML DOM Events.
+
+#JavaScript Event Handlers
+Event handlers can be used to handle and verify user input, user actions, and browser actions:
+
+Things that should be done every time a page loads
+Things that should be done when the page is closed
+Action that should be performed when a user clicks a button
+Content that should be verified when a user inputs data
+And more ...
+Many different methods can be used to let JavaScript work with events:
+
+HTML event attributes can execute JavaScript code directly
+HTML event attributes can call JavaScript functions
+You can assign your own event handler functions to HTML elements
+You can prevent events from being sent or being handled
+
+(:
+
+:)kwd[js strings]
+Template Strings
+Templates were introduced with ES6 (JavaScript 2016).
+Templates are strings enclosed in backticks (`This is a template string`).
+Templates allow single and double quotes inside a string:
+Example
+let text = `He's often called "Johnny"`;
+Note
+Templates are not supported in Internet Explorer.
+(:
+
+:)kwd[Escape Characters]
+Escape Characters
+Code	Result	Description
+\'	'	Single quote
+\"	"	Double quote
+\\	\	Backslash
+
+Code	Result
+\b	Backspace
+\f	Form Feed
+\n	New Line
+\r	Carriage Return
+\t	Horizontal Tabulator
+\v	Vertical Tabulator
+Note
+The 6 escape characters above were originally designed to control typewriters, teletypes, and fax machines. They do not make any sense in HTML.
+
+(:
+
+:)kwd[Template Strings]
+Templates were introduced with ES6 (JavaScript 2016).
+Templates are strings enclosed in backticks (`This is a template string`).
+Templates allow multiline strings:
+
+Example:
+let text =
+`The quick
+brown fox
+jumps over
+the lazy dog`;
+
+Note: Templates are not supported in Internet Explorer.
+(:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--putting all together-->
+<!DOCTYPE html>
+<html>
+<body>
+<audio id="myAudio" src="your-audio-file.mp3"></audio>
+<button onclick="playMyAudio()">Play Audio</button>
+<script>
+function playMyAudio() {
+  document.getElementById("myAudio").play();
+}
+</script>
+</body>
+</html>
+
+<!--using an event listener-->
+<!DOCTYPE html>
+<html>
+<body>
+<audio id="myAudio" src="your-audio-file.mp3"></audio>
+<button id="myBtn">Play Audio</button>
+<script>
+document.getElementById("myBtn").addEventListener("click", function() {
+  document.getElementById("myAudio").play();
+});
+</script>
+</body>
+</html>
+
+<img src="https://i.imgur.com/7KpCS0Y.jpg" onclick="window.open(this.src)">
+<script type="text/javascript">
+function image(img) {
+    var src = img.src;
+    window.open(src);
+}
+</script>
+<img src="pond1.jpg" height="150" size="150" alt="Johnson Pond" onclick="image(this)">
+
+ <img
+    src="pond1.jpg"
+    alt="pic id code"
+    onClick="window.open(this.src)"
+    role="button"
+    tabIndex="0"
+  />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
