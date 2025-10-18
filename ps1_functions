@@ -1,0 +1,28 @@
+
+:)[parse a txt file char by char]
+#Specify the file path
+$filePath = "C:\Users\1631037891A\OneDrive - United States Air Force\AMOUSSOUGA\TXTs\PS_ISE\test_BaseCodes.txt"
+#Open the file for reading
+$fileStream = [System.IO.File]::OpenRead($filePath)
+$streamReader = New-Object System.IO.StreamReader($fileStream)
+
+# Read the file character by character
+while (-not $streamReader.EndOfStream) {
+    #Reads the next character as an integer
+    $currentAssciiChar = $streamReader.Read() 
+    #Convert the integer ascii char to its value character    
+    $asciiToChar = [char]$currentAssciiChar 
+    
+    #todo 
+    #replace the `*` with `empty string char`
+    #replace any extra empty line [`r`n]+ with `empty string char`  
+    #Write-Output $ascciToChar 
+   
+}
+
+# Close the reader and file stream
+$streamReader.Close()
+$fileStream.Close()
+(:
+
+
