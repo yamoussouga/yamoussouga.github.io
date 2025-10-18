@@ -1,0 +1,75 @@
+basic data format:
+:) kwd[kwd1, kwd2, kwd3] 
+... 
+(:
+:)  
+kwd[programming javascript json parse] 
+#example of text got from a server
+'{"a_name":"Carol", "a_age": 27, "a_city":"Cincinnati"}'
+#Using javascript function "json.parse()" to convert the text into a javascript object.
+const var_obj =json.parse('{"a_name":"Carol", "a_age": 27, "a_city":"Cincinnati"}')
+(:
+:)kwd[programming javascript html]
+#Use the javascript object in your html page
+<p id="demo"></p>
+<script>
+document.getElementById("demo").inner.html = var_obj.name
+</script>
+(:
+:)
+kwd[Array Json ]
+#Array as Json
+Json array rendered in javascript gives a javascript 
+array and not a javascript object.
+{
+const var_text = '["Ford", "BMW", "Audi", "Fiat"]';
+const var_array = Json.parse(var_text);
+}
+(:
+:)kwd[Json Exceptions Parse function reviver]
+#Date objects are not allowed in Json; and must be written as string if you want to use them in Json and you can convert them back into a date object later.
+#example: 
+const var_text = '{"name":"Carol", "birth": "1986-12-14, "City":"Cincinnati"}';
+const var_obj = Json.parse(var_text);
+var_obj.birth = new Date(var_obj.birth);
+
+document.getElementById("demo").innerHtml = var_obj.name +","+ var_obj.birth;
+
+#The reviver parameter is a function that checks each property, before returning the value.
+.example with "Reviver"
+const var_text = '{"name":"Carol", "birth": "1986-12-14, "City":"Cincinnati"}';
+const var_obj = json.parse(var_text, function(key, value){
+	if (key == "birth"){
+	return new Date(value);
+	} else {
+		return value;
+	}
+});
+
+#Parsing Functions
+Functions are not allowed in JSON
+.example converting a string into function
+const v_text = '{"name":"Carol", "a_age":"function(){return 27;}", "City":"Cincinnati"}';
+const v_obj = json.parse(v_text);
+v_obj.age = eval("("+ v_obj.age")")
+
+document.getelementbyid("id_demo").innerhtml = v_obj.name +", "+ v_obj.age();
+
+moral of the story: you should avoid using functions in json.
+(:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
