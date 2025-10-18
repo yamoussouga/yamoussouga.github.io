@@ -1,0 +1,669 @@
+:)[PowerShell basic]
+PowerShell is a command-line shell and scripting language developed by Microsoft, designed for task automation and configuration management. 
+It is built on the .NET framework and is widely used by system administrators and IT professionals to manage Windows systems and applications.
+
+Cmdlets: PowerShell commands are called cmdlets, which follow a Verb-Noun naming convention (e.g., Get-Process, Set-Item).
+
+Scripting: PowerShell supports scripting with .ps1 files, enabling automation of repetitive tasks.
+
+Cross-Platform: PowerShell is available on Windows, Linux, and macOS, making it versatile for managing diverse environments.
+
+Providers: Access data stores like the file system, registry, and certificate store using a consistent cmdlet format.
+
+Object-Oriented: Outputs are objects, making it easier to manipulate and process data.
+
+Getting Started with PowerShell
+
+To begin using PowerShell:
+
+Launch PowerShell: Search for "PowerShell" in the Start menu or use Win + X to open it. For administrative tasks, select "Run as Administrator."
+
+Check Version: Use $PSVersionTable.PSVersion to verify the installed version.
+
+Install PowerShell: On non-Windows systems, install PowerShell 7 using package managers like apt (Linux) or brew (macOS).
+
+#Basic Commands
+Here are some essential PowerShell commands to get started:
+
+# List all available cmdlets
+Get-Command
+
+# Get help for a specific cmdlet
+Get-Help Get-Process
+
+# List files and directories
+Get-ChildItem
+
+# Copy a file
+Copy-Item -Path "C:\File.txt" -Destination "D:\Backup"
+
+# Move a file
+Move-Item -Path "C:\File.txt" -Destination "D:\Documents"
+
+# Delete a file
+Remove-Item -Path "C:\OldFile.txt"
+
+Writing Scripts
+#PowerShell scripts are saved with a .ps1 extension. Here's an example of a simple script:
+
+# Define a variable
+$name = "John"
+
+# Print a message
+Write-Output "Hello, $name!"
+
+# Loop through numbers
+for ($i = 1; $i -le 5; $i++) {
+Write-Output "Iteration $i"
+}
+*Run the script by navigating to its directory and typing .\ScriptName.ps1.
+
+#Execution Policy
+PowerShell includes an execution policy to control script execution for security purposes. Common policies include:
+Restricted: No scripts can run.
+RemoteSigned: Requires downloaded scripts to be signed by a trusted publisher.
+Unrestricted: All scripts can run, but warnings are displayed.
+*To change the execution policy:
+Set-ExecutionPolicy RemoteSigned
+
+#For advanced scripting, use:
+PowerShell ISE: A built-in GUI for script development.
+Visual Studio Code: Install the PowerShell extension for debugging and IntelliSense.
+(:
+
+
+:)[CRUD in PS]
+#Create an empty text file
+#=========================
+#1
+New-Item -Path "C:\Path\To\File.txt" -ItemType File
+#2
+Set-Content -Path "C:\Path\To\File.txt" -Value ""
+#3
+"" | Out-File -FilePath "C:\Path\To\File.txt"
+
+#Replace a char in a file
+#=====================
+#1
+$string = "Hello`rWorld"
+$cleanedString = $string -replace "`r", ""
+Write-Output $cleanedString
+#2
+$string = "Hello`rWorld"
+$cleanedString = $string.Replace("`r", "")
+Write-Output $cleanedString
+#3
+$string = "Hello`r`nWorld"
+$cleanedString = $string -replace "[`r`n]+", ""
+Write-Output $cleanedString
+
+#Add content to a file
+#=====================
+#1
+Add-Content -Path "C:\Path\To\File.txt" -Value "This is the new content."
+#2
+"This is the new content." | Out-File -FilePath "C:\Path\To\File.txt" -Append
+#3
+"This is the new content." >> "C:\Path\To\File.txt" 
+
+#Read a file
+#===========
+#1 Basic Line-by-Line Reading
+Get-Content -Path "C:\Path\To\File.txt" | ForEach-Object {
+    Write-Output $_
+}
+#2 Storing Lines in a Variable
+$lines = Get-Content -Path "C:\Path\To\File.txt"
+foreach ($line in $lines) {
+    Write-Output $line
+}
+#3 Processing Large Files
+Get-Content -Path "C:\Path\To\File.txt" -ReadCount 1 | ForEach-Object {
+    # Process each line
+    Write-Output $_
+}
+
+#Delete a file
+#=============
+#1
+Remove-Item -Path "C:\Path\To\Your\File.txt"
+#2 Force the deletation
+Remove-Item -Path "C:\Path\To\Your\File.txt" -Force
+#3 Mukltiple file deletion
+Remove-Item -Path "C:\Path\To\Your\*.txt"
+(:
+
+:)[parse a txt file char by char]
+#To read a text file character by character in PowerShell
+#========================================================
+Explanation
+File Stream: The [System.IO.File]::OpenRead() method opens the file as a stream for reading.
+StreamReader: The StreamReader object reads the file's content.
+Character Reading: The Read() method reads one character at a time, returning its ASCII value, which is then converted to a character using [char].
+Loop: The while loop continues until the end of the file is reached (EndOfStream).
+This method is efficient for character-level processing and ensures proper resource management by closing the file stream after use.
+#code is after this line
+#------------------------
+#Specify the file path
+$filePath = "C:\path\to\your\file.txt"
+#Open the file for reading
+$fileStream = [System.IO.File]::OpenRead($filePath)
+$reader = New-Object System.IO.StreamReader($fileStream)
+# Read the file character by character
+while (-not $reader.EndOfStream) {
+    $char = $reader.Read() # Reads the next character as an integer
+    $character = [char]$char # Convert the integer to a character
+    Write-Output $character # Output the character
+}
+# Close the reader and file stream
+$reader.Close()
+$fileStream.Close()
+(:
+
+:)[ps custom function]
+#creating a custom function in PowerShell allows you to encapsulate reusable code, making your scripts more modular and easier to maintain. Here's a simple example of how to create and use a custom function:
+
+# Usage
+Divide-Numbers -Dividend 10 -Divisor 2
+Divide-Numbers -Dividend 10 -Divisor 0
+Key Points
+param Block: Defines the parameters for the function.
+Error Handling: Use try and catch blocks to handle errors gracefully.
+Reusability: Functions can be saved in a .ps1 file and imported using . (dot sourcing) or Import-Module.
+These examples should help you get started with creating custom PowerShell functions!
+
+#Basic PowerShell Function
+function Get-Greeting {
+    param (
+        [string]$Name = "User"
+    )
+    Write-Output "Hello, $Name! Welcome to PowerShell."
+}
+# Usage
+Get-Greeting -Name "Alex"
+
+#Function with Multiple Parameters
+function Add-Numbers {
+    param (
+        [int]$Number1,
+        [int]$Number2
+    )
+    $Sum = $Number1 + $Number2
+    Write-Output "The sum of $Number1 and $Number2 is $Sum."
+}
+# Usage
+Add-Numbers -Number1 5 -Number2 10
+
+#Advanced Function with Error Handling
+Copy code
+function Divide-Numbers {
+    param (
+        [int]$Dividend,
+        [int]$Divisor
+    )
+    try {
+        if ($Divisor -eq 0) {
+            throw "Division by zero is not allowed."
+        }
+        $Result = $Dividend / $Divisor
+        Write-Output "The result of dividing $Dividend by $Divisor is $Result."
+    } catch {
+        Write-Output "Error: $_"
+    }
+}
+(:
+
+:)[Save a stream char by char to a txt file]
+#To write a stream and save it as a text file in PowerShell
+#========================================================
+#you can use the StreamWriter class or simpler cmdlets like Out-File or Set-Content. 
+StreamWriter: Best for advanced scenarios requiring precise control.
+Set-Content: Ideal for simple text writing.
+Out-File: Great for redirecting command output.
+Let me know if you need further clarification! 😊
+
+1. Using StreamWriter
+This method provides fine-grained control over writing to a file.
+# Define the file path
+$filePath = "C:\Path\To\Your\File.txt"
+# Create a StreamWriter object
+$streamWriter = [System.IO.StreamWriter]::new($filePath)
+# Write content to the file
+$streamWriter.WriteLine("This is the first line.")
+$streamWriter.WriteLine("This is the second line.")
+# Close the StreamWriter to release the file
+$streamWriter.Close()
+
+2. Using Set-Content
+This is a simpler and more PowerShell-native way to write content to a file.
+# Define the file path
+$filePath = "C:\Path\To\Your\File.txt"
+# Write content to the file
+Set-Content -Path $filePath -Value "This is the first line.`nThis is the second line."
+
+3. Using Out-File
+This method is useful for redirecting output from commands or scripts.
+# Define the file path
+$filePath = "C:\Path\To\Your\File.txt"
+# Write content to the file
+"This is the first line." | Out-File -FilePath $filePath
+"This is the second line." | Out-File -FilePath $filePath -Append
+Each method has its own use case:
+(:
+
+:)[PS resources links]
+https://learn.microsoft.com/en-us/training/modules/introduction-to-powershell/3-exercise-powershell
+(:
+
+:)[get-history]
+start-process "chrome.exe" "--start-full screen https://www.cs50.dev"
+start-process -filepath "C:\Program Files\Google\Chrome\Application\chrome.exe" "--start-full https://www.cs50.dev"
+start-process -filepath "C:\Program Files\Google\Chrome\Application\chrome.exe" "--start-full https://legacy.omni.af.mil/ePex/pexmain.aspx?frameLocation=StanEval%2FProctorExam.aspx"
+https://stackoverflow.com/users/778560/aacini  (scripting)
+https://usaf.dps.mil/sites/12415/83NOS/QA/CCV/Lists/GoNoGO%20Status/AllItems.aspx?
+isAscending=true&sortField=LinkTitle&groupBy=Workcenter&viewid=8cc08def
+%2D57f6
+%2D4e74
+%2D9d91
+%2D65192ea73fbc
+%2F%24princ&noAuthRedirect=1 
+
+Start-Process -FilePath "C:\Users\YourUserName\Desktop\YourShortcut.lnk"
+Invoke-Item -Path "C:\Users\YourUserName\Desktop\YourShortcut.lnk"
+
+:)[url encoded representation]
+`space` char is replace with a + sign or %20)
+%2D represent hyphen character -)
+%2F represent foward slash `/` char)
+%24 represent `$` character)
+%2E represente `.` char
+note(query syntax parameters: isAscending)
+note(the & char represent key-value pair)
+(:
+
+(:
+
+:)[PSCustomObject]
+A PSCustomObject in PowerShell is a versatile way to create structured data with named properties. 
+It is widely used for organizing, manipulating, and exporting data.
+Example: Creating a Custom Object
+$customObject = [PSCustomObject]@{
+FirstName = "John"
+LastName = "Doe"
+Age = 30
+City = "New York"
+}
+Write-Output $customObject
+
+This creates an object with properties FirstName, LastName, Age, and City. You can access these properties using dot notation:
+Write-Output $customObject.FirstName # Outputs: John
+Copy
+Adding Methods to Custom Objects
+You can enhance custom objects by adding methods. For example:
+$customObject | Add-Member -MemberType ScriptMethod -Name "GetFullName" -Value {
+return "$($this.FirstName) $($this.LastName)"
+}
+Write-Output $customObject.GetFullName() # Outputs: John Doe
+
+Exporting Custom Objects
+Custom objects can be exported to formats like CSV or JSON:
+$customObject | Export-Csv -Path "C:\Users\Public\customObject.csv" -NoTypeInformation
+$customObject | ConvertTo-Json | Set-Content -Path "C:\Users\Public\customObject.json"
+
+Advanced Features
+Nested Objects: Custom objects can contain other objects.
+Calculated Properties: Add dynamic properties based on existing data.
+Filtering and Sorting: Use cmdlets like Where-Object and Sort-Object for manipulation.
+Considerations
+Use [PSCustomObject] for better performance compared to New-Object.
+Avoid modifying the structure of a PSCustomObject after creation for consistency.
+This approach simplifies data handling in scripts, making them more readable and maintainable
+(:
+
+
+:)[Save a custom PowerShell object to a text file]
+you can use several methods depending on the desired format (e.g., plain text, JSON, or CSV).
+Below are examples of how to achieve this:
+
+1. Save as Plain Text
+You can convert the custom object to a string and save it to a text file using Out-File or Set-Content.
+
+Powershell
+
+Copy code
+# Create a custom PowerShell object
+$customObject = [PSCustomObject]@{
+    Name  = "John Doe"
+    Age   = 30
+    Email = "john.doe@example.com"
+}
+
+# Convert the object to a string and save it to a text file
+$customObject | Out-String | Out-File -FilePath "C:\Path\To\Output.txt"
+
+# Alternatively, use Set-Content
+$customObject | Out-String | Set-Content -Path "C:\Path\To\Output.txt"
+This will save the object's properties and values as plain text.
+
+2. Save as JSON
+If you want to save the object in a structured format, JSON is a good choice. Use the ConvertTo-Json cmdlet.
+
+Powershell
+
+Copy code
+# Create a custom PowerShell object
+$customObject = [PSCustomObject]@{
+    Name  = "John Doe"
+    Age   = 30
+    Email = "john.doe@example.com"
+}
+
+# Convert the object to JSON and save it to a file
+$customObject | ConvertTo-Json -Depth 10 | Set-Content -Path "C:\Path\To\Output.json"
+This will save the object in JSON format, which is easy to read and parse.
+
+3. Save as CSV
+If the object has consistent properties, you can save it as a CSV file using Export-Csv.
+
+Powershell
+
+Copy code
+# Create a custom PowerShell object
+$customObject = [PSCustomObject]@{
+    Name  = "John Doe"
+    Age   = 30
+    Email = "john.doe@example.com"
+}
+
+# Save the object as a CSV file
+$customObject | Export-Csv -Path "C:\Path\To\Output.csv" -NoTypeInformation
+The -NoTypeInformation parameter removes the type information from the CSV file.
+
+4. Save as Custom-Formatted Text
+If you need a custom format, you can manually construct the text and save it.
+
+Powershell
+
+Copy code
+# Create a custom PowerShell object
+$customObject = [PSCustomObject]@{
+    Name  = "John Doe"
+    Age   = 30
+    Email = "john.doe@example.com"
+}
+
+# Create a custom-formatted string
+$customText = @"
+Name: $($customObject.Name)
+Age: $($customObject.Age)
+Email: $($customObject.Email)
+"@
+
+# Save the custom-formatted string to a file
+$customText | Set-Content -Path "C:\Path\To\Output.txt"
+This allows you to define the exact format of the output.
+
+Summary of Methods
+Plain Text: Use Out-String and Out-File or Set-Content.
+JSON: Use ConvertTo-Json for structured data.
+CSV: Use Export-Csv for tabular data.
+Custom Format: Manually construct the text and save it.
+Choose the method that best fits your use case!
+
+(:
+
+:)[Set Object from Text File in PowerShell]
+
+To create and set an object from a text file in PowerShell, you can parse the file's content and convert it into a custom object. Below is a step-by-step guide to achieve this.
+
+Steps to Set Object from Text File
+
+Read the Text File Use Get-Content to read the file line by line:
+
+$fileContent = Get-Content -Path "C:\path\to\file.txt"
+Copy
+Parse the Content Split each line into key-value pairs and trim unnecessary spaces:
+
+$properties = @{}
+foreach ($line in $fileContent) {
+if ($line -match "^\s*(.+?):\s*(.+)$") {
+$key = $matches[1].Trim()
+$value = $matches[2].Trim()
+$properties[$key] = $value
+}
+}
+
+Create a Custom Object Convert the parsed properties into a PowerShell object:
+
+$customObject = [PSCustomObject]$properties
+
+Verify the Object Output the object to ensure it was created correctly:
+
+$customObject | Format-List
+
+Example Input and Output
+
+Input (Text File):
+
+Name: John Doe
+Age: 30
+Location: New York
+Status: Active
+
+Output (Custom Object):
+
+Name : John Doe
+Age : 30
+Location : New York
+Status : Active
+Copy
+Best Practices
+
+Ensure the text file follows a consistent key-value format.
+
+Use [ordered]@{} for maintaining property order if required.
+
+For complex structures, consider using JSON or XML for easier parsing with ConvertFrom-Json or Import-Clixml.
+
+This approach is efficient for converting structured text files into objects for further manipulation in PowerShell.
+(:
+
+
+:)[Hash table]
+In PowerShell, you can format and display hash tables in a structured way using the Format-Table cmdlet. Below are examples of how to work with hash tables and format them for better readability.
+
+Example 1: Display a Single Hash Table
+If you have a single hash table, you can display its keys and values using GetEnumerator() or by converting it into a custom object.
+
+Powershell
+
+Copy code
+# Define a hash table
+$hashTable = @{
+    Name = "John Doe"
+    Age = 30
+    Occupation = "Engineer"
+}
+
+# Display the hash table as a table
+$hashTable.GetEnumerator() | Format-Table -AutoSize
+Output:
+
+Copy code
+Name        Value
+----        -----
+Name        John Doe
+Age         30
+Occupation  Engineer
+Example 2: Format an Array of Hash Tables
+If you have an array of hash tables, you can format them into a table by converting each hash table into a custom object.
+
+Powershell
+
+Copy code
+# Define an array of hash tables
+$hashTableArray = @(
+    @{ Name = "Alice"; Age = 25; Occupation = "Designer" },
+    @{ Name = "Bob"; Age = 35; Occupation = "Manager" },
+    @{ Name = "Charlie"; Age = 28; Occupation = "Developer" }
+)
+
+# Convert hash tables to objects and format as a table
+$hashTableArray | ForEach-Object {
+    [PSCustomObject]$_
+} | Format-Table -AutoSize
+Output:
+
+Copy code
+Name     Age Occupation
+----     --- ----------
+Alice    25  Designer
+Bob      35  Manager
+Charlie  28  Developer
+Example 3: Add Calculated Properties to a Hash Table
+You can use a calculated property to add or modify columns in the output.
+
+Powershell
+
+Copy code
+# Define an array of hash tables
+$hashTableArray = @(
+    @{ Name = "Alice"; Age = 25; Occupation = "Designer" },
+    @{ Name = "Bob"; Age = 35; Occupation = "Manager" },
+    @{ Name = "Charlie"; Age = 28; Occupation = "Developer" }
+)
+
+# Add a calculated property (e.g., YearsToRetirement)
+$hashTableArray | ForEach-Object {
+    [PSCustomObject]@{
+        Name = $_.Name
+        Age = $_.Age
+        Occupation = $_.Occupation
+        YearsToRetirement = 65 - $_.Age
+    }
+} | Format-Table -AutoSize
+Output:
+
+Copy code
+Name     Age Occupation YearsToRetirement
+----     --- ---------- -----------------
+Alice    25  Designer   40
+Bob      35  Manager    30
+Charlie  28  Developer  37
+Explanation:
+GetEnumerator(): Used to iterate over key-value pairs in a hash table.
+[PSCustomObject]: Converts hash tables into objects, which are easier to format with Format-Table.
+Format-Table -AutoSize: Automatically adjusts column widths for better readability.
+Calculated Properties: Add new columns dynamically by defining custom logic.
+These techniques allow you to display hash table data in a clean, tabular format.
+(:
+
+:)[More on PSCustomObject]
+In PowerShell, you cannot save a PSCustomObject directly into a text file in its raw format because PSCustomObject is a structured object, not a simple string. When you attempt to save it directly to a text file, PowerShell converts the object into its string representation, which often results in an array of strings or a less useful format.
+
+Here are the key reasons:
+
+1. Objects Are Not Strings
+A PSCustomObject is a complex data structure that contains properties and values. It is not inherently a string, so when you try to save it to a text file, PowerShell uses the default string representation of the object.
+For example:
+Powershell
+
+Copy code
+$obj = [PSCustomObject]@{
+    Name = "John"
+    Age  = 30
+}
+$obj | Out-File "output.txt"
+The resulting file will contain something like:
+
+Copy code
+@{Name=John; Age=30}
+This is not the raw object but a stringified version of it.
+2. Serialization Is Required for Complex Objects
+To preserve the structure of a PSCustomObject (its properties and values), you need to serialize it into a format that can store structured data, such as JSON or XML.
+For example:
+Powershell
+
+Copy code
+$obj = [PSCustomObject]@{
+    Name = "John"
+    Age  = 30
+}
+$obj | ConvertTo-Json | Out-File "output.json"
+This will save the object in JSON format:
+Json
+
+Copy code
+{
+    "Name": "John",
+    "Age": 30
+}
+3. Default Output Behavior
+When you output a PSCustomObject to a file without serialization, PowerShell uses the ToString() method of the object. For PSCustomObject, this results in a string representation of the object that is not suitable for reloading or further processing.
+4. Reloading the Object
+If you save the raw string representation of a PSCustomObject, you cannot easily reload it back into its original structured form. Serialization (e.g., JSON or XML) ensures that the object can be deserialized back into a usable object.
+How to Save and Reload a PSCustomObject Properly
+To save and reload a PSCustomObject while preserving its structure, use serialization:
+
+Save as JSON:
+Powershell
+
+# Create a PSCustomObject
+$obj = [PSCustomObject]@{
+    Name = "John"
+    Age  = 30
+}
+
+# Save to a JSON file
+$obj | ConvertTo-Json | Out-File "output.json"
+Reload from JSON:
+Powershell
+
+# Load from the JSON file
+$json = Get-Content "output.json" -Raw
+$obj = $json | ConvertFrom-Json
+
+# Output the reloaded object
+$obj
+Alternative: Save as XML
+You can also use XML for serialization:
+
+# Save as XML
+$obj | Export-Clixml "output.xml"
+
+# Reload from XML
+$obj = Import-Clixml "output.xml"
+Summary
+You cannot save a PSCustomObject directly into a text file in its raw format because it is not a string. To preserve its structure, you need to serialize it into a format like JSON or XML. This ensures that the object can be saved, reloaded, and used effectively.
+
+(:
+
+:)[Object in powershell]
+In PowerShell, you can create objects using various methods depending on your needs. Here are three common approaches:
+
+1. Using New-Object Cmdlet
+The New-Object cmdlet creates an instance of a .NET Framework or COM object.
+
+# Example: Creating a System.DateTime object
+$date = New-Object System.DateTime
+Write-Output $date
+2. Using [PSCustomObject]
+This is a lightweight and flexible way to create custom objects with properties.
+
+# Example: Creating a custom object with properties
+$person = [PSCustomObject]@{
+    Name  = "John Doe"
+    Age   = 30
+    Email = "john.doe@example.com"
+}
+Write-Output $person
+3. Using Select-Object to Create Custom Objects
+This method is useful for quickly creating objects with specific properties.
+
+# Example: Creating an object with Select-Object
+$car = Select-Object -Property @{Name="Make";Expression={"Toyota"}},
+                                @{Name="Model";Expression={"Camry"}},
+                                @{Name="Year";Expression={2023}}
+Write-Output $car
+Each method has its use case, so you can choose the one that best fits your scenario. Let me know if you'd like further clarification! 😊
+(:
