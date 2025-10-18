@@ -1,0 +1,332 @@
+#===============================
+#Find number of DC on a domain =
+#===============================
+# Replace 'SiteName' with the name of your site
+$siteName = "SiteName"
+(Get-ADDomainController -Filter {Site -eq $siteName}).Count
+
+
+
+#=======================================
+#Script for restricted groups from GPO =
+#=======================================
+#Yes, you can retrieve the list of restricted groups configured in Group Policy Objects (GPOs) on a domain using PowerShell. Restricted #groups are typically defined in GPOs to enforce specific group memberships. Here's how you can do it:
+#PowerShell Script to Get Restricted Groups
+
+#Explanation
+#Import-Module GroupPolicy: Ensures the Group Policy module is loaded.
+#Get-GPO -All: Retrieves all GPOs in the domain.
+#Get-GPOReport: Generates an XML report for each GPO.
+#Parse XML: Searches for the "Restricted Groups" section in the XML report.
+#Output: Displays the GPO name and the restricted groups configured within it.
+
+#Prerequisites
+#You must have administrative privileges in the domain.
+#The GroupPolicy module must be installed on your system.
+#Run the script on a system that has access to the domain controller.
+
+#This script provides a clear overview of restricted groups across all GPOs in your domain. If you encounter any issues, feel free to #share details, and I’ll gladly assist further! 😊
+
+#-------------------------
+#Script beyond this line -
+#-------------------------
+
+#Import the Group Policy module
+Import-Module GroupPolicy
+
+# Get all GPOs in the domain
+$gpos = Get-GPO -All
+
+# Loop through each GPO to find restricted groups
+foreach ($gpo in $gpos) {
+    $gpoReport = Get-GPOReport -Guid $gpo.Id -ReportType Xml
+    $xml = [xml]$gpoReport
+
+    # Check for restricted groups in the GPO
+    $restrictedGroups = $xml.GPO.Computer.ExtensionData.Extension | Where-Object {
+        $_.name -eq "Restricted Groups"
+    }
+
+    if ($restrictedGroups) {
+        Write-Output "GPO: $($gpo.DisplayName)"
+        Write-Output "Restricted Groups:"
+        $restrictedGroups | ForEach-Object {
+            $_.GroupName
+        }
+    }
+}
+
+
+
+#==============================================
+#Send notification email to svc account owner =
+#==============================================
+
+#This script is meant to send email notification to owners of SVCs about the impending strike the following week
+#Build path to Strike List
+$desktop = [System.Environment]::GetFolderPath("Desktop")
+#$var_path-to-desktop = [system.environment]::getfolderpath("Desktop")
+
+#change the report name to the name of the CSV that you have saved
+$reportName = "NonComply.csv"
+
+#Change the import path below to where you have the "NonComply.csv" saved
+$importPath = "desktop\$reportName"
+
+#Mail items
+
+#Details that go into email message
+$smtpAddress = "af-smtp.us.af.mil"
+$from = "83 NOS/DIRECTORY SERVICES CREW <noreply@us.af.mil>" 
+#Change the CTONumber below to reflect the CTO Number of the current mission.
+$CTONumber = "23-22199" 
+
+<#
+#Get the monday of next week
+$n = 0
+do {
+    $date = (date -Hour 0 -Minute 0 -Second 0).Adddays(-$n + 7)
+    #n++
+}
+Until ( $date.DayOfWeek -eq "Monday" )
+#>
+$date = (date -Hour 0 -Minute 0 -Second 0).AddDays(7)
+$strikedate = $date.ToString("MM/dd/yyyy")
+$emailSubject = "IMPORTANT | IMMEDIATE ACTION REQUIRED | Service Account Weak Password - Impending Disablement $strikeDate"
+
+
+#Import Strike List
+$accounts = Import-Csv $importPath
+
+#We only care about notifying SVCs
+foreach ($item in $accounts) {
+    if ($item.DistinguishedName -notlike "*,OU=Service Accounts,OU=Administration,DC=AREA52,DC=AFNOAPPS,DC=USAF,DC=MIL") {
+        continue
+        }
+    $SVC = Get-ADUser $item.SamAccountName -prop extensionAttribute13,mail
+    #Required on SVCs per Naming convention TO and non-compliance MTO
+    $mail = $SVC.extensionAttribute13
+    #Hail mary
+    if (!$mail) {
+        $mail = $svc.mail
+        }
+    if (!$mail) {
+        Write-Host -ForegroundColor Magenta "Unable to notify owner of $($item.DisplayName); unable to find email address on account."
+        continue
+        }
+    Send-MailMessage -SmtpServer $smtpAddress -Subject $emailSubject -To $mail -From $from -Body @"
+This email is to notify your Service Account, $($item.DisplayName), has a weak password, and will be disabled next week on $strikedate.
+
+Please immediately set a secure, non-pattern password on your Service Account. Failure to do so will result in the account becoming inoperable.
+
+Please do not respond to this email, as it will be undeliverable and no one will recieve it.
+For any questions, please contact the 83 NOS Crew Commander at 83NOSDodinMissionCom@us.af.mil or call (757) 225-7955
+"@
+    }
+
+
+:)[]
+w32tm /query /source Command
+1
+2
+3
+The w32tm /query /source command is used to display the current time source that the Windows Time service (W32Time) is using to synchronize the system clock. This is particularly useful for troubleshooting time synchronization issues on Windows systems.
+
+Example Usage
+
+w32tm /query /source
+Copy
+Example Output
+
+Local CMOS Clock
+Copy
+This indicates that the system is using the local hardware clock as its time source. Alternatively, it might display an NTP server (e.g., time.windows.com) or a domain controller if the system is domain-joined.
+
+Key Notes
+
+Local CMOS Clock: The system is not synchronizing with an external time source.
+
+NTP Server: Displays the configured NTP server if synchronization is set up.
+
+Domain Controller: For domain-joined systems, it shows the domain hierarchy as the time source.
+
+Troubleshooting
+
+If the output shows "Local CMOS Clock" instead of an expected NTP server:
+
+Verify network connectivity to the NTP server.
+
+Check the configuration using w32tm /query /configuration.
+
+Reconfigure the time source using:
+
+w32tm /config /manualpeerlist:"time.windows.com" /syncfromflags:manual /update
+net stop w32time && net start w32time
+w32tm /resync
+Copy
+This command ensures accurate time synchronization, which is critical for applications relying on precise timestamps.
+(:
+
+
+To retrieve restricted groups in Active Directory using PowerShell, you can use the Get-ADGroup cmdlet from the Active Directory module. Restricted groups are typically configured via Group Policy to enforce membership restrictions.
+
+Here’s a PowerShell script to list restricted groups and their members:
+
+Script to Get Restricted Groups and Members
+Powershell
+
+Copy code
+# Import the Active Directory module (if not already imported)
+Import-Module ActiveDirectory
+
+# Define the name of the restricted group (replace with your group name)
+$restrictedGroupName = "YourRestrictedGroupName"
+
+# Get the restricted group details
+try {
+    $group = Get-ADGroup -Identity $restrictedGroupName -Properties Members
+
+    if ($group) {
+        Write-Host "Restricted Group: $($group.Name)"
+        Write-Host "Distinguished Name: $($group.DistinguishedName)"
+        
+        # Get and display group members
+        if ($group.Members.Count -gt 0) {
+            Write-Host "Members:"
+            foreach ($member in $group.Members) {
+                $memberDetails = Get-ADUser -Identity $member -Properties DisplayName
+                Write-Host " - $($memberDetails.DisplayName) ($($memberDetails.SamAccountName))"
+            }
+        } else {
+            Write-Host "No members found in the group."
+        }
+    } else {
+        Write-Host "Group '$restrictedGroupName' not found."
+    }
+} catch {
+    Write-Host "An error occurred: $($_.Exception.Message)"
+}
+Explanation:
+Import-Module: Ensures the Active Directory module is loaded.
+Get-ADGroup: Retrieves the group object, including its members.
+Members Property: Lists all members of the group.
+Error Handling: Catches and displays errors if the group is not found or other issues occur.
+Example Usage:
+Replace "YourRestrictedGroupName" with the name of the restricted group you want to query.
+Run the script in a PowerShell session with appropriate permissions to query Active Directory.
+Notes:
+Ensure you have the Active Directory PowerShell module installed and are running the script on a machine with access to the domain.
+If you want to list all restricted groups, you may need to query Group Policy Objects (GPOs) directly, as restricted groups are often defined there. Use the Get-GPOReport cmdlet to extract GPO details. Let me know if you need help with that!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The Get-ADGroupMember cmdlet in PowerShell is used to retrieve the members of an Active Directory (AD) group. It can return users, computers, and nested groups that are part of the specified AD group.
+
+Syntax
+Powershell
+
+Copy code
+Get-ADGroupMember -Identity <GroupName> [-Recursive] [-Server <ServerName>] [<CommonParameters>]
+Key Parameters:
+-Identity: Specifies the name, distinguished name (DN), or object GUID of the group.
+-Recursive: Retrieves all members, including those in nested groups.
+-Server: Specifies the domain controller to query.
+Example 1: Get Members of a Group
+Powershell
+
+Copy code
+Get-ADGroupMember -Identity "GroupName"
+This retrieves all direct members of the group GroupName.
+
+Example 2: Get All Members, Including Nested Groups
+Powershell
+
+Copy code
+Get-ADGroupMember -Identity "GroupName" -Recursive
+This retrieves all members of the group, including members of nested groups.
+
+Example 3: Export Group Members to a CSV File
+Powershell
+
+Copy code
+Get-ADGroupMember -Identity "GroupName" | Select-Object Name, SamAccountName, ObjectClass | Export-Csv -Path "C:\GroupMembers.csv" -NoTypeInformation
+This retrieves the group members and exports their names, SAM account names, and object types (e.g., user, computer) to a CSV file.
+
+Example 4: Filter Only Users in a Group
+Powershell
+
+Copy code
+Get-ADGroupMember -Identity "GroupName" | Where-Object { $_.ObjectClass -eq "User" }
+This retrieves only user accounts from the group.
+
+Notes:
+Permissions: You need appropriate permissions to query AD groups.
+Active Directory Module: Ensure the Active Directory module for PowerShell is installed and imported (Import-Module ActiveDirectory).
+Error Handling: If the group does not exist or you lack permissions, the cmdlet will throw an error.
+Let me know if you need further assistance!
+
+
+
+
+
+
+
+
+
+Get AD Group Members from Another Domain
+1
+2
+3
+To get the members of an Active Directory group from another domain using PowerShell, you can use the Get-ADGroupMember cmdlet. This cmdlet retrieves the members of a specified Active Directory group, which can include users, groups, and computers.
+
+Example
+
+$Credential = Get-Credential
+Get-ADGroupMember -Identity "GroupName" -Server "OtherDomainController" -Credential $Credential
+Copy
+In this example:
+
+Replace "GroupName" with the name of the group you want to query.
+
+Replace "OtherDomainController" with the domain controller of the other domain.
+
+The Get-Credential cmdlet prompts for credentials to access the other domain.
+
+Important Considerations
+
+Recursive Parameter
+
+If you want to get all members in the hierarchy of a group, including nested groups, use the -Recursive parameter.
+
+Get-ADGroupMember -Identity "GroupName" -Server "OtherDomainController" -Credential $Credential -Recursive
+Copy
+Filtering Results
+
+You can filter results to get only users, computers, or nested groups by using the Where-Object cmdlet
+2
+.
+
+Get-ADGroupMember -Identity "GroupName" -Server "OtherDomainController" -Credential $Credential | Where-Object {$_.objectClass -eq "user"}
+Copy
+Exporting to CSV
+
+To export the results to a CSV file, use the Export-CSV cmdlet
+2
+.
+
+Get-ADGroupMember -Identity "GroupName" -Server "OtherDomainController" -Credential $Credential | Export-CSV -Path "C:\temp\GroupMembers.csv" -NoTypeInformation
+Copy
+These commands help you manage and retrieve Active Directory group members efficiently across different domains
