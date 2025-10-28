@@ -7,19 +7,19 @@
 		list-style-type: none;
 	}
 
-	/* Remove margins and padding from the parent ul */
+	/*Remove margins and padding from the parent ul*/
 	#id_parent_ul {
 		margin: 0;
 		padding: 0;
 	}
 
-	/* Style the caret/arrow */
+	/*Style the caret/arrow*/
 	.cls_caret {
 		cursor: pointer;
 		user-select: none; /*Prevent text selection*/
 	}
 
-	/* Create the caret/arrow with a unicode, and style it */
+	/* Create the caret/arrow with a unicode, and style it*/
 	.cls_caret::before {
 		content: "\25B6";
 		color: black;
