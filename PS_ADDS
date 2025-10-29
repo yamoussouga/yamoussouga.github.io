@@ -76,10 +76,10 @@ $importPath = "desktop\$reportName"
 #Mail items
 
 #Details that go into email message
-$smtpAddress = "af-smtp.us.af.mil"
-$from = "83 NOS/DIRECTORY SERVICES CREW <noreply@us.af.mil>" 
-#Change the CTONumber below to reflect the CTO Number of the current mission.
-$CTONumber = "23-22199" 
+$smtpAddress = "hh-smtp.honorhope.org"
+$from = " <noreply@gmail.com>" 
+#Change the Tag_Number below to reflect the tag Number of the current project.
+$Tag_Number = "85-12456" 
 
 <#
 #Get the monday of next week
@@ -120,7 +120,6 @@ This email is to notify your Service Account, $($item.DisplayName), has a weak p
 Please immediately set a secure, non-pattern password on your Service Account. Failure to do so will result in the account becoming inoperable.
 
 Please do not respond to this email, as it will be undeliverable and no one will recieve it.
-For any questions, please contact the 83 NOS Crew Commander at 83NOSDodinMissionCom@us.af.mil or call (757) 225-7955
 "@
     }
 
@@ -221,18 +220,6 @@ If you want to list all restricted groups, you may need to query Group Policy Ob
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 The Get-ADGroupMember cmdlet in PowerShell is used to retrieve the members of an Active Directory (AD) group. It can return users, computers, and nested groups that are part of the specified AD group.
 
 Syntax
@@ -312,21 +299,13 @@ Recursive Parameter
 If you want to get all members in the hierarchy of a group, including nested groups, use the -Recursive parameter.
 
 Get-ADGroupMember -Identity "GroupName" -Server "OtherDomainController" -Credential $Credential -Recursive
-Copy
+
 Filtering Results
-
 You can filter results to get only users, computers, or nested groups by using the Where-Object cmdlet
-2
-.
-
 Get-ADGroupMember -Identity "GroupName" -Server "OtherDomainController" -Credential $Credential | Where-Object {$_.objectClass -eq "user"}
-Copy
+
 Exporting to CSV
-
 To export the results to a CSV file, use the Export-CSV cmdlet
-2
-.
-
 Get-ADGroupMember -Identity "GroupName" -Server "OtherDomainController" -Credential $Credential | Export-CSV -Path "C:\temp\GroupMembers.csv" -NoTypeInformation
-Copy
+
 These commands help you manage and retrieve Active Directory group members efficiently across different domains
