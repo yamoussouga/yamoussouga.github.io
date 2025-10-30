@@ -92,21 +92,11 @@ https://c25k.com/c25k_plan/
 
 (:
 
-:)[Plattform vs Portal vs Website]
-A platform is a software infrastructure that provides developers with tools, frameworks, and APIs to create and manage applications. It is designed to be extensible and developer-friendly, allowing for the integration of various services and tools. 
-A portal serves as a user-centric web interface that aggregates information and services from multiple sources, offering a unified user experience. It is often used to control user access and manage permissions. It requires user authentication.
-A website, on the other hand, is a collection of interlinked web pages that provide information or services to a specific audience. It is typically open to anyone and focuses on delivering content rather than limiting access.
-In summary, platforms are for developers, portals are for users, and websites are for content. Each serves a different purpose and has distinct characteristics that cater to different needs and audiences.
-?Can you integrate a portal into a website?
-Yes, you can integrate a portal into a website. This can be done by adding a widget to the website that opens the customer portal page via a contact button. The widget should be configured to provide a direct form for specific request types or allow users to select a form based on their needs. If you want a redirect button, simply place the link of your portal behind that button. This integration allows users to access the portal directly from the website, enhancing user experience and streamlining processes. 
-(:
-
-:)[Tracking Togo]
+:)[Trip to Togo]
 #mes pagnes chez Kuessan
 #mes pagnes chez Cendra
 #mes affairs chez Perla
 #Need to update items sent via Fo Dosseh (1st round) --done
-
 (:
 
 :)[SCRA]
@@ -223,7 +213,6 @@ Samuel 07Dec
 Elohim Dec11
 Antoinette May8 
 (:
-
 	
 :)kwd[Purchase to do]
 -bug zapper
@@ -273,7 +262,6 @@ Antoinette May8
 -Sun Glasses --done
 -Remarkable paper pro
 (:
-
 
 :)kwd[LIST_OF_VITAMINS_AND_FOOD]
 -wormwood
@@ -670,6 +658,16 @@ start https://www.drive.google.come/drive/home
 start https://codewithmosh.com		
 (:
 
+:)[Plattform vs Portal vs Website]
+A platform is a software infrastructure that provides developers with tools, frameworks, and APIs to create and manage applications. It is designed to be extensible and developer-friendly, allowing for the integration of various services and tools. 
+A portal serves as a user-centric web interface that aggregates information and services from multiple sources, offering a unified user experience. It is often used to control user access and manage permissions. It requires user authentication.
+A website, on the other hand, is a collection of interlinked web pages that provide information or services to a specific audience. It is typically open to anyone and focuses on delivering content rather than limiting access.
+In summary, platforms are for developers, portals are for users, and websites are for content. Each serves a different purpose and has distinct characteristics that cater to different needs and audiences.
+?Can you integrate a portal into a website?
+Yes, you can integrate a portal into a website. This can be done by adding a widget to the website that opens the customer portal page via a contact button. The widget should be configured to provide a direct form for specific request types or allow users to select a form based on their needs. If you want a redirect button, simply place the link of your portal behind that button. This integration allows users to access the portal directly from the website, enhancing user experience and streamlining processes. 
+(:
+
+
 :)kwd[git environment powershell scripting]
 ::Git/GitHub dev environment
 start https://www.github.com
@@ -815,7 +813,6 @@ start code
 <omega id = 1>
 (:
 
-
 :)kwd[Note JAVA]
 import java.math.BigDecimal;
 import java.util.Scanner;
@@ -831,12 +828,10 @@ public static void main(String[] args) {
 }
 (:
 
-
 :)kwd[Web programming]
 There are two main color models: the additive RGB (red, green, blue) model used in electronic devices, 
 and the subtractive CMYK (cyan, magenta, yellow, black) model used in print.
 (:
-
 
 :)kwd[linux Linux]
 #a_dive_into_linux
@@ -851,7 +846,6 @@ sudo apt-get remove gimp [ uninstall gimp ]
 {linux} cat [filename].txt {to display the content of a file}
 {linux} cat < -.txt {to display the content of a file named '-'}	
 (:	
-
 
 :)kwd[cmd script]
 # echo [entire text]>[filename].txt {& press enter}
@@ -879,7 +873,6 @@ sudo apt-get remove gimp [ uninstall gimp ]
 
  cls
 (:
-
 
 :)kwd[cmd script]
 @echo off
@@ -1164,8 +1157,6 @@ http://www.cs.sfu.ca/CourseCentral/130/johnwill/printf.html
 https://www.codingunit.com/printf-format-specifiers-format-conversions-and-formatted-output
 http://www.asciitable.com/
 
-
-
 :)kwd[Happy Birthday play list]
 https://www.youtube.com/watch?v=-9DoqAGtPc8&list=RDQMLj7cUwNshpk&index=27
 https://www.youtube.com/watch?v=LlIwrHL06e0&list=RDQMLj7cUwNshpk&index=27
@@ -1447,5 +1438,3 @@ https://www.theafricareport.com/329117/african-music-soars-in-this-top-compilati
 -party like a rock star - Shop boyz
 -Rock it - Missy elliot
 (:
-
-</p>
