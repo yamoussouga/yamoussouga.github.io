@@ -1,5 +1,3 @@
-#Wormwood
-#Clove
 
 :)[General]
 #Places categories for fun
@@ -33,8 +31,6 @@
 #Daikichi Restaurant (Japanese)
 
 #Smithsonian National Zoological Park (Washington DC) 
-
-
 (:
 
 :)[Tech]
@@ -89,51 +85,20 @@ https://c25k.com/c25k_plan/
 #Google work space $7/month 
 #Google domain $12/year
 
+#ctrl + shift + B for icon bookmarking
+#duckduckgo.com
+#kagi.com
+#Jet Punk for quiz
 
 (:
 
 :)[Plattform vs Portal vs Website]
-
 A platform is a software infrastructure that provides developers with tools, frameworks, and APIs to create and manage applications. It is designed to be extensible and developer-friendly, allowing for the integration of various services and tools. 
-
 A portal serves as a user-centric web interface that aggregates information and services from multiple sources, offering a unified user experience. It is often used to control user access and manage permissions. It requires user authentication.
-
 A website, on the other hand, is a collection of interlinked web pages that provide information or services to a specific audience. It is typically open to anyone and focuses on delivering content rather than limiting access.
-
 In summary, platforms are for developers, portals are for users, and websites are for content. Each serves a different purpose and has distinct characteristics that cater to different needs and audiences.
-
 ?Can you integrate a portal into a website?
 Yes, you can integrate a portal into a website. This can be done by adding a widget to the website that opens the customer portal page via a contact button. The widget should be configured to provide a direct form for specific request types or allow users to select a form based on their needs. If you want a redirect button, simply place the link of your portal behind that button. This integration allows users to access the portal directly from the website, enhancing user experience and streamlining processes. 
-(:
-
-:)[]
-Jet Punk for quiz
-(:
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 (:
 
 :)[Tracking Togo]
@@ -163,16 +128,7 @@ Jet Punk for quiz
 --Aidvantage Student Loan
 (:
 
-
-
-
-
-
-
-
-
-
-<p>:)kwd[Holy Scriptures]
+:)[Holy Scriptures]
 #Mass mon-fri 1200-1230 Langley chapel
 #Mass sat 1700-1800 Bethel chapel
 #Mass sun 0900-1000 langley chapel
@@ -182,7 +138,6 @@ Jet Punk for quiz
 First Thurs 1800-1900 Bethel chapel
 First Fri 1200-1400 Langley chapel
 First Sat 1200-1400 Bethel chapel
-
 
 #Psalm 117, 121, 131
 #James 1:5 
@@ -234,7 +189,6 @@ First Sat 1200-1400 Bethel chapel
 	“Do not grieve, for the joy of the Lord is your strength.”
 #John 17
 (:
-
 
 :)kwd[Birthdays]
 Etonam 21Jan
@@ -322,6 +276,8 @@ Antoinette May8
 
 
 :)kwd[LIST_OF_VITAMINS_AND_FOOD]
+-wormwood
+-Clove
 -broccoli
 -sauerkraut (C) - fermented food (probiotic)
 -kale
@@ -365,12 +321,6 @@ Antoinette May8
 (:		 
 
 
-
-:)kwd[google browser]
-#ctrl + shift + B for icon bookmarking
-#duckduckgo.com
-#kagi.com
-(:
 
 :)kwd[REMINDER/TO DO]
 #Cursive hand writting jobs
