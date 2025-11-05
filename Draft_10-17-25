@@ -152,7 +152,7 @@ tel 1-800-889-8969
 
 #Check "my AF one drive" for resource regarding the homebuying seminar
 The file is in 
-.
+
 #Track my taxes
 
 #Places categories for fun
@@ -587,6 +587,32 @@ Antoinette May8
 -smoothie with kale + ginger + root beet
 (:
 
+
+
+:)kwd[Essential items in tech school]
+- Soccer cleat (Nike)
+- soccer shin guards with their sleeves
+- Adidas mini bag (sport)	 
+- Jean (Boss-navy blue)
+- 1 sweat pant (navy blue)
+- 2 dress shorts
+- 4 shirts
+- adidas 3/4 black with color stripes
+- soccer socks (x2)
+- Sweatpant (with green lining at the bottom)
+- Sweatshirt of your choice
+- Rain coat (Under Armor blue)
+- Handkerchief (x2)
+- Ralth Lauren bucket hat
+- 1 winter bianie 
+- dress sandals (brown)
+- 1comb
+- Parfum
+- reading glasses
+(:
+
+
+
 :)kwd[relation tables for logger]
 #Table relationships for the lo
 #logger_db
@@ -619,27 +645,6 @@ tbl_users / cls_user
 (:
 
 
-:)kwd[Essential items in tech school]
-- Soccer cleat (Nike)
-- soccer shin guards with their sleeves
-- Adidas mini bag (sport)	 
-- Jean (Boss-navy blue)
-- 1 sweat pant (navy blue)
-- 2 dress shorts
-- 4 shirts
-- adidas 3/4 black with color stripes
-- soccer socks (x2)
-- Sweatpant (with green lining at the bottom)
-- Sweatshirt of your choice
-- Rain coat (Under Armor blue)
-- Handkerchief (x2)
-- Ralth Lauren bucket hat
-- 1 winter bianie 
-- dress sandals (brown)
-- 1comb
-- Parfum
-- reading glasses
-(:
 
 :)kwd[PoweShell, Scripting]
 #Excel(powershell)
@@ -728,11 +733,17 @@ start code
 	#for git hub	
 (:	
 
+
+
 :)kwd[CS50_Havard]
 (:
 
+
+
 :)kwd[ActiveDirectory]
 (:
+
+
 
 :)kwd[IT_Networking]
 #OSI model	
@@ -804,6 +815,8 @@ start code
 	private address into public address.
 (:	
 
+
+
 :)kwd[Note VB.NET]
 <alpha id = 1>
     To format a list box in VB.NET, you can use the FormattingEnabled property and the Format event.
@@ -820,6 +833,8 @@ start code
 <omega id = 1>
 (:
 
+
+
 :)kwd[Note JAVA]
 import java.math.BigDecimal;
 import java.util.Scanner;
@@ -835,10 +850,14 @@ public static void main(String[] args) {
 }
 (:
 
+
+
 :)kwd[Web programming]
 There are two main color models: the additive RGB (red, green, blue) model used in electronic devices, 
 and the subtractive CMYK (cyan, magenta, yellow, black) model used in print.
 (:
+
+
 
 :)kwd[linux Linux]
 #a_dive_into_linux
@@ -853,6 +872,8 @@ sudo apt-get remove gimp [ uninstall gimp ]
 {linux} cat [filename].txt {to display the content of a file}
 {linux} cat < -.txt {to display the content of a file named '-'}	
 (:	
+
+
 
 :)kwd[cmd script]
 # echo [entire text]>[filename].txt {& press enter}
@@ -881,6 +902,8 @@ sudo apt-get remove gimp [ uninstall gimp ]
  cls
 (:
 
+
+
 :)kwd[cmd script]
 @echo off
 setlocal
@@ -891,11 +914,15 @@ IF %ERRORLEVEL% NEQ 0 EXIT /b %ERRORLEVEL%
 endlocal
 (:
 
+
+
 :)kwd[vscode]
 #Default Path:
 	C:\Users\yelof\AppData\Local\Programs\Microsoft VS Code
 (:
-	
+
+
+
 :)kwd[C programming - ASCII values]
 	e.g. 'A' (0100 0001)0b (41)0X 
 		 'B' (0100 0010)0b (42)0X
@@ -909,6 +936,7 @@ endlocal
 		into '0000' e.g. 0011 0011 = '3' give 0000 0011 = 3
 	ASCII values are exactly 8bits 	
 (:
+
 
 
 :)kwd[C programming - function that Clears screen]
@@ -959,7 +987,9 @@ void cls( HANDLE hConsole )
     return;
  }
 (: 
- 
+
+
+
 :)kwd[C programming - template] 
 echo (1)To make Scanf work on VS put this before any includes
      #define _CRT_SECURE_NO_WARNINGS
@@ -999,6 +1029,8 @@ echo {
 echo }
 (:
 
+
+
 :)kwd[VB Notes]
 #trimstart/trimend
 strconv(Tstring, vbstrconv.propercase)
@@ -1013,6 +1045,8 @@ strconv(Tstring, vbstrconv.propercase)
 #formatcurrency()
 #string.format("{0:n2}", variable)
 (:
+
+
 
 :)kwd[Canon80D Camera settings]
 #Frame 
@@ -1038,8 +1072,11 @@ strconv(Tstring, vbstrconv.propercase)
 #ISO should be the last thing you set and shutter speed before the apperture.
 (:
 
+
+
 :)kwd[Adobe Illustrator]
 (:
+
 
 
 :Links
