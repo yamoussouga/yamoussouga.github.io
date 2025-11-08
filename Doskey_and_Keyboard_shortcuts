@@ -1,0 +1,284 @@
+ la combinaison de touche: AltGr + 6 correspond à la touche "|" (barre verticale)
+ 
+ 
+ 
+DoskeyAppelle Doskey.exe, qui rappelle les commandes Windows XP, édite les lignes de commande et crée des macros.
+
+Syntaxe
+doskey {/reinstall | /listsize=taille | /macros:[{all | nom-exe}] | /history | /insert | /overstrike | /exename=nom-exe | /macrofile=NomFichier | nom-macro=[texte]}
+
+Paramètres
+/reinstall 
+Installe une nouvelle copie de Doskey.exe. Efface la mémoire tampon de l'historique de la commande. 
+/listsize=taille 
+Indique le nombre maximal de commandes dans la zone tampon d'historique. 
+/macros 
+Affiche la liste de toutes les macros doskey. Vous pouvez utiliser un symbole de redirection (>) avec /macros pour rediriger la liste vers un fichier. Vous pouvez abréger /macros en /m. 
+all 
+Affiche les macros doskey pour tous les exécutables. 
+nom-exe 
+Affiche les macros doskey du fichier exécutable spécifié. 
+/history 
+Affiche toutes les commandes stockées en mémoire. Vous pouvez utiliser un symbole de redirection (>) avec /history pour rediriger la liste vers un fichier. Vous pouvez abréger /history en /h. 
+{/insert | /overstrike} 
+Indique si le nouveau texte que vous tapez doit remplacer l'ancien. Si vous utilisez /insert, le nouveau texte que vous tapez sur une ligne est inséré à la place du texte existant (comme si vous appuyez sur la touche INSER). Si vous utilisez /overstrike, le nouveau texte remplace l'ancien. Le paramètre par défaut est /overstrike. 
+/exename=nom-exe 
+Spécifie le programme (c'est-à-dire, le fichier exécutable) dans lequel la macro doskey est exécutée. 
+/macrofile=NomFichier 
+Spécifie un fichier contenant les macros que vous voulez installer. 
+nom_macro=[texte] 
+Crée une macro qui exécute les commandes spécifiées par le texte. Le nom_macro représente le nom à assigner à la macro. Texte spécifie les commandes à enregistrer. Si vous ne complétez pas le paramètre texte, toutes les commandes éventuellement assignées au nom_macro sont supprimées. 
+/? 
+Affiche l'aide à l'invite de commandes. 
+Remarques
+Utilisation de Doskey.exe 
+Doskey.exe est toujours disponible pour tous les programmes de mode caractère et interactif (tels que des débogueurs de programmation ou des programmes de transfert de fichier), et maintient un tampon d'historique de commandes et des macros pour chaque programme qu'il démarre. Vous ne pouvez pas utiliser les options de ligne de commande doskey à partir d'un programme. Vous devez exécuter les options de ligne de commande doskey avant de démarrer un programme. Les assignations de touches de programme supplantent les assignations de touches doskey.
+
+Rappel d'une commande 
+Pour rappeler une commande, vous pouvez utiliser n'importe quelle touche parmi les suivantes après avoir démarré Doskey.exe. Si vous utilisez Doskey.exe à l'intérieur d'un programme, les affectations de touches de ce programme ont priorité.
+
+Touche Description 
+HAUT  Rappelle la commande utilisée avant celle qui est affichée. 
+BAS Rappelle la commande utilisée après celle qui est affichée. 
+PG.PREC Rappelle la première commande utilisée pendant la session en cours. 
+PG. SUIV Rappelle la dernière commande utilisée. 
+
+Modification de la ligne de commande 
+Doskey.exe vous permet de modifier la ligne de commande en cours. Si vous utilisez Doskey.exe à partir d'un programme, les assignations de touches de ce programme sont prioritaires et certaines touches de modification Doskey.exe risquent de ne pas fonctionner. 
+
+La liste ci-dessous décrit les touches d'édition de doskey et leurs fonctions :
+
+Touche ou combinaison de touches Description 
+GAUCHE Recule le point d'insertion d'un caractère.  
+DROITE Avance le point d'insertion d'un caractère. 
+CTRL+GAUCHE Recule le point d'insertion d'un mot. 
+CTRL+DROITE Avance le point d'insertion d'un mot. 
+ORIGINE Ramène le point d'insertion au début de la ligne. 
+FIN Avance le point d'insertion à la fin de la ligne. 
+ÉCHAP Efface la commande de l'affichage. 
+F1 Copie un caractère de la même colonne du modèle dans la même colonne de la fenêtre d'invite de commande. (Le modèle est une zone tampon qui conserve la dernière commande tapée.) 
+F2 Cherche vers l'avant du modèle la touche tapée après F2. Doskey.exe insère le texte du modèle jusqu'au caractère spécifié sans inclure ce dernier. 
+F3 Copie le reste du modèle sur la ligne de commande. Doskey.exe commence à copier les caractères à partir de la position du modèle qui correspond à celle indiquée par le point d'insertion sur la ligne de commande. 
+F4 Supprime des caractères depuis la position en cours du point d'insertion jusqu'à celui que vous spécifiez. Pour utiliser cette touche d'édition, appuyez sur F4 et tapez un caractère. Doskey.exe supprime les caractères à partir de la position en cours du point d'insertion jusqu'à la première lettre spécifiée. 
+F5 Copie le modèle dans la ligne de commande en cours. 
+F6 Place un caractère de fin de fichier (c'est-à-dire, CTRL+Z) à la position en cours du point d'insertion. 
+F7 Affiche toutes les commandes pour ce programme stockées en mémoire dans une boîte de message. Utilisez les touches HAUT et BAS pour sélectionner la commande souhaitée, puis appuyez sur la touche ENTRÉE pour exécuter la commande. Vous pouvez aussi noter le numéro qui précède la commande et utiliser ce numéro avec la touche F9. 
+ALT+F7 Supprime toutes les commandes stockées en mémoire pour la zone tampon d'historique en cours. 
+F8 Affiche toutes les commandes dans la zone tampon d'historique, en commençant par les caractères de la commande en cours. 
+F9 Vous demande un numéro de commande tampon d'historique, puis affiche la commande associée au numéro que vous tapez. Appuyez sur ENTRÉE pour exécuter la commande. Pour afficher tous les numéros ainsi que les commandes qui leur sont associées, appuyez sur F7. 
+ALT+F10 Supprime toutes les définitions de macro. 
+
+Utilisation de doskey dans un programme 
+Certains programmes interactifs en mode caractère, tels que des débogueurs de programmation ou des programmes de transfert de fichier (FTP), utilisent automatiquement Doskey.exe. Pour utiliser Doskey.exe, un programme doit être un processus de console et utiliser des informations stockées en mémoire tampon. Les assignations de touches de programme supplantent les assignations de touches doskey. Par exemple, si le programme utilise la touche F7 pour une fonction spécifique, vous ne pouvez pas afficher l'historique d'une commande doskey dans une boîte de message.
+
+Avec Doskey.exe, vous pouvez tenir à jour un historique de commande pour chaque programme que vous lancez, répéter et modifier les commandes précédentes à l'invite du programme, et lancer des macros doskey créées pour le programme. Si vous quittez, puis relancez un programme à partir de la même fenêtre d'invite de commandes, l'historique de commande de la session de programme précédente est disponible.
+
+Vous devez exécuter Doskey.exe avant de démarrer un programme. Vous ne pouvez pas utiliser des options de ligne de commande doskey à partir de l'invite de commandes d'un programme, même si le programme a une invite de commandes.
+
+Si vous voulez personnaliser la manière avec laquelle Doskey.exe fonctionne avec un programme et créer des macros doskey pour ce programme, vous pouvez créer un programme de commandes qui modifie Doskey.exe et démarre le programme.
+
+Sélection du mode insertion par défaut 
+Si vous appuyez sur la touche INSERTION, vous pouvez taper le texte de la ligne de commande doskey au milieu de son texte existant sans remplacer ce dernier. Lorsque vous appuyez sur ENTRÉE, Doskey.exe remet cependant le clavier en mode remplacement. Pour revenir au mode insertion, vous devez réappuyer sur INSERTION. 
+
+Utilisez /insert pour mettre votre clavier en mode insertion chaque fois que vous appuyez sur la touche ENTRÉE. Le clavier demeure ensuite en mode insertion jusqu'à ce que vous utilisiez /overstrike. Pour revenir temporairement au mode remplacement, appuyez sur la touche INSERTION ; après avoir appuyé sur ENTRÉE, Doskey.exe remet cependant le clavier en mode insertion. 
+
+Lorsque vous utilisez la touche INSERTION pour passer d'un mode à l'autre, le point d'insertion change de forme. 
+
+Création d'une macro 
+Le programme Doskey.exe permet de créer des macros exécutant une ou plusieurs commandes. Le tableau suivant répertorie les caractères spéciaux que vous pouvez utiliser pour contrôler les opérations de commande lorsque vous définissez une macro.
+
+Caractère Description 
+$G ou $g Redirige les données de sortie. Utilisez l'un ou l'autre de ces caractères spéciaux pour envoyer les données de sortie à un périphérique ou à un fichier au lieu de les diriger vers l'écran. Ces caractères sont équivalents au symbole de redirection des données de sortie (>). 
+$G$G ou $g$g Ajoute les données de sortie à la fin d'un fichier. Utilisez l'un ou l'autre de ces doubles caractères spéciaux pour ajouter les données de sortie à un fichier existant au lieu de les substituer aux informations du fichier. Ces doubles caractères sont équivalents au symbole de redirection d'ajout des données de sortie (>>). 
+$L ou $l Redirige les données d'entrée. Utilisez l'un ou l'autre de ces caractères spéciaux pour lire les données d'entrée à partir d'un périphérique ou d'un fichier et non pas du clavier. Ces caractères sont équivalents au symbole de redirection des données d'entrée (<). 
+$B ou $b Envoie les données de sortie d'une macro à une commande. Ces caractères spéciaux correspondent à l'utilisation d'une barre verticale (|) dans une ligne de commande. 
+$T ou $t  Sépare des commandes. Utilisez l'un ou l'autre de ces caractères spéciaux pour séparer des commandes lorsque vous créez des macros ou que vous tapez des commandes sur la ligne de commande doskey. Ces caractères spéciaux correspondent à l'utilisation du symbole & dans une ligne de commande. 
+$$ Indique le symbole du dollar ($). 
+$1 à $9 Représente toute information de ligne de commande à spécifier lors de l'exécution de la macro. Les caractères spéciaux $1 à $9 sont des paramètres de commande qui vous permettent d'utiliser sur la ligne de commande des données différentes chaque fois que vous exécutez la macro. Le caractère $1 d'une commande doskey est semblable au caractère %1 d'un programme de commandes. 
+$* Représente toutes les informations de ligne de commande que vous voulez indiquer lorsque vous tapez le nom de la macro. Le caractère spécial $* est un paramètre remplaçable semblable aux paramètres de commande $1 à $9, à une différence importante près : tout ce que vous tapez sur la ligne de commande à la suite du nom de la macro se substitue au $* de la macro. 
+
+Exécution d'une macro doskey 
+Pour exécuter une macro, tapez son nom à partir de la première position de la ligne de commande. Si la macro a été définie avec $* ou n'importe quels paramètres de commande $1 à $9, utilisez un espace pour séparer les paramètres. Il vous est impossible d'exécuter une macro doskey à partir d'un programme de commandes. 
+
+Création d'une macro portant le même nom qu'une commande Windows XP 
+Si vous utilisez toujours une commande particulière avec des options de ligne de commande spécifiques, vous pouvez créer une macro portant le même nom que la commande. Pour indiquer si vous voulez exécuter la macro ou la commande, suivez les directives ci-dessous : 
+
+Pour exécuter la macro, commencez à taper son nom immédiatement après l'invite de commandes, sans laisser d'espace entre cette invite et le nom de la commande. 
+Pour exécuter la commande, insérez un ou plusieurs espaces entre l'invite de commandes et son nom. 
+Suppression d'une macro 
+Pour supprimer une macro, tapez : 
+
+doskey nom-macro=
+
+Exemples
+Les options de ligne de commande /macros et /history sont utiles pour créer des programmes de commandes qui enregistrent des macros et des commandes. Par exemple, pour stocker toutes les macros doskey courantes, tapez : 
+
+doskey /macros > macinit 
+
+Pour utiliser les macros stockées dans Macinit, tapez :
+
+doskey /macrofile=macinit
+
+Pour créer un programme de commandes nommé Tmp.bat contenant des commandes récemment utilisées, tapez : 
+
+doskey /history > tmp.bat 
+
+Pour définir une macro de commandes multiples, utilisez $t pour séparer les commandes, comme indiqué ci-dessous : 
+
+doskey tx=cd temp$tdir/w $*
+
+Dans l'exemple précédent, la macro TX fait de Temp le répertoire en cours, puis affiche la liste d'un répertoire en format large. Vous pouvez utiliser $* à la fin de la macro pour ajouter d'autres options de ligne de commande à la commande dir lors de l'exécution de TX. 
+
+La macro suivante utilise un paramètre de commande comme nouveau nom de répertoire : 
+
+doskey mc=md $1$tcd $1 
+
+La macro crée un répertoire, puis passe du répertoire en cours à ce nouveau répertoire.
+
+Pour utiliser la macro ci-dessus en vue de créer un répertoire nommé Livres et de passer à ce répertoire, tapez : 
+
+mc livres 
+
+Pour créer une macro doskey pour un programme appelé Ftp.exe, incluez /exename comme suit :
+
+doskey /nom_exe:ftp.exe go=open 10.127.1.100$tmget *.txt c:\reports$bye
+
+Pour utiliser la macro ci-dessus, lancez ftp. À l'invite ftp, tapez :
+
+go
+
+Ftp exécute les commandes open, mget et bye.
+
+Pour créer une macro qui effectue un format de disque rapide et inconditionnel, tapez : 
+
+doskey qf=format $1 /q /u 
+
+Pour formater rapidement et inconditionnellement une disquette dans le lecteur A, tapez : 
+
+qf a: 
+
+Légende de la mise en forme
+Mise en forme Signification 
+Italique Informations que l"utilisateur doit fournir 
+Gras Éléments que l"utilisateur doit taper tels qu"ils sont indiqués 
+Points de suspension (...) Paramètre pouvant être répété plusieurs fois dans une ligne de commande 
+Entre crochets ([]) Éléments facultatifs 
+Entre accolades ({}), avec séparation des options par une barre verticale (|). Exemple : {pair|impair} Ensemble d"options parmi lesquelles l"utilisateur doit en choisir une seule 
+Police Courier Code ou données de programme 
+ 
+Rubriques connexes
+
+
+
+
+
+
+Vue d'ensemble des raccourcis clavier pour WindowsLorsque vous travaillez dans Windows, vous pouvez utiliser les raccourcis clavier au lieu de la souris. Vous pouvez ouvrir, fermer et parcourir le menu Démarrer, le bureau, les menus, les boîtes de dialogue et les pages Web à l'aide des raccourcis clavier. L'interaction avec l'ordinateur sera peut-êre plus facile avec les raccourcis clavier. 
+Cliquez sur un titre ou appuyez sur TAB pour le sélectionner, puis appuyez sur ENTRÉE.
+
+Raccourcis clavier généraux
+
+Appuyez sur Pour 
+CTRL+C Copier. 
+CTRL+X Couper. 
+CTRL+V Coller. 
+CTRL+Z Annuler. 
+SUPPR Supprimer. 
+MAJ+SUPPR Supprimer définitivement l'élément sélectionné sans passer par la Corbeille. 
+CTRL tout en faisant glisser un élément Copier l'élément sélectionné. 
+CTRL+MAJ tout en faisant glisser un élément Créer un raccourci vers l'élément sélectionné. 
+F2 Renommer l'élément sélectionné. 
+CTRL+DROITE Ramener le point d'insertion au début du mot suivant. 
+CTRL+GAUCHE Ramener le point d'insertion au début du mot précédent. 
+CTRL+BAS Ramener le point d'insertion au début du paragraphe suivant. 
+CTRL+HAUT Ramener le point d'insertion au début du paragraphe précédent. 
+CTRL+MAJ avec une des touches de direction Mettre en surbrillance un bloc de texte. 
+MAJ + une des touches de direction Sélectionner plusieurs éléments d'une fenêtre ou du bureau ou sélectionner du texte dans un document. 
+CTRL+A Sélectionner tout. 
+F3 Rechercher un fichier ou un dossier. 
+ALT+ENTRÉE Afficher des propriétés pour l'élément sélectionné. 
+ALT+F4 Fermer l'élément actif ou quitter le programme actif. 
+ALT+Entrée Afficher les propriétés de l'objet sélectionné. 
+ALT+ESPACE Ouvrir le menu contextuel de la fenêtre active. 
+CTRL+F4 Fermer le document actif dans les programmes vous permettant d'avoir plusieurs documents ouverts simultanément. 
+ALT+TABULATION Passer d'un élément ouvert à l'autre. 
+ALT+ÉCHAP Parcourir les éléments dans leur ordre d'ouverture. 
+F6 Parcourir les éléments d'écran d'une fenêtre ou du bureau. 
+F4 Afficher la liste des barres d'adresse dans Poste de travail ou dans l'Explorateur Windows. 
+MAJ+F10 Afficher le menu contextuel associé à l'élément sélectionné. 
+ALT+ESPACE Afficher le menu Système pour la fenêtre active. 
+CTRL+ÉCHAP Afficher le menu Démarrer. 
+ALT+lettre soulignée d'un nom de menu Afficher le menu correspondant. 
+Lettre soulignée dans un nom de commande d'un menu ouvert Exécuter la commande correspondante. 
+F10 Activer la barre de menus dans le programme actif. 
+FLÈCHE DROITE Ouvrir le menu suivant à droite ou ouvrir un sous-menu. 
+FLÈCHE GAUCHE Ouvrir le menu suivant à gauche ou fermer un sous-menu. 
+F5 Actualiser la fenêtre active. 
+RET.ARR Afficher le dossier d'un niveau supérieur dans Poste de travail ou dans l'Explorateur Windows. 
+ÉCHAP Annuler la tâche en cours. 
+MAJ lorsque vous insérez un CD dans le lecteur de CD-ROM Empêcher la lecture automatique du CD. 
+
+
+Raccourcis clavier pour une boîte de dialogue
+
+Appuyez sur Pour 
+CTRL+TABULATION Avancer dans les onglets. 
+CTRL+MAJ+TABULATION Reculer dans les onglets. 
+TABULATION Avancer dans les options. 
+MAJ+TABULATION Reculer dans les options. 
+ALT+lettre soulignée Exécuter la commande correspondante ou sélectionner l'option correspondante. 
+ENTRÉE Exécuter la commande pour l'option active ou le bouton actif. 
+ESPACE Activer ou désactiver la case à cocher si l'option active en cours est une case à cocher. 
+Touches de direction Sélectionner un bouton si l'option active est un groupe de boutons d'option. 
+F1 Afficher l'Aide. 
+F4 Afficher les éléments dans la liste active. 
+RET.ARR Ouvrir un dossier d'un niveau supérieur si un dossier est sélectionné dans la boîte de dialogue Enregistrer sous ou Ouvrir. 
+
+
+Raccourcis du clavier Natural Keyboard
+
+Vous pouvez utiliser les raccourcis clavier suivants avec un clavier Microsoft Natural Keyboard ou un autre clavier compatible possédant la touche Logo Windows () et la touche Application ().
+
+Appuyez sur Pour 
+ Afficher ou masquer le menu Démarrer. 
+ +ATTN Afficher la boîte de dialogue Propriétés système. 
+ +D Afficher le bureau. 
+ +M Réduire toutes les fenêtres. 
+ +Maj+M Restaurer les fenêtres réduites. 
+ +E Ouvrir le Poste de travail. 
+ +F Rechercher un fichier ou un dossier. 
+CTRL+  +F Rechercher des ordinateurs. 
+ +F1 Afficher l'Aide de Windows. 
+ +L Verrouiller le clavier. 
+ +R Ouvrir la boîte de dialogue Exécuter. 
+ Afficher le menu contextuel associé à l'élément sélectionné. 
+ +U Ouvrir le Gestionnaire d'utilitaires. 
+
+Raccourcis clavier pour l'accessibilité
+
+Appuyez sur Pour 
+MAJ DROITE pendant huit secondes Activer et désactiver les touches filtres. 
+ALT GAUCHE + MAJ GAUCHE + IMPR. ÉCRAN Activer et désactiver le contraste élevé. 
+ALT GAUCHE + MAJ GAUCHE + VERR. NUM Activer et désactiver les touches souris. 
+MAJ cinq fois Activer et désactiver les touches rémanentes. 
+VERR.NUM pendant cinq secondes Activer et désactiver les touches bascules. 
+ +U Ouvrir le Gestionnaire d'utilitaires. 
+
+
+Raccourcis clavier de l'Explorateur Windows
+
+Appuyez sur Pour 
+FIN Afficher le bas de la fenêtre active. 
+ORIGINE Afficher le haut de la fenêtre active. 
+VERR. NUM + ASTÉRISQUE sur le pavé numérique (*) Afficher tous les sous-dossiers du dossier sélectionné. 
+VERR. NUM + SIGNE PLUS sur le pavé numérique (+) Afficher le contenu du dossier sélectionné. 
+VERR. NUM + SIGNE MOINS sur le pavé numérique (-) Réduire le dossier sélectionné. 
+FLÈCHE GAUCHE Réduire la sélection actuelle si elle est étendue ou sélectionner le dossier parent. 
+FLÈCHE DROITE Afficher la sélection actuelle si elle est réduite ou sélectionner le premier sous-dossier. 
+
+
+ Remarques
+
+Certains raccourcis clavier ne fonctionnent pas si les Touches rémanentes sont activées dans les options d'accessibilité. 
+Si vous êtes connecté à Windows via le Client des services Terminal Microsoft, certains raccourcis ont été modifiés. Pour plus d'informations, consultez la documentation en ligne du Client des services Terminal. 
+Rubriques connexes
