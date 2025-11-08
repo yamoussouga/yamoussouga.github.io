@@ -159,8 +159,44 @@ assoc .=txtfile
 (:
 
 
-:)kwd[Batch file]
-#
+:)kwd[Batch file more]
+In Windows Command Prompt (CMD), mathematical operations are primarily performed using the SET /A command. 
+This command allows for arithmetic expressions and variable assignment within batch scripts or directly in the command line.
+Arithmetic Operators:
+Addition: + (e.g., SET /A result = 5 + 3)
+Subtraction: - (e.g., SET /A result = 10 - 4)
+Multiplication: * (e.g., SET /A result = 6 * 2)
+Division: / (Integer division, e.g., SET /A result = 7 / 2 will result in 3)
+Modulo: %% (Returns the remainder of a division, e.g., SET /A result = 7 %% 2 will result in 1. Note the double percentage 
+sign %% when used in a batch file to escape the single % used for variable expansion.)
+Bitwise Operators:
+AND: &
+OR: |
+XOR: ^
+Left Shift: <<
+Right Shift: >>
+Example Usage:
+Code
+
+@echo off
+SET /A num1 = 15
+SET /A num2 = 4
+
+SET /A sum = num1 + num2
+echo Sum: %sum%
+
+SET /A difference = num1 - num2
+echo Difference: %difference%
+
+SET /A product = num1 * num2
+echo Product: %product%
+
+SET /A quotient = num1 / num2
+echo Quotient (integer division): %quotient%
+
+SET /A remainder = num1 %% num2
+echo Remainder (modulo): %remainder%
+
 (:
 
 
@@ -321,9 +357,8 @@ for /l %%n in (0,1,6) do (
 ::the value of the element.
 ::`echo.` is for echoing a new line character in a file
 
-
-
 (:
+
 
 
 :)kwd[batch script examples]
@@ -395,8 +430,9 @@ set /a "x+=1"
 goto :SymLoop)
 echo "The length of the array is %n%"
 
-
 (:
+
+
 
 :)[structure in batch]
 @echo off 
