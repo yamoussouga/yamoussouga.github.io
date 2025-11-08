@@ -125,6 +125,57 @@ SET
 Displays the list of environment variables on the current system.
 (:
 
+:)[Batch more]
+In Windows Command Prompt (CMD), operators are special characters or symbols that modify how commands are executed or how their input/output is handled. These operators provide control over command chaining, redirection, and conditional execution.
+Here are some common CMD operators:
+
+1. Command Chaining Operators:
+& (Single Ampersand): Executes commands sequentially. Even if the first command fails, the second command will still run.
+Code
+
+    command1 & command2
+&& (Double Ampersand): Executes the second command only if the first command completes successfully (returns an exit code of 0).
+Code
+    command1 && command2
+
+|| (Double Pipe): Executes the second command only if the first command fails (returns a non-zero exit code).
+Code
+    command1 || command2
+2. Redirection Operators:
+> (Greater Than): Redirects the output of a command to a file, overwriting the file's contents if it already exists.
+Code
+
+    command > filename.txt
+>> (Double Greater Than): Redirects the output of a command to a file, appending the output to the end of the file if it already exists.
+Code
+
+    command >> filename.txt
+< (Less Than): Redirects the input of a command from a file.
+Code
+
+    command < input.txt
+3. Piping Operator:
+| (Pipe): Takes the output of one command and uses it as the input for another command.
+Code
+
+    command1 | command2
+4. Escape Character:
+^ (Caret): Escapes special characters like &, |, <, >, ^, allowing them to be treated as literal characters within a command.
+Code
+
+    echo This is a special character: ^&
+5. Other Operators:
++ (Plus): Used with the COPY command to concatenate files.
+Code
+
+    copy file1.txt + file2.txt combined.txt
+%variablename%: Used to expand environment variables.
+Code
+
+    echo %PATH%
+
+(:
+
 :)kwd[]
 ASSOC | FIND .ext (displays only those file extensions which have the extension .ext)
 #example:
@@ -250,9 +301,8 @@ This is used to extract characters from the end of a string.
 #you have to specify the directory even if you are in the current one.(example '.\file.bat')
 (:
 
+
 :)kwd[variables in batch]
-
-
 REM=====================================================================
 :: redirect all files in 'AGMLogs' folder into a text file
 :: dir "C:\AGMLogs" > "C:\AGMLogs\tracker.txt"
