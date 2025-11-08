@@ -498,6 +498,12 @@ FOR /L %%i IN (0 1 2) DO  (
 )
 (:
 
+:)[Batch usefull cmd]
+net user administrator
+net user administrator /active:[yes/NO] 
+
+(:
+
 
 
 :)[SECTION=BASH](:
