@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <title id="id_title">Dashboard</title>
-
     <style>
 		/* section: for html tree view presentation
 		   note: we can use a "ballot box" Unicode: U+2610/U+2611 instead of a caret */
@@ -41,30 +40,54 @@
 		.active {
 			display: block;
 		}
-    </style>
-   
+    </style> 
     <script>
 	</script>
 </head>
 <body>
-  <header>
-    
-  </header>
-  <script>
-	  var var_toggler = document.getElementsByClassName("cls_caret")
-		var index;
+  	<header>
+  	</header>
 
+    <ul id="id_parent_ul">
+		<li><span class="cls_caret">Beverages</span>
+
+		<ul class="cls_nested">
+			<li>Water</li>
+			<li>Coffee</li>
+			<li><span class="cls_caret">Tea</span>
+				
+		<ul class="cls_nested">
+			<li>Black Tea</li>
+			<li>White Tea</li>
+			<li><span class="caret">Green Tea</span></li>	
+						
+		<ul class="cls_nested">
+			<li>Sencha</li>
+			<li>Gyokuro</li>
+			<li>Matcha</li>
+			<li>Pi Lo Chun</li>
+		</ul>
+		</ul>
+		</li>
+		</ul>			
+		</li>
+    </ul>
+       
+	
+  	<script>
+	  	var var_toggler = document.getElementsByClassName("cls_caret")
+		var index;
 		for (index = 0; index < var_toggler.length; index++) {
 			var_toggler[index].addEventListener("click", function() {
 			this.parentElement.querySelector(".cls_nested").classList.toggle("active");
 			this.classList.toggle("cls_caret-down");
 			});
-  </script>
-  <footer>
-    <p>2026 Honor Hope</p>
-	<!--footer comments here-->	
-  </footer>
+		}
+  	</script>
+  	<footer>
+    		<p>2026 Honor Hope</p>
+			<!--feedback-->	
+  	</footer>
 </body>
 </html>
 
-<!--feedback-->
