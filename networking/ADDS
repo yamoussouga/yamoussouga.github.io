@@ -1,0 +1,31 @@
+1.1 ACTIVE DIRECTORY SERVICES
+1.1.1. Describe the purpose of Active Directory
+1.1.2. Explain create/modify/delete user
+1.1.3. Explain organizational units (OU)
+1.1.4. Explain user rights (permissions)
+1.1.5. Explain security and distribution groups
+1.1.6. Describe replication
+1.1.7. Describe trusts and synchronization between domain controllers
+1.1.8. Explain troubleshooting Active Directory replication problems
+1.1.9. Explain the importance of domain prep
+1.1.10. Describe Active Directory troubleshooting concepts
+1.1.11. Explain the role of Kerberos
+1.2. PROMOTING DOMAIN CONTROLLERS
+1.2.1. Describe steps to promote/install domain controllers
+1.2.2. Describe steps to demote domain controllers
+1.2.3. Explain metadata cleanup
+1.2.4. Describe Lightweight Directory Access Protocol (LDAP)
+1.2.5. Identify LDAP distinguished names and attributes
+1.2.6. Define Active Directory schema
+1.2.7. Identify relationship between Exchange and the Active Directory
+1.3. GROUP POLICY
+1.3.1. Explain Group Policy
+1.3.2. Describe Windows Management Instrument (WMI) filters
+1.3.3. Explain how security filters work
+1.3.4. Explain blocking inheritance
+1.3.5. Explain how Group Policy Objects work
+1.3.6. Explain the function of GPMC
+1.4. ACTIVE DIRECTORY INSTALLATION
+1.4.1. Identify file system types
+1.4.2. Explain Active Directory installation steps
+1.4.3. Identify Active Directory prerequisites
