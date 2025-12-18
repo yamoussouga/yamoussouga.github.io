@@ -5,6 +5,24 @@
     <title id="id_title">Dashboard</title>
 
     <style>
+        /*remove default bullet for <li>*/
+        ul #id_parent_ul {
+        list-style-type: none
+        }
+        /*Remove margins and padding from the parent ul*/
+        #id_parent_ul {
+            margin: 0;
+            padding: 0
+        }
+        /*Style the caret/arrow*/
+        .cls_caret {
+            cursor: pointer;
+            user-select: none; /*Prevent text selection*/ 
+        }
+        /* Create the caret/arrow with a unicode, and style it*/
+        .cls_caret::before {
+            content:
+        }
     </style>
    
     <script>
