@@ -1,0 +1,16 @@
+
+
+#this is comment in powershell
+#get-help get-aduser -showwindow
+
+#ping host_Name -t
+#ping host_name -w 4000
+
+#test-netConnection host_name
+#test-netConnection host_name -port 3389
+#test-connection host_name
+
+#get-aduser -identity "1631037891a" -properties *
+#get-aduser -filter {samaccountname -like "yelo *"} | select-object name
+
+#nslookup (then press <enter> then type `help`)
