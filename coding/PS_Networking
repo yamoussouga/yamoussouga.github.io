@@ -10,7 +10,10 @@
 #test-netConnection host_name -port 3389
 #test-connection host_name
 
+#nslookup (then press <enter> then type `help`)
+
+#gpupdate
+#gpupdate /force
+
 #get-aduser -identity "1631037891a" -properties *
 #get-aduser -filter {samaccountname -like "yelo *"} | select-object name
-
-#nslookup (then press <enter> then type `help`)
