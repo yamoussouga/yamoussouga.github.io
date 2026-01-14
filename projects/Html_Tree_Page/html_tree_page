@@ -3,13 +3,16 @@
 <head>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-		
+	
     <title id="id_title">The following is the code for html tree page.</title>  
   <style>
 		/***************************************************************************** 
 		  SECTION: "html tree view presentation"
 		  NOTE: we can use a "ballot box" Unicode: U+2610/U+2611 instead of a caret 
+<xmp><pre><code>
+	</code></pre></xmp>
+
+
 		*****************************************************************************/
 		
         /*remove default bullet for <li>*/
