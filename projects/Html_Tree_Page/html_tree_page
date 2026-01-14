@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang=en style="font-size: 24px">
+<head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		
+    <title id="id_title">The following is the code for html tree page.</title>  
+  <style>
+		/***************************************************************************** 
+		  SECTION: "html tree view presentation"
+		  NOTE: we can use a "ballot box" Unicode: U+2610/U+2611 instead of a caret 
+		*****************************************************************************/
+		
+        /*remove default bullet for <li>*/
+        ul #id_parent_ul {
+        list-style-type: none
+        }
+        /*Remove margins and padding from the parent ul*/
+        #id_parent_ul {
+            margin: 0;
+            padding: 0
+        }
+        /*Style the caret/arrow*/
+        .cls_caret {
+            cursor: pointer;
+            user-select: none; /*Prevent text selection*/ 
+        }
+        /* Create the caret/arrow with a unicode, and style it*/
+        .cls_caret::before {
+            content: "\25B6";
+            color: black;
+            display: inline-block;
+            margin-right: 6px;
+        }
+        /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+	    .cls_caret-down::before {
+            transform: rotate(90deg);
+        }
+		/* Hide the nested list */
+		.cls_nested {
+			display: none;
+		}
+		/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+		.active {
+			display: block;
+		}
+    </style> 
+    <script>
+	</script>
+</head>
+<body>
+  	<header>
+		<hr/>
+  	</header>
+	
+	<!--Navigation menu portion-->
+	
+	<main>
+
+    <ul id="id_parent_ul">
+	<li><span class="cls_caret"> GrandParentPlaceHolder  </span>	
+		<ul class="cls_nested">
+		<li> ParentPlaceHolder1 </li>
+		<li> ParentPlaceHolder2 </li>
+		<li><span class="cls_caret"> ParentPlaceHolder3 </span>	
+			<ul class="cls_nested">
+			<li> ChildPlaceHolder1 </li>
+			<li> ChildPlaceHolder2 </li>
+			<li><span class="cls_caret"> ChildPlaceHolder3 </span>				
+				<ul class="cls_nested">
+				<li> GrandChildPlaceHolder1 </li>
+				<li> GrandChildPlaceHolder2 </li>
+				<li> GrandChildPlaceHolder3 </li>
+				<li> GrandChildPlaceHolder4 </li>
+				</ul>
+			</li>
+		</li>			
+	</li>
+    </ul>
+       
+  	<script>
+		/**********************************************************************
+		 The following script is for section: "html tree view presentation"
+		**********************************************************************/
+	  	var var_toggler = document.getElementsByClassName("cls_caret")
+		var index;
+		for (index = 0; index < var_toggler.length; index++) {
+			var_toggler[index].addEventListener("click", function() {
+			this.parentElement.querySelector(".cls_nested").classList.toggle("active");
+			this.classList.toggle("cls_caret-down");
+			});
+		}
+  	</script>
+	</main>	
+  	<footer>
+	<hr/>
+    		<p>2026 Honor Hope</p>
+			<!--feedback-->
+			<!--To do-->
+			<p>Layout and navigation bar</p>
+
+<p>home, news,contact,about,work,project,case study</p>
+		
+	</footer>
+</body>
+</html>
