@@ -4,6 +4,27 @@
 #NIC (Network Interface Card)
 #MAC (Media Access Control)
 
+#!!!
+  SNMP (Simple Network Management Protocol) and IDS (Intrusion Detection System)
+  Discover, Map, Monitoring, Alert, Report.
+
+#!!!
+  NAT / PAT work in conjunction to translate private addresses into public addresses. 
+
+#!!!
+  D -> H (division)
+  H -> D (multiplication)
+  D -> B (substraction)
+  B -> D (addition)
+
+#IP addresses
+  Private ip address | Special ip address 
+        10.                   127.    
+
+#Ports
+  Registered | Wellknown | Private / Ephemoral | Dynamic 
+    1024-
+
 ->Cyber fundamentals
   =======================
 1-Networking Fundamentals
@@ -11,4 +32,16 @@
 3-Switch & Router
 4-Appliances
 5-Cyber security
+
+->OSI Model
+  =========
+#Upper layer
+  7-Application layer
+  6-Presentation layer
+  5-Session layer
+#Transport layer
+  4-Transport layer
+  3-Network layer --This layer is all logical
+  2-Detalink layer
+  1-Physical layer
 
