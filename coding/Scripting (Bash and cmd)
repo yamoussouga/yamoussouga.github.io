@@ -2,6 +2,11 @@
 
 :)kwd[SECTION=BATCH](:
 
+:)[CMD]
+	Terminal(Lagacy Tool) vs Command line(Interface of the terminal) vs Shell(OS of the terminal)
+(:
+
+
 :)kwd[sources links batch]
 https://www.tutorialspoint.com/batch_script/batch_script_strings.htm
 batch related (https://www.wikihow.com/Delay-a-Batch-File)
