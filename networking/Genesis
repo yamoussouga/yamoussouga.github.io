@@ -54,5 +54,14 @@
               0000 0001 0000 0000
 ->Ethernet broadcast address is: FF.FF.FF.FF
 ->Data packet: All incompensate term for data on the network.
-->Ethernet frame.
-->Payload is the actual data, no header.
+->Ethernet frame:
+  1> Preambule (8 bytes) 
+  2> SFD (1 byte, the last byte in the preambule) 
+  3> Recipient MAC (6 bytes)
+  4> Destination MAC (6 bytes)
+  5> VLan Header (4 bytes)
+  6> Ether type (2 bytes)
+  7> FCS (4 bytes CRC)
+  8> Payload (Payload is the actual data, no header. 46-50 bytes)   
+                           
+                
