@@ -3,6 +3,8 @@
   ==========
 #NIC (Network Interface Card)
 #MAC (Media Access Control)
+  3 firsts octets identify the manufacturer 
+  (OUI = Organizationally Unique Identifier)
 
 #!!!
   SNMP (Simple Network Management Protocol) and IDS (Intrusion Detection System)
@@ -45,3 +47,12 @@
   2-Detalink layer
   1-Physical layer
 
+->Unicast transmission
+  #if the first bit (from right) of the first byte is set to 0 then unicast
+  #if the first bit (from right) of the first byte is set to 1 then multicast.
+    -example: 0000 0000 0000 0000
+              0000 0001 0000 0000
+->Ethernet broadcast address is: FF.FF.FF.FF
+->Data packet: All incompensate term for data on the network.
+->Ethernet frame.
+->Payload is the actual data, no header.
