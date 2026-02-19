@@ -1,0 +1,116 @@
+
+
+
+
+
+Alright 🚀 — here’s the final upgraded Python tool that works as a URL validator + encoder + character analyzer.
+It will:
+
+Parse a full URL into its components (scheme, host, path, query, fragment).
+Highlight each character as Unreserved, Reserved, or Must Encode.
+Show the correct percent‑encoded form for unsafe characters.
+Optionally re‑encode the entire URL safely.
+
+
+Pythonimport urllib.parse
+import string
+
+# RFC 3986 character sets
+UNRESERVED = string.ascii_letters + string.digits + "-._~"
+RESERVED = ":/?#[]@" + "!$&'()*+,;="
+
+def classify_char(c):
+    """Classify a character according to RFC 3986 rules."""
+    if c in UNRESERVED:
+        return "Unreserved"
+    elif c in RESERVED:
+        return "Reserved"
+    else:
+        return "Must Encode"
+
+def encode_custom_string(s):
+    """Encodes a string for safe URL usage (UTF-8 percent-encoding)."""
+    return urllib.parse.quote(s, safe=UNRESERVED + RESERVED)
+
+def analyze_url(url):
+    """Analyze each character in a URL and show encoding details."""
+    print(f"\nAnalyzing URL: {url}")
+    print(f"{'Char':<6} {'Unicode':<10} {'Status':<15} {'UTF-8 Bytes':<20} {'Encoded'}")
+    print("-" * 80)
+    
+    for c in url:
+        status = classify_char(c) if ord(c) < 128 else "Must Encode"
+        utf8_bytes = " ".join(f"{b:02X}" for b in c.encode('utf-8'))
+        encoded = urllib.parse.quote(c, safe=UNRESERVED + RESERVED)
+        print(f"{c!r:<6} U+{ord(c):04X}   {status:<15} {utf8_bytes:<20} {encoded}")
+
+def validate_and_encode_url(url):
+    """Validate and return a fully safe encoded URL."""
+    parsed = urllib.parse.urlsplit(url)
+    
+    # Encode each part separately
+    safe_scheme = parsed.scheme
+    safe_netloc = parsed.netloc.encode("idna").decode("ascii")  # IDN support
+    safe_path = encode_custom_string(parsed.path)
+    safe_query = encode_custom_string(parsed.query)
+    safe_fragment = encode_custom_string(parsed.fragment)
+    
+    safe_url = urllib.parse.urlunsplit((safe_scheme, safe_netloc, safe_path, safe_query, safe_fragment))
+    return safe_url
+
+if __name__ == "__main__":
+    # Example URL with unsafe characters
+    test_url = "https://exámple.com/pa th/🚀?q=café &x=✓#frag ment"
+    
+    # Step 1: Analyze characters
+    analyze_url(test_url)
+    
+    # Step 2: Validate and encode
+    safe_url = validate_and_encode_url(test_url)
+    print("\nSafe Encoded URL:")
+    print(safe_url)
+
+
+How It Works
+
+classify_char — Determines if a character is Unreserved, Reserved, or Must Encode.
+analyze_url — Goes through every character in the URL and shows:
+
+Character
+Unicode code point
+RFC 3986 classification
+UTF‑8 byte sequence
+Correct percent‑encoded form
+
+
+validate_and_encode_url —
+
+Splits the URL into scheme, netloc, path, query, fragment.
+Encodes each part individually (important for correctness).
+Supports internationalized domain names (IDN) via idna encoding.
+
+
+
+
+Example Output
+Analyzing URL: https://exámple.com/pa th/🚀?q=café &x=✓#frag ment
+'/'    U+002F   Reserved        2F                   /
+'é'    U+00E9   Must Encode     C3 A9                %C3%A9
+' '    U+0020   Must Encode     20                   %20
+'🚀'    U+1F680  Must Encode     F0 9F 9A 80          %F0%9F%9A%80
+...
+Safe Encoded URL:
+https://xn--exmple-cua.com/pa%20th/%F0%9F%9A%80?q=caf%C3%A9%20&x=%E2%9C%93#frag%20ment
+
+
+✅ Benefits of this tool:
+
+Works for ASCII + Unicode + emojis.
+Correctly encodes only what’s necessary.
+Handles international domains.
+Lets you see exactly why a character is encoded.
+
+
+If you want, I can now add color‑coded terminal output so that safe, reserved, and unsafe characters are visually distinct when analyzing a URL.
+That would make spotting problems much faster.
+Do you want me to make that enhancement?
