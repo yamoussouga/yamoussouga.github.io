@@ -1,0 +1,107 @@
+
+
+
+
+Perfect ✅ — here’s the upgraded Python script that works for full Unicode (including emojis, accented letters, and symbols) and shows their UTF‑8 percent‑encoding for URLs.
+It still includes the ASCII table, but now you can check any character beyond ASCII.
+
+Pythonimport urllib.parse
+import string
+
+def classify_char(c):
+    """Classify a character according to RFC 3986 rules."""
+    unreserved = string.ascii_letters + string.digits + "-._~"
+    reserved = ":/?#[]@" + "!$&'()*+,;="
+    
+    if c in unreserved:
+        return "Unreserved"
+    elif c in reserved:
+        return "Reserved"
+    else:
+        return "Must Encode"
+
+def print_ascii_table():
+    """Prints ASCII table with URL safety classification."""
+    print(f"{'Dec':<4} {'Hex':<4} {'Char':<6} {'Status':<15} {'Encoded'}")
+    print("-" * 60)
+    for code in range(0, 128):
+        char = chr(code)
+        display_char = char if char.isprintable() and char != " " else " "
+        status = classify_char(char)
+        encoded = urllib.parse.quote(char, safe='')
+        print(f"{code:<4} {code:02X}   {display_char!r:<6} {status:<15} {encoded}")
+
+def encode_custom_string(s):
+    """Encodes a custom string for safe URL usage (UTF-8 percent-encoding)."""
+    return urllib.parse.quote(s, safe='')
+
+def analyze_unicode_chars(chars):
+    """Analyze and display encoding for any Unicode characters."""
+    print(f"\n{'Char':<6} {'Unicode':<10} {'Status':<15} {'UTF-8 Bytes':<20} {'Encoded'}")
+    print("-" * 80)
+    for c in chars:
+        status = classify_char(c) if ord(c) < 128 else "Must Encode"
+        utf8_bytes = " ".join(f"{b:02X}" for b in c.encode('utf-8'))
+        encoded = encode_custom_string(c)
+        print(f"{c!r:<6} U+{ord(c):04X}   {status:<15} {utf8_bytes:<20} {encoded}")
+
+if __name__ == "__main__":
+    # Print ASCII table
+    print_ascii_table()
+    
+    # Example: Encode a custom string
+    print("\n--- Custom Encoding Example ---")
+    test_str = "Hello World! 100% safe? café 🚀"
+    print(f"Original: {test_str}")
+    print(f"Encoded : {encode_custom_string(test_str)}")
+    
+    # Analyze specific Unicode characters
+    print("\n--- Unicode Character Analysis ---")
+    analyze_unicode_chars("éç✓🚀💡")
+
+
+What’s New
+
+
+analyze_unicode_chars
+
+Works for any Unicode character.
+Shows:
+
+Character
+Unicode code point (U+XXXX)
+RFC 3986 status
+UTF‑8 byte sequence (hex)
+Percent‑encoded form
+
+
+
+
+
+UTF‑8 Encoding
+
+Non‑ASCII characters are first encoded to UTF‑8 bytes, then percent‑encoded.
+
+
+
+
+Example Output (Partial)
+--- Custom Encoding Example ---
+Original: Hello World! 100% safe? café
+Encoded : Hello%20World%21%20100%25%20safe%3F%20caf%C3%A9%20%F0%9F%9A%80
+
+--- Unicode Character Analysis ---
+Char   Unicode    Status          UTF-8 Bytes          Encoded
+----------------------------------------------------------------
+'é'    U+00E9     Must Encode     C3 A9                %C3%A9
+'ç'    U+00E7     Must Encode     C3 A7                %C3%A7
+'✓'    U+2713     Must Encode     E2 9C 93             %E2%9C%93
+'🚀'    U+1F680    Must Encode     F0 9F 9A 80          %F0%9F%9A%80
+'💡'    U+1F4A1    Must Encode     F0 9F 92 A1          %F0%9F%92%A1
+
+
+✅ This script now works for any character — ASCII, accented letters, symbols, and emojis — and shows exactly how they are represented in a URL.
+
+If you want, I can extend this further so it can take an entire URL and highlight which characters are safe, reserved, or incorrectly encoded.
+That would make it a URL validator + encoder tool.
+Do you want me to build that next?
