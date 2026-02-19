@@ -1,0 +1,52 @@
+
+
+
+Here’s a complete breakdown of all character types in a URL according to the RFC 3986 standard, including which are allowed directly and which must be percent-encoded.
+
+1. Unreserved Characters (Safe to use without encoding)
+These characters can appear in a URL without encoding:
+A–Z  a–z  0–9  -  _  .  ~
+Letters: A-Z and a-z
+Digits: 0-9
+Hyphen: -
+Underscore: _
+Period: .
+Tilde: ~
+
+2. Reserved Characters (Have special meaning in URLs)
+These are used for URL structure and must be encoded if used as data:
+:  /  ?  #  [  ]  @
+!  $  &  '  (  )  *  +  ,  ;  =
+
+Categories:
+General delimiters: : / ? # [ ] @
+Sub-delimiters:     ! $ & ' ( ) * + , ; =
+
+3. Percent-Encoding
+Any character outside the unreserved set must be encoded as:
+%HH
+Where HH is the two-digit hexadecimal ASCII code.
+
+Example:
+Space → %20 (or + in query strings)
+# → %23
+? → %3F
+4. Space Handling
+In path: Must be %20
+In query string: Often replaced with + (application/x-www-form-urlencoded) or %20
+5. Non-ASCII Characters
+Must be UTF-8 encoded first, then percent-encoded.
+Example: é → UTF-8 bytes 0xC3 0xA9 → %C3%A9
+6. Example URL Structure
+
+scheme://user:pass@host:port/path?query#fragment
+scheme: letters, digits, +, -, .
+host: letters, digits, -, .
+path/query/fragment: unreserved + reserved (encoded if needed)
+
+
+Type	        Characters Allowed Directly
+Unreserved	A-Z a-z 0-9 - _ . ~
+Reserved	: / ? # [ ] @ ! $ & ' ( ) * + , ; =
+Must Encode	Space, ", <, >, {}, `
+If you want, I can give you a full ASCII table with URL-safe status so you can see exactly which characters are allowed, reserved, or must be encoded.
