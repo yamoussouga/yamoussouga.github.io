@@ -1,0 +1,262 @@
+
+
+
+
+Got it — here’s the full ASCII table (0–127) showing which characters are safe, reserved, or must be percent-encoded in a URL according to RFC 3986.
+
+URL Character Safety Table
+
+
+
+Dec
+Hex
+Char
+Status in URL
+
+
+
+
+0–31
+00–1F
+(control chars)
+ Must Encode
+
+
+32
+20
+(space)
+%20 (or + in query)
+
+
+33
+21
+!
+Reserved (sub-delim)
+
+
+34
+22
+"
+Must Encode
+
+
+35
+23
+#
+Reserved (fragment start)
+
+
+36
+24
+$
+Reserved (sub-delim)
+
+
+37
+25
+%
+Must Encode (escape char)
+
+
+38
+26
+&
+Reserved (query param sep)
+
+
+39
+27
+'
+Reserved (sub-delim)
+
+
+40
+28
+(
+Reserved (sub-delim)
+
+
+41
+29
+)
+Reserved (sub-delim)
+
+
+42
+2A
+*
+Reserved (sub-delim)
+
+
+43
+2B
++
+Reserved (space in query)
+
+
+44
+2C
+,
+Reserved (sub-delim)
+
+
+45
+2D
+-
+Unreserved
+
+
+46
+2E
+.
+Unreserved
+
+
+47
+2F
+/
+Reserved (path separator)
+
+
+48–57
+30–39
+0–9
+Unreserved
+
+
+58
+3A
+:
+Reserved (scheme/port sep)
+
+
+59
+3B
+;
+Reserved (sub-delim)
+
+
+60
+3C
+<
+Must Encode
+
+
+61
+3D
+=
+Reserved (sub-delim)
+
+
+62
+3E
+>
+Must Encode
+
+
+63
+3F
+?
+Reserved (query start)
+
+
+64
+40
+@
+Reserved (userinfo/host sep)
+
+
+65–90
+41–5A
+A–Z
+Unreserved
+
+
+91
+5B
+[
+Reserved (IPv6 literal)
+
+
+92
+5C
+\
+Must Encode
+
+
+93
+5D
+]
+Reserved (IPv6 literal)
+
+
+94
+5E
+^
+Must Encode
+
+
+95
+5F
+_
+Unreserved
+
+
+96
+60
+`
+Must Encode
+
+
+97–122
+61–7A
+a–z
+Unreserved
+
+
+123
+7B
+{
+Must Encode
+
+
+124
+7C
+`
+`
+
+
+125
+7D
+}
+Must Encode
+
+
+126
+7E
+~
+Unreserved
+
+
+127
+7F
+(DEL)
+Must Encode
+
+
+
+
+Legend
+
+Unreserved → Safe to use directly in URLs.
+Reserved → Allowed, but has special meaning in URL structure. Encode if used as data.
+Must Encode → Always percent-encode.
+
+
+Example
+TextHello World! → Hello%20World%21
+https://example.com/path?name=John&age=30
+
+
+If you want, I can also give you a Python script that prints this table dynamically so you can check any ASCII or Unicode character’s URL encoding instantly.
+Do you want me to prepare that script?
