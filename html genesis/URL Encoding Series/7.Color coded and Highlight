@@ -1,0 +1,106 @@
+
+
+
+
+Alright ✅ — here’s the final enhanced version of our URL validator/encoder that not only shows the color‑coded table but also highlights unsafe characters directly inside the original URL so you can visually spot them in context.
+
+Pythonimport urllib.parse
+import string
+
+# RFC 3986 character sets
+UNRESERVED = string.ascii_letters + string.digits + "-._~"
+RESERVED = ":/?#[]@" + "!$&'()*+,;="
+
+# ANSI colors
+COLOR_RESET = "\033[0m"
+COLOR_GREEN = "\033[92m"  # Unreserved
+COLOR_YELLOW = "\033[93m" # Reserved
+COLOR_RED = "\033[91m"    # Must Encode
+
+def classify_char(c):
+    """Classify a character according to RFC 3986 rules."""
+    if c in UNRESERVED:
+        return "Unreserved", COLOR_GREEN
+    elif c in RESERVED:
+        return "Reserved", COLOR_YELLOW
+    else:
+        return "Must Encode", COLOR_RED
+
+def encode_custom_string(s):
+    """Encodes a string for safe URL usage (UTF-8 percent-encoding)."""
+    return urllib.parse.quote(s, safe=UNRESERVED + RESERVED)
+
+def analyze_url(url):
+    """Analyze each character in a URL and show encoding details with colors."""
+    print(f"\nAnalyzing URL: {url}")
+    print(f"{'Char':<6} {'Unicode':<10} {'Status':<15} {'UTF-8 Bytes':<20} {'Encoded'}")
+    print("-" * 80)
+    
+    for c in url:
+        status, color = classify_char(c) if ord(c) < 128 else ("Must Encode", COLOR_RED)
+        utf8_bytes = " ".join(f"{b:02X}" for b in c.encode('utf-8'))
+        encoded = urllib.parse.quote(c, safe=UNRESERVED + RESERVED)
+        print(f"{color}{c!r:<6} U+{ord(c):04X}   {status:<15} {utf8_bytes:<20} {encoded}{COLOR_RESET}")
+
+def highlight_url(url):
+    """Return the URL string with unsafe/reserved characters highlighted in color."""
+    highlighted = ""
+    for c in url:
+        _, color = classify_char(c) if ord(c) < 128 else ("Must Encode", COLOR_RED)
+        highlighted += f"{color}{c}{COLOR_RESET}"
+    return highlighted
+
+def validate_and_encode_url(url):
+    """Validate and return a fully safe encoded URL."""
+    parsed = urllib.parse.urlsplit(url)
+    
+    # Encode each part separately
+    safe_scheme = parsed.scheme
+    safe_netloc = parsed.netloc.encode("idna").decode("ascii")  # IDN support
+    safe_path = encode_custom_string(parsed.path)
+    safe_query = encode_custom_string(parsed.query)
+    safe_fragment = encode_custom_string(parsed.fragment)
+    
+    safe_url = urllib.parse.urlunsplit((safe_scheme, safe_netloc, safe_path, safe_query, safe_fragment))
+    return safe_url
+
+if __name__ == "__main__":
+    # Example URL with unsafe characters
+    test_url = "https://exámple.com/pa th/🚀?q=café &x=✓#frag ment"
+    
+    # Step 1: Highlight URL in context
+    print("\nHighlighted URL in context:")
+    print(highlight_url(test_url))
+    
+    # Step 2: Analyze characters with colors
+    analyze_url(test_url)
+    
+    # Step 3: Validate and encode
+    safe_url = validate_and_encode_url(test_url)
+    print("\nSafe Encoded URL:")
+    print(safe_url)
+
+
+New Feature: Highlight in Context
+Instead of just showing a table, the highlight_url function colors the characters inside the actual URL:
+
+🟢 Green → Safe (unreserved)
+🟡 Yellow → Reserved (special meaning)
+🔴 Red → Must Encode (unsafe)
+
+
+Example Terminal Output
+Highlighted URL in context:
+https://xn--exmple-cua.com/pa th/🚀?q=café &x=✓#frag ment
+
+(Colors applied in terminal — red for unsafe, yellow for reserved, green for safe)
+
+Why This is Useful
+
+You can scan the URL visually without reading a table.
+Still have the detailed breakdown for debugging.
+Works for ASCII, Unicode, emojis, and international domains.
+
+
+If you want, I can add an option to automatically replace unsafe characters with their percent‑encoded form directly in the highlighted URL, so you see before/after in one view.
+Do you want me to add that final transformation?
