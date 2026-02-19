@@ -1,0 +1,162 @@
+
+
+
+
+Alright 🚀 — let’s turn our URL validator/encoder into a pip‑installable CLI tool so you can run it anywhere as:
+Bashurlcheck "https://example.com/🚀 test"
+
+
+1. Project Structure
+We’ll create a Python package:
+urlcheck/
+│
+├── urlcheck/
+│   ├── __init__.py
+│   ├── cli.py
+│
+├── setup.py
+├── pyproject.toml
+├── README.md
+
+
+2. cli.py (Main Script)
+Python#!/usr/bin/env python3
+import urllib.parse
+import string
+import sys
+
+# RFC 3986 character sets
+UNRESERVED = string.ascii_letters + string.digits + "-._~"
+RESERVED = ":/?#[]@" + "!$&'()*+,;="
+
+# ANSI colors
+COLOR_RESET = "\033[0m"
+COLOR_GREEN = "\033[92m"  # Unreserved
+COLOR_YELLOW = "\033[93m" # Reserved
+COLOR_RED = "\033[91m"    # Must Encode
+
+def classify_char(c):
+    if c in UNRESERVED:
+        return "Unreserved", COLOR_GREEN
+    elif c in RESERVED:
+        return "Reserved", COLOR_YELLOW
+    else:
+        return "Must Encode", COLOR_RED
+
+def encode_custom_string(s):
+    return urllib.parse.quote(s, safe=UNRESERVED + RESERVED)
+
+def analyze_url(url):
+    print(f"\nAnalyzing URL: {url}")
+    print(f"{'Char':<6} {'Unicode':<10} {'Status':<15} {'UTF-8 Bytes':<20} {'Encoded'}")
+    print("-" * 80)
+    for c in url:
+        status, color = classify_char(c) if ord(c) < 128 else ("Must Encode", COLOR_RED)
+        utf8_bytes = " ".join(f"{b:02X}" for b in c.encode('utf-8'))
+        encoded = urllib.parse.quote(c, safe=UNRESERVED + RESERVED)
+        print(f"{color}{c!r:<6} U+{ord(c):04X}   {status:<15} {utf8_bytes:<20} {encoded}{COLOR_RESET}")
+
+def highlight_url(url):
+    return "".join(
+        f"{classify_char(c)[1] if ord(c) < 128 else COLOR_RED}{c}{COLOR_RESET}"
+        for c in url
+    )
+
+def highlight_and_encode_url(url):
+    highlighted = ""
+    transformed = ""
+    for c in url:
+        _, color = classify_char(c) if ord(c) < 128 else ("Must Encode", COLOR_RED)
+        encoded = urllib.parse.quote(c, safe=UNRESERVED + RESERVED)
+        highlighted += f"{color}{c}{COLOR_RESET}"
+        transformed += encoded
+    return highlighted, transformed
+
+def validate_and_encode_url(url):
+    parsed = urllib.parse.urlsplit(url)
+    safe_scheme = parsed.scheme
+    safe_netloc = parsed.netloc.encode("idna").decode("ascii")
+    safe_path = encode_custom_string(parsed.path)
+    safe_query = encode_custom_string(parsed.query)
+    safe_fragment = encode_custom_string(parsed.fragment)
+    return urllib.parse.urlunsplit((safe_scheme, safe_netloc, safe_path, safe_query, safe_fragment))
+
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: urlcheck '<URL>' [--only-encode]")
+        sys.exit(1)
+
+    test_url = sys.argv[1]
+    only_encode = "--only-encode" in sys.argv
+
+    if only_encode:
+        print(validate_and_encode_url(test_url))
+        sys.exit(0)
+
+    print("\nHighlighted URL in context:")
+    print(highlight_url(test_url))
+
+    highlighted, transformed = highlight_and_encode_url(test_url)
+    print("\nHighlighted (before) and Auto-Encoded (after):")
+    print("Before:", highlighted)
+    print("After :", transformed)
+
+    analyze_url(test_url)
+
+    safe_url = validate_and_encode_url(test_url)
+    print("\nSafe Encoded URL (RFC 3986 compliant):")
+    print(safe_url)
+
+if __name__ == "__main__":
+    main()
+
+
+3. setup.py
+Pythonfrom setuptools import setup, find_packages
+
+setup(
+    name="urlcheck",
+    version="1.0.0",
+    packages=find_packages(),
+    install_requires=[],
+    entry_points={
+        "console_scripts": [
+            "urlcheck=urlcheck.cli:main",
+        ],
+    },
+    author="Your Name",
+    description="A CLI tool to validate, highlight, and encode URLs (RFC 3986 compliant)",
+    python_requires=">=3.6",
+)
+
+
+4. pyproject.toml (Optional but modern)
+Toml[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
+
+
+5. Install Locally
+From the project root:
+Bashpip install .
+
+Now you can run:
+Bashurlcheck "https://exámple.com/pa th/🚀?q=café &x=✓#frag ment"
+
+or:
+Bashurlcheck "https://exámple.com/pa th/🚀?q=café &x=✓#frag ment" --only-encode
+
+
+6. Publish to PyPI (Optional)
+If you want to share it:
+Bashpip install build twine
+python -m build
+twine upload dist/*
+
+
+✅ Now urlcheck is a global CLI command
+✅ Works anywhere after pip install
+✅ Supports full analysis or only encoding mode
+
+If you want, I can also add a --json flag so the tool outputs structured JSON instead of text, making it easy to integrate into other programs.
+Do you want me to add JSON output support next?
