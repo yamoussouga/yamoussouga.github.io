@@ -1,0 +1,80 @@
+
+
+
+
+Here’s a complete Python script that generates the URL character safety table dynamically and also lets you check any ASCII or Unicode character’s URL encoding.
+It uses Python’s built‑in urllib.parse.quote for correct percent‑encoding.
+
+Pythonimport urllib.parse
+import string
+
+def classify_char(c):
+    """Classify a character according to RFC 3986 rules."""
+    unreserved = string.ascii_letters + string.digits + "-._~"
+    reserved = ":/?#[]@" + "!$&'()*+,;="
+    
+    if c in unreserved:
+        return "Unreserved"
+    elif c in reserved:
+        return "Reserved"
+    else:
+        return "Must Encode"
+
+def print_ascii_table():
+    """Prints ASCII table with URL safety classification."""
+    print(f"{'Dec':<4} {'Hex':<4} {'Char':<6} {'Status':<15} {'Encoded'}")
+    print("-" * 50)
+    for code in range(0, 128):
+        char = chr(code)
+        # Show printable char or placeholder
+        display_char = char if char.isprintable() and char != " " else " "
+        status = classify_char(char)
+        encoded = urllib.parse.quote(char, safe='')
+        print(f"{code:<4} {code:02X}   {display_char!r:<6} {status:<15} {encoded}")
+
+def encode_custom_string(s):
+    """Encodes a custom string for safe URL usage."""
+    return urllib.parse.quote(s, safe='')
+
+if __name__ == "__main__":
+    # Print the ASCII table
+    print_ascii_table()
+    
+    print("\n--- Custom Encoding Example ---")
+    test_str = "Hello World! 100% safe?"
+    print(f"Original: {test_str}")
+    print(f"Encoded : {encode_custom_string(test_str)}")
+
+
+How It Works
+
+classify_char — Determines if a character is Unreserved, Reserved, or Must Encode.
+print_ascii_table — Loops through ASCII 0–127 and prints:
+
+Decimal code
+Hex code
+Character
+Classification
+Percent-encoded form
+
+
+encode_custom_string — Encodes any string for safe URL usage.
+
+
+Example Output (Partial)
+Dec  Hex  Char   Status          Encoded
+--------------------------------------------------
+0    00   ' '    Must Encode     %00
+32   20   ' '    Must Encode     %20
+33   21   '!'    Reserved        %21
+45   2D   '-'    Unreserved      -
+65   41   'A'    Unreserved      A
+91   5B   '['    Reserved        %5B
+
+Custom Encoding Example:
+Original: Hello World! 100% safe?
+Encoded : Hello%20World%21%20100%25%20safe%3F
+
+
+If you want, I can extend this script so it also checks Unicode characters beyond ASCII (e.g., emojis, accented letters) and shows their UTF‑8 percent‑encoding.
+Do you want me to upgrade it for full Unicode URL encoding?
