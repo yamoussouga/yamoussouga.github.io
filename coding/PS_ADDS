@@ -9,7 +9,7 @@ install-windowsfeature rsat-ad-powershell
 #install on windows 10/11 
 install-windowscapability -online -name rsat.activedirectory.ds-lds.tools~~~~0.0.1.0
 #now import the module
-import-module activedirectory
+import-module activedirectory -usewindowspowershell
 #you can now run
 get-addomaincontroller -discover -domainname "contoso.com"
 
