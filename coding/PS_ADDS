@@ -2,6 +2,16 @@
 #====================================
 #Check if RSAT modules are installed
 #====================================
+#check
+get-module -listavailable activedirectory
+#install on windows server
+install-windowsfeature rsat-ad-powershell
+#install on windows 10/11 
+install-windowscapability -online -name rsat.activedirectory.ds-lds.tools~~~~0.0.1.0
+#now import the module
+import-module activedirectory
+#you can now run
+get-addomaincontroller -discover -domainname "contoso.com"
 
 
 #===============================
