@@ -1,7 +1,8 @@
 
-#====================================
+#==========================================================
 #Check if RSAT modules are installed
-#====================================
+#Active Direcory Powershell module is part of rsat modules.
+#==========================================================
 #check
 get-module -listavailable activedirectory
 #install on windows server
