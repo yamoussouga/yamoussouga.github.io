@@ -39,14 +39,14 @@ IMEI #359187100576786
 	Tel 707 827 7019
 	tel 1-800-889-8969
 
-#Check "my AF one drive" for resource regarding the homebuying seminar
- (The file is on workplace ondrive) 
+- Check "my AF one drive" for resource regarding the homebuying seminar
+  (The file is on workplace ondrive) 
 
-#Track my taxes
+- Track my taxes
 	
-#Childcare Aware to help with daycare 
-#Childcare for Norah
-#Dependant ID for Norah
+- Childcare Aware to help with daycare 
+- Childcare for Norah
+- Dependant ID for Norah
 
 	
 #Hampton VA apart
@@ -58,11 +58,6 @@ Dominium energy after 12months ($266)
 report to the MPF (Customer Support) 
 with your naturalization certificate 
 for MilPDS update.
-
-#Need to update items sent via Fo Dosseh (1st round) --done
-#mes pagnes chez Kuessan
-#mes pagnes chez Cendra
-#mes affairs chez Perla
 
 #check email for RAP reciept for finance
 #for AF - update afvec profile --done
@@ -491,10 +486,10 @@ Antoinette May8
 
 
 :)kwd[TOGO TRIP]
+#Need to update items sent via Fo Dosseh (1st round) --done
 #mes pagnes chez Kuessan
 #mes pagnes chez Cendra
 #mes affairs chez Perla
-#Need to update items sent via Fo Dosseh (1st round) --done
 
 **top priority
 #https://www.passporthealthusa.com/destination-advice/togo/
@@ -512,7 +507,7 @@ Antoinette May8
 #tooth brush
 #soap
 #parfum
-
+#mop(serpiere)
 
 **list of items
 #paper toilet
@@ -528,6 +523,7 @@ Antoinette May8
 #avocado oil
 	
 **places to visit Togo
+
 #Marcelo beach (somehow the food is not good)
 #Hotel Ramatou Rivera at the Beach
 #Boba club
@@ -544,7 +540,11 @@ Antoinette May8
 #La Villa
 #Le Rooftop
 #Eldoria Hotel
-    
+#Lac Togo
+#Baguida (Gbodjome & pheonix)
+#Kaplime
+#Agbedrafo
+#Gokart    
 #Eden Beach
 #Blue turtle
 #Marcelo beach
@@ -552,26 +552,6 @@ Antoinette May8
 #Saraccawa
 #Harmonie Signature
 
-#Lac Togo
-#Baguida (Gbodjome & pheonix)
-#Kaplime
-#Agbedrafo
-
-#Gokart
-			
-**Items send via Dosseh(1round)
-#
-
-**top priority
-#sim card + data = 35000
-#electricity = 30000
-
-**hygiene
-#tooth paste
-#tooth brush
-#soap
-#parfum
-#mop(serpiere)
 
 **list of utility
 #paper toilet
@@ -618,36 +598,6 @@ Antoinette May8
 
 
 
-:)kwd[relation tables for logger]
-#Table relationships for the lo
-#logger_db
-tbl_accounts / cls_account 
-	int_account_id
-	str_account_name
-	str_login
-	str_pw
-	str_related_info (with #s)
-	str_account_status
-		
-tbl_categories / cls_category ( Banque, Payment, Non Payment )
-	int_category_id
-	str_category_name
-	str_category_desc
-	
-tbl_labels / cls_label
-	int_label_id
-	str_label_name ( #keeping_finance_book = 1, #no_book_keeping = 0)
-	
-tbl_users / cls_user
-	int_user_id
-	str_password	
-	
-#Account priority
-	P3 (AF)	
-	P2 (Bank account, Financial tool)
-	P1 (Store account)
-	P0 (Share account)
-(:
 
 
 
