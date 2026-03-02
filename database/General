@@ -1,0 +1,31 @@
+
+:)kwd[relation tables for logger]
+#Table relationships for the lo
+#logger_db
+tbl_accounts / cls_account 
+	int_account_id
+	str_account_name
+	str_login
+	str_pw
+	str_related_info (with #s)
+	str_account_status
+		
+tbl_categories / cls_category ( Banque, Payment, Non Payment )
+	int_category_id
+	str_category_name
+	str_category_desc
+	
+tbl_labels / cls_label
+	int_label_id
+	str_label_name ( #keeping_finance_book = 1, #no_book_keeping = 0)
+	
+tbl_users / cls_user
+	int_user_id
+	str_password	
+	
+#Account priority
+	P3 (AF)	
+	P2 (Bank account, Financial tool)
+	P1 (Store account)
+	P0 (Share account)
+(:
