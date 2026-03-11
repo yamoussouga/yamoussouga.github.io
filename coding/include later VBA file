@@ -1,0 +1,321 @@
+Sub CombineCsvFiles()
+'updated by MelCompton
+    Dim xFilesToOpen As Variant
+    Dim I As Integer
+    Dim xWb As Workbook
+    Dim xTempWb As Workbook
+    Dim xDelimiter As String
+    Dim xScreen As Boolean
+    On Error GoTo ErrHandler
+    xScreen = Application.ScreenUpdating
+    Application.ScreenUpdating = False
+    xDelimiter = "|"
+    xFilesToOpen = Application.GetOpenFilename("Text Files (*.csv), *.csv", , "MelCompton VBA for Excel", , True)
+    If TypeName(xFilesToOpen) = "Boolean" Then
+        MsgBox "No files were selected", , "MelCompton VBA for Excel"
+        GoTo ExitHandler
+    End If
+    I = 1
+    Set xTempWb = Workbooks.Open(xFilesToOpen(I))
+    xTempWb.Sheets(1).Copy
+    Set xWb = Application.ActiveWorkbook
+    xTempWb.Close False
+
+    Do While I < UBound(xFilesToOpen)
+        I = I + 1
+        Set xTempWb = Workbooks.Open(xFilesToOpen(I))
+        xTempWb.Sheets(1).Move , xWb.Sheets(xWb.Sheets.Count)
+    Loop
+
+ExitHandler:
+    Application.ScreenUpdating = xScreen
+    Set xWb = Nothing
+    Set xTempWb = Nothing
+    Exit Sub
+ErrHandler:
+    MsgBox Err.Description, , "MelCompton VBA for Excel"
+    Resume ExitHandler
+End Sub
+
+
+############################################################################################################
+
+
+This VBA code for combining CSV files in Excel is likely crashing due to a logical error in the loop that processes the selected files, and a potential issue with how it opens the CSV files. Here is a breakdown of the problems and how to fix them.
+
+principal Problem
+Issue	Description
+Loop Boundary Error	The loop Do While I < UBound(xFilesToOpen) stops one file short. The UBound function returns the highest index of the array, so if you have three files, their indices are 1, 2, and 3, and UBound is 3. The loop will process for I=2, but when I becomes 3, the condition 3 < 3 is false, and the loop terminates without processing the last file. This is the most likely cause of unexpected behavior, though not necessarily a crash.
+Incorrect File Opening Method	The code uses Workbooks.Open() to open the CSV files. While this can work, it relies on Excel's default settings to guess the delimiter. Since your code specifies a pipe delimiter with `xDelimiter = "
+Moving vs. Copying Sheets	The code uses .Move for the sheets from the second file onwards. This is more efficient than copying, but it's important to be aware that this will remove the sheet from the source workbook. In this script, the temporary workbook is closed immediately after, so it doesn't cause a problem, but it's a detail worth noting for future scripts.
+ 
+Revised and Improved Code
+Here is a corrected version of your VBA script. This version fixes the loop, uses the correct method to open the CSV files with a pipe delimiter, and adds a check to ensure at least two files are selected for the loop to run.
+
+
+
+Sub CombineCsvFiles_Revised()
+
+'updated by MelCompton, revised for stability
+'This version fixes a loop boundary error and uses OpenText for proper delimiter handling.
+
+    Dim xFilesToOpen As Variant
+    Dim I As Long 'Use Long for integer variables that can get large, it's good practice in VBA
+    Dim xWb As Workbook
+    Dim xTempWb As Workbook
+    Dim xDelimiter As String
+    Dim xScreen As Boolean
+
+    On Error GoTo ErrHandler
+
+    xScreen = Application.ScreenUpdating
+    Application.ScreenUpdating = False
+
+    'Set the delimiter
+    xDelimiter = "|"
+
+    'Prompt the user to select files
+    xFilesToOpen = Application.GetOpenFilename("Text Files (*.csv),*.csv", , "MelCompton VBA for Excel", , True)
+
+    'Check if the user cancelled the dialog
+    If Not IsArray(xFilesToOpen) Then
+        MsgBox "No files were selected.", vbInformation, "MelCompton VBA for Excel"
+        GoTo ExitHandler
+    End If
+
+    
+'--- Process the first file ---
+    I = LBound(xFilesToOpen) 'Use LBound for robustness
+    'Open the first file, specifying the delimiter
+    Set xTempWb = Workbooks.OpenText(Filename:=xFilesToOpen(I), DataType:=xlDelimited, Other:=True, OtherChar:=xDelimiter)
+    
+    'Copy the first sheet to a new workbook
+    xTempWb.Sheets(1).Copy
+    Set xWb = Application.ActiveWorkbook 'The new workbook is now the active one
+    xWb.Sheets(1).Name = xTempWb.Name 'Rename the sheet to the file name
+    xTempWb.Close SaveChanges:=False
+
+    '--- Loop through the rest of the files ---
+    'The loop should go from the second file to the last file
+    For I = LBound(xFilesToOpen) + 1 To UBound(xFilesToOpen)
+        Set xTempWb = Workbooks.OpenText(Filename:=xFilesToOpen(I), DataType:=xlDelimited, Other:=True, OtherChar:=xDelimiter)
+        
+        'Move the sheet from the temporary workbook to the combined workbook
+        xTempWb.Sheets(1).Move After:=xWb.Sheets(xWb.Sheets.Count)
+        xWb.Sheets(xWb.Sheets.Count).Name = xTempWb.Name 'Rename the moved sheet
+        
+        'The temp workbook will close automatically since its only sheet was moved
+    Next I
+
+ExitHandler:
+    Application.ScreenUpdating = xScreen
+    Set xWb = Nothing
+    Set xTempWb = Nothing
+    Exit Sub
+
+ErrHandler:
+    MsgBox "An error occurred: " & Err.Description, vbCritical, "MelCompton VBA for Excel"
+    Resume ExitHandler
+
+End Sub
+Summary of Changes
+Correct Loop: The Do While loop was replaced with a For I = LBound(xFilesToOpen) + 1 To UBound(xFilesToOpen) loop. This ensures that every file from the second to the very last one is processed.
+
+Robust File Opening: Switched to Workbooks.OpenText() and used the Other and OtherChar parameters to correctly handle the | delimiter.
+
+Sheet Naming: Added code to rename the sheets in the combined workbook to match the names of the original CSV files, which makes the final result more organized.
+
+Better Variable Typing: Changed Dim I As Integer to Dim I As Long which is a best practice in modern VBA to avoid potential overflow errors.
+
+Array Check: Changed TypeName(xFilesToOpen) = "Boolean" to Not IsArray(xFilesToOpen) which is a more robust way to check if the user canceled the file selection dialog.
+
+By implementing these changes, your script should run without crashing and will correctly combine all selected CSV files.
+
+
+############################################################################################################
+
+
+Sub sub_CombineCsvFilesInExcel_Revised_1()
+
+'updated by YelofonAmoussouga (with GenAI help), 
+'revised for stability. 
+'This version fixes a loop boundary error and
+'uses OpenText for proper delimiter handling.
+
+'Reference 123
+'This line reads the current state of Excel's 
+'ScreenUpdating property (which is almost always 
+'True during normal use) and stores this value 
+'in a variable named xScreen.	
+'This is a "state-saving" step. It's good practice 
+'to save the original setting before you change it. 
+'This ensures that no matter what the initial state 
+'was, you can restore it perfectly at the end, 
+'leaving Excel exactly as you found it.
+'This is the key command. It tells Excel to stop 
+'redrawing the screen after every action the macro 
+'performs. Performance: Every time your code opens 
+'a workbook, copies a sheet, or selects a cell, 
+'Excel tries to refresh the display to show the change. 
+'For a script that opens many files, this constant redrawing 
+'consumes a massive amount of system resources and dramatically 
+'slows down the macro's execution. By turning it off, 'the code 
+'can run in the background without the visual overhead. 
+'User Experience: Without this line, the user would 'see a rapid, 
+'jarring flashing and flickering on their screen as workbooks open 
+'and close. Disabling screen updating 'provides a smooth, clean 
+'execution where the user only sees the final result.
+'The Cleanup Crew
+'It's crucial to note that these lines work in tandem with this line at the end of the script:
+'ExitHandler:
+'Application.ScreenUpdating = xScreen 
+'This final line restores the ScreenUpdating property to the original 
+'value you saved in the xScreen variable. If you forget 'to turn it back on, 
+'Excel will remain "frozen" from the user's perspective, and the screen won't 
+'update even when they click 'on cells or switch sheets manually.
+'In short, the pattern is:
+'Save the current state.
+'Turn off screen updating for performance.
+'Run your main code.
+'Restore the original state.
+
+	Dim csv_nFilesToOpen As Variant
+	'Use Long for integer variables that can 
+	'get large, it's good practice in VBA
+    	Dim i As Long 
+    	Dim xcel_nWorkBook As Workbook
+    	Dim xcel_nTempWorkBook As Workbook
+    	Dim str_delimiter As String
+	'Excel's "ScreenUpdating" property
+    	Dim bool_statusOfScreen As Boolean
+
+	On Error GOTO ErrHandler
+	
+	'Reference 123
+	bool_statusOfScreen = System.Application.ScreenUpdating
+	System.Application.ScreenUpdating = False 
+	
+    	'Set the delimiter
+    	str_delimiter = "|"
+
+	'Prompt the user to select files
+    	csv_nFilesToOpen = Application.GetOpenFilename("Text Files (*.csv),*.csv", , "Message Title", , True)
+
+    	'Check if the user cancelled the dialog
+	'you can also use the following code to test 
+	'TypeName(xFilesToOpen) = "Boolean" in your original code
+    	If Not IsArray(csv_nFilesToOpen) Then
+        	MsgBox "No files were selected.", vbInformation, "Message Title"
+        	GoTo ExitHandler
+    	End If
+
+	'--- Process the first file ---
+       	i = LBound(xFilesToOpen) 'Use LBound for robustness
+    	'Open the first file, specifying the delimiter
+    Set xTempWb = Workbooks.OpenText(Filename:=xFilesToOpen(I), DataType:=xlDelimited, Other:=True, OtherChar:=xDelimiter)
+    
+    'Copy the first sheet to a new workbook
+    xTempWb.Sheets(1).Copy
+    Set xWb = Application.ActiveWorkbook 'The new workbook is now the active one
+    xWb.Sheets(1).Name = xTempWb.Name 'Rename the sheet to the file name
+    xTempWb.Close SaveChanges:=False
+
+    '--- Loop through the rest of the files ---
+    'The loop should go from the second file to the last file
+    For I = LBound(xFilesToOpen) + 1 To UBound(xFilesToOpen)
+        Set xTempWb = Workbooks.OpenText(Filename:=xFilesToOpen(I), DataType:=xlDelimited, Other:=True, OtherChar:=xDelimiter)
+        
+        'Move the sheet from the temporary workbook to the combined workbook
+        xTempWb.Sheets(1).Move After:=xWb.Sheets(xWb.Sheets.Count)
+        xWb.Sheets(xWb.Sheets.Count).Name = xTempWb.Name 'Rename the moved sheet
+        
+        'The temp workbook will close automatically since its only sheet was moved
+    Next I
+
+ExitHandler:
+    Application.ScreenUpdating = xScreen
+    Set xWb = Nothing
+    Set xTempWb = Nothing
+    Exit Sub
+
+ErrHandler:
+    MsgBox "An error occurred: " & Err.Description, vbCritical, "MelCompton VBA for Excel"
+    Resume ExitHandler
+
+End Sub
+
+
+
+
+
+
+
+
+############################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+This line is responsible for opening a standard "Open File" dialog box in Excel, allowing the user to select one or more CSV files from their computer. The files chosen by the user are then stored in the csv_nFilesToOpen variable.
+
+Here's a breakdown of each part of this function call:
+
+Application.GetOpenFilename
+Component	Explanation
+Application	This refers to the Excel application itself. It's how you access Excel's built-in methods and properties.
+.GetOpenFilename	This is a built-in Excel method that displays the standard "Open" dialog box. It's designed specifically for allowing users to select files.
+ 
+Arguments Explained
+The GetOpenFilename method takes several optional arguments. Let's look at the ones you've used:
+
+Argument	Your Value	Explanation
+FileFilter	"Text Files (*.csv),*.csv"	This is the most important argument here. It specifies the types of files that the user can select in the dialog box.The format is Description,Filter. In your case: - "Text Files (*.csv)": This is the user-friendly description that appears in the "Files of type" dropdown list in the dialog. - *.csv: This is the actual file filter. It tells the dialog to display only files ending with the .csv extension.
+Title	"YelofonAmoussouga VBA for Excel"	This string sets the title text that appears at the top of the "Open File" dialog box. It helps to brand the dialog and inform the user what the dialog is for.
+MultiSelect	True	This argument is a Boolean value. - True (as you have it) allows the user to select multiple files simultaneously by holding down Ctrl or Shift while clicking. - If it were False (or omitted, as False is the default), the user would only be able to select one file.
+Other (Omitted)	(None explicitly)	There are other optional arguments like FilterIndex (to set the default filter in the dropdown) and ButtonText (for Mac compatibility), but they are not used in your example. When an optional argument is omitted, you simply leave it blank, but still include the commas as placeholders if there are subsequent arguments.
+ 
+Return Value
+When the user clicks "Open" in the dialog box after selecting files:
+
+If MultiSelect is True (as it is here), GetOpenFilename returns a Variant array containing the full paths of all selected files. This array is then assigned to your csv_nFilesToOpen variable.
+
+If the user clicks "Cancel" without selecting any files, GetOpenFilename returns False.
+
+This is why you have a check later in your code (or a similar one) to see if the user cancelled:
+
+vb
+If Not IsArray(xFilesToOpen) Then 'Or TypeName(xFilesToOpen) = "Boolean" in your original code
+    MsgBox "No files were selected", , "MelCompton VBA for Excel"
+    GoTo ExitHandler
+End If
+In summary, that line is a powerful way to let your users interactively pick the files your VBA script needs to process.
+
+
+
+
