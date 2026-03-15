@@ -1,7 +1,6 @@
 # yamoussouga.github.io
-#page1 = index
-#page2 = Happy Birthday interactive webpage for Norah.
-#page3 = html-based log on html/css/javascript
+#With the index.html we can display a variety of contents in web pages. 
+
 
 <!--ToDo
       1.prepare the index page. This is the page that will link every other pages of the web repository.
