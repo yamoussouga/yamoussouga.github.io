@@ -1,0 +1,17 @@
+#gender (Male, Female)
+#fitness type (cardiorespiratory, muscular, WaistHeightRatio)
+#fitness muscular sub-type (1min Push-ups, 2min Hand Release 
+	Push-ups, 1min Sit-ups, 2min Cross Leg Reverse Crunch, 
+	Forearm Plank Time)
+#fitness cardiorespiratory sub-type (2 miles run, 20 meterHAMR 
+	Shuttles)
+#fitness WaistHeightRatio sub-type (Waist / Height in inches )
+#age range (<25, 25..29, 30..34, 35..39, 40..44, , 45..49, 50..54,
+	55..59, >=60)
+#health risk category (low, moderate, high risk) for curent and 
+	futur cardiovascular disease, diabetes, certain cancers, and 
+	other health problems.
+#passing requirements (achieve a composite point total >= 75 points
+	AND meet minimum point values for all components)
+#composite score categories (Excellent = >= 90.0 pts, 
+	Satisfactory = 75.0..89.9, Unsatisfactory <75.0)
